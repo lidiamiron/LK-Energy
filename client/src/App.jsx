@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Productos from './pages/Productos';
 import Descargar from './pages/Descargar';
 import Contacto from './pages/Contacto';
+import ProductGallerySection from './pages/ProductGallerySection';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/productos" element={<Productos />} />
           <Route path="/descargar" element={<Descargar />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path='/ProductGallery' element={<ProductGallerySection/>} />
         </Routes>
       </MainLayout>
     </Router>
