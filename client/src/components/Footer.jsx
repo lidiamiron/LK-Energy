@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import logo from "../assets/logo-white.svg"
 import { FaFacebookSquare, FaInstagram , FaLinkedin } from "react-icons/fa";
+import "../components/Footer.css"
 
 
 const Footer = () => {

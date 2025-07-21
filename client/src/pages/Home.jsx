@@ -6,6 +6,7 @@ import workerImage from "../assets/generadores.JPG";
 import Acordeon from "../components/Acordeon";
 import Config from "../assets/configuracion.jpg";
 import Contact from "../pages/Contacto";
+import "../pages/Home.css"
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);

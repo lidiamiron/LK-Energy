@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../components/Acordeon.css"
 
 
 const data = [
@@ -20,7 +21,7 @@ const data = [
 ];
 
 export default function Acordeon() {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const toggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);

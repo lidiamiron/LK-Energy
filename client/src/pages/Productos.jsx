@@ -6,6 +6,7 @@ import generador5 from '../assets/generador5.png';
 import generador6 from '../assets/generador6.png';
 import generador7 from '../assets/generador7.png';
 import generador8 from '../assets/generador8.png';
+import "../pages/Productos.css"
 
 const products = [
   {

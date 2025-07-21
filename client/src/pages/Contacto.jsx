@@ -1,5 +1,6 @@
 import React from "react";
 import { FaFacebookSquare, FaInstagram , FaLinkedin } from "react-icons/fa";
+import "../pages/Contacto.css"
 
 export default function Contact() {
   return (
