@@ -87,8 +87,8 @@ button:hover {
 
 .contact-info p {
   margin-bottom: 1rem;
-  color: #383838;
-;
+  color: #383838!important;
+
   line-height: 1.6;
 }
 

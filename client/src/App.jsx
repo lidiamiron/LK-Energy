@@ -7,7 +7,7 @@ import {
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
 import Productos from './pages/Productos';
-import Descargar from './pages/Descargar';
+import Descargas from './pages/Descargas';
 import Contacto from './pages/Contacto';
 import ProductGallerySection from './pages/ProductGallerySection';
 
@@ -18,9 +18,9 @@ function App() {
         <Routes>
           <Route path="/Home" element={<Home />} />
           <Route path="/productos" element={<Productos />} />
-          <Route path="/descargar" element={<Descargar />} />
+          <Route path="/productos/generador" element={<ProductGallerySection />} />
+          <Route path="/descargas" element={<Descargas />} />
           <Route path="/contacto" element={<Contacto />} />
-          <Route path='/ProductGallery' element={<ProductGallerySection/>} />
         </Routes>
       </MainLayout>
     </Router>

@@ -7,6 +7,8 @@ import Acordeon from "../components/Acordeon";
 import Config from "../assets/configuracion.jpg";
 import Contact from "../pages/Contacto";
 import "../pages/Home.css"
+import FeaturedProducts from '../components/FeaturedProducts';
+import WhyChooseLK from '../components/WhyChooseLK';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -89,6 +91,7 @@ export default function Home() {
               <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>
                 Energía Confiable para tu Empresa
               </h2>
+              <button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>Solicita tu presupuesto</button>
             </div>
             <div className="generador-image">
               <img className="generator" src={generador} alt="foto-generador" />
@@ -127,14 +130,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ACCORDION SECTION */}
-      <section className="acordeon-section">
-        <div className="img-acordeon">
-          <img className="img-a" src={Config} alt="Power generator" />
-        </div>
-        <div className="accordion-box"><Acordeon /></div> 
-      </section>
-
       {/* CARDS SECTION */}
       <div className="cards-container">
         {cards.map((card, index) => (
@@ -145,6 +140,23 @@ export default function Home() {
           </div>
         ))}
       </div>
+      
+      {/* ACCORDION SECTION */}
+      <section className="acordeon-section">
+        <div className="img-acordeon">
+          <img className="img-a" src={Config} alt="Power generator" />
+        </div>
+        <div className="accordion-box"><Acordeon /></div> 
+      </section>
+
+
+   
+      
+            <section className='featureProducts'> 
+              <FeaturedProducts />
+            </section>
+
+
 
       {/* CONTACT SECTION */}
       <section className="contact">

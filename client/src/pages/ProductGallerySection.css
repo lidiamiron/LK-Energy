@@ -7,7 +7,6 @@
   max-width: 1400px;
   align-items: flex-start;
   margin: 0 auto;
-
 }
 
 .gallery-left {
@@ -150,16 +149,28 @@
   font-weight: bold;
   color: #cf7806;
   margin-bottom: 1rem;
+  
 }
 
 .doc-item {
   display: flex;
-  align-items: center;
+  
+  
   gap: 10px;
   margin-bottom: 0.7rem;
+  
 }
 
 .pdf-icon {
   width: 24px;
   height: 24px;
+}
+
+.descargas{
+text-decoration: none;
+color: #333;
+}
+
+.pdf-icon{
+  color: red;
 }

@@ -124,8 +124,11 @@
   text-align: right;
 }  
 
-.contact-info p{
+.contact-dirrection p{
 
-color: #ccc !important;;
+color: #ccc !important;
+margin-bottom: 1rem;
+line-height: 1.6;
+
 }
 

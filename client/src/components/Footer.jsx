@@ -22,7 +22,7 @@ const Footer = () => {
           <ul className="footer-links">
             <a href="/Home"><li>Empresa</li></a>
             <a href="/Productos"><li>Productos</li></a>
-            <a href="/Descargar"><li>Descargar</li></a>
+            <a href="/Descargas"><li>Descargas</li></a>
             <a href="/Contacto"><li>Contacto</li></a>
           </ul>
         </div>
@@ -32,7 +32,7 @@ const Footer = () => {
           <ul className="footer-links ">
              <a href="https://www.facebook.com/profile.php?id=61577861317109"><li><FaFacebookSquare className="redes" />Facebook</li></a>
              <a href="https://www.instagram.com/lkenergyofficial/"><li><FaInstagram className="redes" />Instagram</li></a>
-             <a href="https://www.linkedin.com/company/lk-energy/?viewAsMember=true"><li><FaLinkedin className="redes"/>YouTube</li></a>
+             <a href="https://www.linkedin.com/company/lk-energy/?viewAsMember=true"><li><FaLinkedin className="redes"/>Linkedin</li></a>
             
           </ul>
         </div>
@@ -40,7 +40,7 @@ const Footer = () => {
 
         <div className="footer-column contact-column">
           <h3 className="footer-title">Contacto</h3>
-          <div className="contact-info">
+          <div className="contact-dirrection">
             <p><FontAwesomeIcon icon={faMapMarkerAlt} /> Dirección: C/ Tramuntana, 2 - Pi Can Mascaró, La Palma de Cervelló, 08756, Barcelona</p>
             <p><FontAwesomeIcon icon={faPhone} /> Teléfono: +34 xxx xxx xxx </p>
             <p><FontAwesomeIcon icon={faEnvelope} /> Email: info@lkpower.es</p>

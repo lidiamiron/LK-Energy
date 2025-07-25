@@ -31,9 +31,9 @@ export default function Contact() {
         <h4>Follow Us</h4>
         
 <div className="social-links">
-  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookSquare /></a>
-  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+  <a href="https://www.facebook.com/profile.php?id=61577861317109" target="_blank" rel="noopener noreferrer"><FaFacebookSquare /></a>
+  <a href="https://www.instagram.com/lkenergyofficial" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+  <a href="https://www.linkedin.com/company/lk-energy/?viewAsMember=true" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
 </div>
       </div>
     </section>

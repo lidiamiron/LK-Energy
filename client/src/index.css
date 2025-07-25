@@ -197,6 +197,38 @@ a {
   transition-delay: 1.4s;
 }
 
+.presupuesto{
+ 
+  text-shadow: 0.5px 0.5px 1px rgba(168, 168, 168, 0.7);
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s ease-out;
+}
+.presupuesto.animate {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1.8s;
+}
+
+.presupuesto1{
+  margin-top: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: transparent;
+  border: solid white;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  text-transform:uppercase;
+}
+.presupuesto1:hover{
+   border: solid #e29025;
+   background-color: #e29025;
+   transition-delay: 0s;
+  
+ 
+}
+
 /* Imagen del generador */
 .generator {
   width: 700px;

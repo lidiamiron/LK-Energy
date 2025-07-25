@@ -3,6 +3,12 @@ import "../components/Acordeon.css"
 
 
 const data = [
+    {
+    title: "¿Por qué elegir LK?",
+    content:
+      " En LK ofrecemos soluciones energéticas confiables con más de 10 años de experiencia en el rubro. Atendemos a todo el país con generadores de alta calidad y soporte técnico especializado. 🔧 Más de 10 años de experiencia.🏢 Clientes en industria, comercio y hogar.  🚚 Cobertura nacional",
+           
+  },
   {
     title: "Equipo Comercial",
     content:

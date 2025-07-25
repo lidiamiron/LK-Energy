@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FaBars } from "react-icons/fa";
 import logo from "../assets/logo.svg";
+import "../components/Navbar.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/' || location.pathname === '/Home';
 
@@ -12,8 +14,14 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
+  const toggleDropdown = (dropdownName) => {
+    if (window.innerWidth <= 768) {
+      setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
+    }
+  };
+
   return (
-    <header className={isHomePage ? "fixed-header" : "sticky-header"}> {/* Cambiado a sticky-header */}
+    <header className={isHomePage ? "fixed-header" : "sticky-header"}>
       <div className="container">
         <nav>
           {/* Logo */}
@@ -30,14 +38,30 @@ export default function Navbar() {
                 Empresa
               </a>
             </li>
-            <li>
-              <a className={location.pathname === '/Productos' ? 'active' : ''} href="/Productos">
+            
+            <li 
+              className="dropdown-wrapper"
+              onClick={() => toggleDropdown('productos')}
+              onMouseEnter={() => window.innerWidth > 768 && setOpenDropdown('productos')}
+              onMouseLeave={() => window.innerWidth > 768 && setOpenDropdown(null)}
+            >
+              <a 
+                href="/productos" 
+                className={`${location.pathname.startsWith('/productos') ? 'active' : ''} ${openDropdown === 'productos' ? 'open' : ''}`}
+                onClick={(e) => window.innerWidth <= 768 && e.preventDefault()}
+              >
                 Productos
               </a>
+              <div className={`submenu-container ${openDropdown === 'productos' ? 'open' : ''}`}>
+                <ul className="submenu">
+                  <li><a href="/productos/generador">LK25147</a></li>
+                </ul>
+              </div>
             </li>
+
             <li>
-              <a className={location.pathname === '/Descargar' ? 'active' : ''} href="/Descargar">
-                Descargar
+              <a className={location.pathname === '/Descargas' ? 'active' : ''} href="/Descargas">
+                Descargas
               </a>
             </li>
             <li>
