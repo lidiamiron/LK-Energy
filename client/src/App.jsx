@@ -17,6 +17,11 @@ import LK44B from './pages/LK44B';
 import LK50B from './pages/LK50B';
 import LK72B from './pages/LK72B';
 import LK88B from './pages/LK88B';
+import LK110B from './pages/LK110B';
+import LK150B from './pages/LK150B';
+import LK165B from './pages/LK165B';
+import LK188B from './pages/LK188B';
+import LK250B from './pages/LK250B';
 
 function App() {
   return (
@@ -33,6 +38,11 @@ function App() {
           <Route path="/productos/LK50B" element={<LK50B />} />
           <Route path="/productos/LK72B" element={<LK72B />} />
           <Route path="/productos/LK88B" element={<LK88B />} />
+          <Route path="/productos/LK110B" element={<LK110B />} />
+          <Route path="/productos/LK150B" element={<LK150B />} />
+          <Route path="/productos/LK165B" element={<LK165B />} />
+          <Route path="/productos/LK188B" element={<LK188B />} />
+          <Route path="/productos/LK250B" element={<LK250B />} />
           <Route path="/descargas" element={<Descargas />} />
           <Route path="/contacto" element={<Contacto />} />
         </Routes>

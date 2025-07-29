@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import "./LK25B.css";
+import "./LK188B.css";
 import { FaFilePdf } from "react-icons/fa";
 
 import generatormain from "../assets/generator-main.png";
@@ -30,9 +30,10 @@ const ProductSpecs = () => {
             <tbody>
               <tr><td>Estructura:</td><td>Cerrada</td></tr>
               <tr><td>Nivel de ruido (a 7 m):</td><td>75 dB</td></tr>
-              <tr><td>Dimensiones:</td><td>1970 x 800 x 1075 mm</td></tr>
-              <tr><td>Peso neto:</td><td>710 kg</td></tr>
-              <tr><td>Motor de arranque</td><td>12V</td></tr>  
+              <tr><td>Dimensiones:</td><td>3270 x 1130 x 1650 mm</td></tr>
+              <tr><td>Peso neto:</td><td>2050 kg</td></tr>
+              <tr><td>Motor de arranque</td><td>24V</td></tr>
+              
             </tbody>
           </table>
         )}
@@ -44,34 +45,34 @@ const ProductSpecs = () => {
         </div>
         {openSection === "motor" && (
   <ul className="specs-list">
-    <li>Modelo: 4M06G25/5</li>
-    <li>Temperatura máxima del aceite: 115 °C</li>
-    <li>Aspiración: Natural</li>
-    <li>Presión del aceite (operación continua): 1–5 bar</li>
+    <li>Modelo: 6M11G188/5</li>
+    <li>Temperatura máxima del aceite: 105 °C</li>
+    <li>Aspiración: Turbocharged&Aftercooled</li>
+    <li>Presión del aceite (operación continua): 1.2–6 bar</li>
     <li>Sistema de combustible: Bomba mecánica</li>
     <li>Restricción de entrada de aire:</li>
     <li className="sub-item">Filtro sucio: ≤60 mbar</li>
     <li className="sub-item">Filtro limpio: ≤35 mbar</li>
-    <li>Número de cilindros: 4</li>
-    <li>Cilindrada: 2.3 L</li>
-    <li>Diámetro x Carrera: 89 × 92 mm</li>
-    <li>Relación de compresión: 17.5:1</li>
-    <li>Flujo de aire de admisión: 1.44 m³/min</li>
-    <li>Flujo de gases de escape: 4.88 m³/min</li>
-    <li>Temperatura de gases de escape: Por determinar (TBD)</li>
+    <li>Número de cilindros: 6</li>
+    <li>Cilindrada: 6.75 L</li>
+    <li>Diámetro x Carrera: 105 × 130 mm</li>
+    <li>Relación de compresión: 18:1</li>
+    <li>Flujo de aire de admisión: 9.39 m³/min</li>
+    <li>Flujo de gases de escape: 9.82 m³/min</li>
+    <li>Temperatura de gases de escape: 600℃</li>
     <li>Velocidad nominal: 1500 rpm</li>
     <li>Presión de contraflujo máxima (escape): 80 mbar</li>
-    <li>Potencia bruta del motor: 23 kW</li>
-    <li>Capacidad del refrigerante: 3.2 L</li>
+    <li>Potencia bruta del motor: 152 kW</li>
+    <li>Capacidad del refrigerante: TBD</li>
     <li>Tipo de regulador (gobernador): Electrónico</li>
-    <li>Rango de operación del termostato: 72–82 °C</li>
-    <li>Motor de arranque: 12 V</li>
+    <li>Rango de operación del termostato: 76–90 °C</li>
+    <li>Motor de arranque: 24 V</li>
     <li>Temperatura máxima del tanque superior: 105 °C</li>
     <li>Consumo de combustible (a 1500 rpm):</li>
-    <li className="sub-item">100% de carga (potencia principal): 6.1 L/h</li>
-    <li className="sub-item">75% de carga: 4.5 L/h</li>
-    <li className="sub-item">50% de carga: 3.2 L/h</li>
-    <li>Capacidad máxima de aceite: 9.5 L</li>
+    <li className="sub-item">100% de carga (potencia principal): TBD</li>
+    <li className="sub-item">75% de carga: TBD</li>
+    <li className="sub-item">50% de carga: TBD</li>
+    <li>Capacidad máxima de aceite: TBD</li>
   </ul>
 )}
       </div>
@@ -120,7 +121,7 @@ const ProductSpecs = () => {
 };
 
 // Componente principal
-const LK25B = () => {
+const LK188B = () => {
   const images = [generatormain, generador1, generador2, generador3, generador4];
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
@@ -146,17 +147,16 @@ const LK25B = () => {
 
       {/* Parte derecha sticky */}
       <div className="gallery-right">
-        <h2 className="product-title">LK25B</h2>
+        <h2 className="product-title">LK188B</h2>
         <p className="product-subtitle">Trifásico</p>
         <ul className="product-info">
-          <li>⚡ Potencia PRP: 18kW / 23kVA</li>
-          <li>⚡ Potencia ESP: 20kW / 25kVA</li>
-          
+          <li>⚡ Potencia PRP: 135kW / 169kVA</li>
+          <li>⚡ Potencia ESP: 150kW / 188kVA</li>
           <li>🔌 Trifásico</li>
-          <li>⚖️ 710 Kg</li>
+          <li>⚖️ 2050 Kg</li>
           <li>✔️ Motor Baudoin</li>
           <li>✔️ Alternador LK Power</li>
-          <li>✔️ Capacidad de combustible: 9.5 L</li>
+          <li>✔️  Capacidad de combustible: TBD</li>
         </ul>
         <button className="product-button">Contactanos→</button>
       </div>
@@ -164,4 +164,4 @@ const LK25B = () => {
   );
 };
 
-export default LK25B;
+export default LK188B;

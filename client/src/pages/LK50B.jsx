@@ -30,37 +30,14 @@ const ProductSpecs = () => {
             <tbody>
               <tr><td>Estructura:</td><td>Cerrada</td></tr>
               <tr><td>Nivel de ruido (a 7 m):</td><td>75 dB</td></tr>
-              <tr><td>Clase de aislamiento:</td><td>H/H</td></tr>
+          
               <tr><td>Dimensiones:</td><td>2270 x 960 x 1200 mm</td></tr>
               <tr><td>Peso neto:</td><td>941 kg</td></tr>
               <tr><td>Motor de arranque</td><td>12V</td></tr>
-              <tr><td>Sistema de escape: </td><td>Tubo de escape flexible tipo “ripple”, brida, silenciador</td></tr>
+           
             </tbody>
           </table>
         )}
-      </div>
-
-      <div className="specs-block">
-        <div className="specs-header" onClick={() => toggleSection("alternador")}>
-          <h3>Alternador</h3>
-          <span>{openSection === "alternador" ? "↑" : "↓"}</span>
-        </div>
-        {openSection === "alternador" && (
-  <ul className="specs-list">
-   
-    <li>Tipo de cableado: Trifásico, 4 polos, tipo Y</li>
-    <li>Tipo de excitador: Sin escobillas, autoexcitado</li>
-    <li>Rodamiento: 1</li>
-    <li>Regulación de voltaje: ±(0.25 % ~ 1 %)</li>
-    <li>Factor de potencia: 0.8</li>
-    <li>Grado de protección: IP23</li>
-    <li>Frecuencia: 50 Hz</li>
-    <li>Clase de aislamiento: H</li>
-    <li>Velocidad máxima (overspeed): 2250 rpm</li>
-    <li>Altitud: ≤1000 m</li>
-    
-  </ul>
-)}
       </div>
 
       <div className="specs-block">
@@ -101,6 +78,29 @@ const ProductSpecs = () => {
   </ul>
 )}
       </div>
+      <div className="specs-block">
+        <div className="specs-header" onClick={() => toggleSection("alternador")}>
+          <h3>Alternador</h3>
+          <span>{openSection === "alternador" ? "↑" : "↓"}</span>
+        </div>
+        {openSection === "alternador" && (
+  <ul className="specs-list">
+   
+    <li>Tipo de cableado: Trifásico, 4 polos, tipo Y</li>
+    <li>Tipo de excitador: Sin escobillas, autoexcitado</li>
+    <li>Rodamiento: 1</li>
+    <li>Regulación de voltaje: ±(0.25 % ~ 1 %)</li>
+    <li>Factor de potencia: 0.8</li>
+    <li>Grado de protección: IP23</li>
+    <li>Frecuencia: 50 Hz</li>
+    <li>Clase de aislamiento: H</li>
+    <li>Velocidad máxima (overspeed): 2250 rpm</li>
+    <li>Altitud: ≤1000 m</li>
+    
+  </ul>
+)}
+      </div>
+
 
       <div className="docs-block">
         <h2 className="docs-title">Manuales y documentos</h2>
@@ -151,13 +151,13 @@ const LK50B = () => {
         <h2 className="product-title">LK50B</h2>
         <p className="product-subtitle">Trifásico</p>
         <ul className="product-info">
-          <li>⚡ 40kW / 50kVA</li>
+          <li>⚡ Potencia PRP: 36kW / 45kVA</li>
+          <li>⚡ Potencia ESP: 40kW / 50kVA</li>
           <li>🔌 Trifásico</li>
           <li>⚖️ 941 Kg</li>
-          <li>✔️ Motor(Baudoin)</li>
-          <li>✔️ Arranque eléctrico fácil y rápido</li>
-          <li>✔️ Sistema de escape (tubo de escape flexible tipo “ripple”, brida, silenciador)</li>
-          <li>✔️ Capacidad de combustible: 9.5 L</li>
+          <li>✔️ Motor Baudoin</li>
+          <li>✔️ Alternador Lk Power</li>
+         <li>✔️ Capacidad de combustible: 9.5 L</li>
         </ul>
         <button className="product-button">Contactanos→</button>
       </div>
