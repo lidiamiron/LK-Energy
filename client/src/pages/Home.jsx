@@ -8,7 +8,7 @@ import Config from "../assets/configuracion.jpg";
 import Contact from "../pages/Contacto";
 import "../pages/Home.css"
 import FeaturedProducts from '../components/FeaturedProducts';
-import WhyChooseLK from '../components/WhyChooseLK';
+
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -57,7 +57,7 @@ export default function Home() {
     },
     {
       icon: <FaHammer className="cardIcon" />,
-      title: "Reparaciones y Revisiones",
+      title: "Servicio Técnico",
       text: "Ofrecemos repuestos y recambios originales para todos los productos de la marca LKEnergy, con servicio de reparación y mantenimiento realizado por nuestros mecánicos oficiales certificados.",
     },
     {
@@ -77,19 +77,17 @@ export default function Home() {
             <div className="title-content">
               <h1 className="title">
                 <span className={`title-line title-line-1 ${textAnimationStarted ? 'animate' : ''}`}>
-                  GENERADORES
+                  GRUPOS
                 </span>
                 <br/>
                 <span className={`title-line title-line-2 ${textAnimationStarted ? 'animate' : ''}`}>
-                  ELECTRICOS
+                  ELECTROGENOS
                 </span>
                 <br/>
-                <span className={`title-line title-line-3 ${textAnimationStarted ? 'animate' : ''}`}>
-                  INDUSTRIALES
-                </span>
+                
               </h1>
               <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>
-                Energía Confiable para tu Empresa
+                Energía Confiable Para Grandes Proyectos
               </h2>
               <button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>Solicita tu presupuesto</button>
             </div>

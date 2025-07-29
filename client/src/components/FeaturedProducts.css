@@ -27,6 +27,7 @@
   padding: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  padding: 1rem 1rem 2rem;
 }
 
 .product-card:hover {
@@ -50,7 +51,8 @@
   color: #555;
 }
 
-.product-card button {
+#ver-mas-btn {
+   display: inline-block; 
   background-color:#e29026;
   color: white;
   border: none;
@@ -58,8 +60,11 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s;
+  margin-bottom: 1rem;
 }
 
-.product-card button:hover {
+
+
+#ver-mas-btn:hover {
   background-color: #f3ab4d;
 }

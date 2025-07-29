@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./FeaturedProducts.css";
 import generatormain from "../assets/generator-main.png";
 import generador1 from "../assets/generator-main.png";
@@ -10,37 +11,37 @@ import generador5 from "../assets/generator-main.png";
 const products = [
   {
     id: 1,
-    name: "Generador LK25B",
+    name: "LK25B",
     kva:  25,
     image: generatormain,
   },
   {
     id: 2,
-    name: "Generador LK44B",
+    name: "LK44B",
     kva: 44,
     image: generador1,
   },
   {
     id: 3,
-    name: "Generador LK72B",
+    name: "LK72B",
     kva: 72,
     image: generador2,
   },
   {
     id: 4,
-    name: "Generador LK110B",
+    name: "LK110B",
     kva: 110,
     image: generador3,
   },
   {
     id: 5,
-    name: "Generador LK165B",
+    name: "LK165B",
     kva: 165,
     image: generador4,
   },
   {
     id: 6,
-    name: "Generador LK250B",
+    name: "LK250B",
     kva: 250,
     image: generador5,
   },
@@ -56,7 +57,7 @@ const FeaturedProducts = () => {
             <img src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
             <p>{product.kva} KVA</p>
-            <button>Ver más</button>
+            <Link to={`/productos/${product.name}`} id="ver-mas-btn">Ver más</Link>
           </div>
         ))}
       </div>
