@@ -103,7 +103,7 @@ function ProductGrid() {
               ⚡ {product.power} - <span>{product.type}</span>
             </div>
             <h3 className="product-name">{product.name}</h3>
-            <p className="product-subtitle">GENERADORES INDUSTRIALES</p>
+            <p className="product-subtitle">GRUPOS<br/> ENERGETICOS</p>
           </div>
         ))}
       </div>
