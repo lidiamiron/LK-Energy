@@ -55,3 +55,18 @@
 .descarga a span{
   margin-left: 1rem;
 }
+
+@media (max-width: 992px) {
+   .hide-mobile {
+    display: none;
+  }
+
+  .table-container{
+    margin: 0 20px;
+  }
+   .custom-table th,
+  .custom-table td {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}

@@ -58,7 +58,7 @@ a {
 
 
 .container {
-  max-width: 1440px;
+  max-width: 1720px;
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
@@ -136,12 +136,13 @@ a {
   justify-content: center;
   width: 100%;
   padding: 0 2rem;
+  padding-right: 140px;
 }
 
 .title-content {
   z-index: 1;
   color: white;
-  padding-right: 400px;
+  padding-right: 290px;
 }
 
 /* Estilos del título con animaciones */
@@ -238,7 +239,46 @@ a {
 
 
 /* Ajustes responsivos */
+
+
+@media (max-width: 1024px) {
+  .title-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .title-content {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 4rem;
+    text-align: center;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 2.2rem;
+  }
+  
+  .generator {
+    width: 100%;
+    max-width: 500px;
+    padding-top: 40px;
+ 
+ }
+}
+
 @media (max-width: 992px) {
+
+
+
+
+
+ 
+
   .contact-column {
     min-width: 100%;
     margin-top: 30px;
@@ -249,34 +289,6 @@ a {
     margin: 15px auto 0;
   }
 }
-
-@media (max-width: 768px) {
-  .footer-column {
-    min-width: 50%;
-  }
-  
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-  
-  .copyright {
-    text-align: center;
-  }
-}
-
-
-@media (max-width: 1024px) {
-  .title-content {
-    padding-right: 120px;
-  }
-  
-  .generator {
-    width: 500px;
-  }
-}
-
 @media (max-width: 768px) {
   .container .nav-link {
     display: none;
@@ -293,6 +305,23 @@ a {
     padding: 1rem;
   }
   
+
+  .about-section{
+    flex-direction: column;
+  }
+
+  .about-right {
+  z-index: 2;
+  background-color: white;
+  
+  }
+
+  img{
+    width: 170px;
+    height: auto;
+
+  }
+  
   .icon {
     display: block;
   }
@@ -300,6 +329,7 @@ a {
   .title-container {
     flex-direction: column;
     text-align: center;
+    padding: 40px;
   }
   
   .title-content {
@@ -308,18 +338,50 @@ a {
   }
   
   .title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     text-align: center;
+    color: #383838;
   }
   
   .subtitle {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    color: #383838;
+  }
+
+  .presupuesto1{
+    color: #383838;
+    border: solid #383838;
+
   }
   
   .generator {
     width: 100%;
     max-width: 400px;
+ 
+ }
+
+  .footer-column {
+    min-width: 50%;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .copyright {
+    text-align: center;
+  }
+    .acordeon-section {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .accordion-box, .img-acordeon {
+    flex: unset;
+    width: 100%;
   }
 }
 
@@ -338,17 +400,5 @@ a {
   
   .about .title p {
     font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .acordeon-section {
-    flex-direction: column;
-    padding: 2rem;
-  }
-
-  .accordion-box, .img-acordeon {
-    flex: unset;
-    width: 100%;
   }
 }

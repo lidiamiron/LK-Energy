@@ -25,7 +25,7 @@ export default function Contact() {
 
       <div className="contact-info">
         <h3>Información de <span>Contacto</span></h3>
-        <p> Carrer del Ponent, 44, <br />08756 La Palma de Cervelló,<br /> Barcelona</p>
+        <p> Carrer Tramuntana, 2 - Pi Can Mascaró <br />08756 La Palma de Cervelló,<br /> Barcelona</p>
         <p><strong>Llámanos</strong> 936 84 66 35</p>
         <p>Estamos abiertos de Lunes a Viernes<br />09:00 - 18:30</p>
         <h4>Follow Us</h4>

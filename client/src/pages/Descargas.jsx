@@ -5,47 +5,110 @@ import { FaDownload } from "react-icons/fa";
 
 const data = [
   {
-    modelo: 'Generador X1',
-    kva: 100,
-    kilovatios: 80,
+    modelo: 'LK21B',
+    kva: 21,
+    kilovatios: 17,
     tipoMotor: 'Diésel',
-    dimension: '2.5m x 1.2m',
+    dimension: '1970 x 800 x 1075',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
   },
   {
-    modelo: 'Generador Y2',
+    modelo: 'LK25B',
+    kva: 25,
+    kilovatios: 20,
+    tipoMotor: 'Diésel',
+    dimension: '1970 x 800 x 1075',
+    descarga: 'Ficha Tecnica',
+    descarga2: 'Manual de usuario',
+  },
+  {
+    modelo: 'LK36B',
+    kva: 36,
+    kilovatios: 29,
+    tipoMotor: 'Diésel',
+    dimension: '2170 x 850 x 1075',
+    descarga: 'Ficha Tecnica',
+    descarga2: 'Manual de usuario',
+  },
+  {
+    modelo: 'LK44B',
+    kva: 44,
+    kilovatios: 35,
+    tipoMotor: 'Diésel',
+    dimension: '2170 x 850 x 1075',
+    descarga: 'Ficha Tecnica',
+    descarga2: 'Manual de usuario',
+  },
+  {
+    modelo: 'LK50B',
+    kva: 50,
+    kilovatios: 40,
+    tipoMotor: 'Diésel',
+    dimension: '2270 xx 960 x 1200',
+    descarga: 'Ficha Tecnica',
+    descarga2: 'Manual de usuario',
+  },
+    {
+    modelo: 'LK72B',
+    kva: 72,
+    kilovatios: 57,
+    tipoMotor: 'Diésel',
+    dimension: '2470 x 1010 x 1250',
+    descarga: 'Ficha Tecnica',
+    descarga2: 'Manual de usuario',
+  },
+    {
+    modelo: 'LK88B',
+    kva: 88,
+    kilovatios: 70,
+    tipoMotor: 'Diésel',
+    dimension: '2470 x 1010 x 1250',
+    descarga: 'Ficha Tecnica',
+    descarga2: 'Manual de usuario',
+  },
+    {
+    modelo: 'LK110B',
+    kva: 110,
+    kilovatios: 88,
+    tipoMotor: 'Diésel',
+    dimension: '2770 x 1080 x 1250',
+    descarga: 'Ficha Tecnica',
+    descarga2: 'Manual de usuario',
+  },
+    {
+    modelo: 'LK150B',
     kva: 150,
     kilovatios: 120,
-    tipoMotor: 'Gasolina',
-    dimension: '3m x 1.5m',
+    tipoMotor: 'Diésel',
+    dimension: '3070 x 1080 x 1450',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
   },
-  {
-    modelo: 'Generador Z3',
-    kva: 200,
-    kilovatios: 160,
-    tipoMotor: 'Eléctrico',
-    dimension: '3.5m x 1.8m',
+    {
+    modelo: 'LK165B',
+    kva: 165,
+    kilovatios: 132,
+    tipoMotor: 'Diésel',
+    dimension: '3270 x 1130 x 1650',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
   },
-  {
-    modelo: 'Generador Z3',
-    kva: 200,
-    kilovatios: 160,
-    tipoMotor: 'Eléctrico',
-    dimension: '3.5m x 1.8m',
+    {
+    modelo: 'LK188B',
+    kva: 188,
+    kilovatios: 150,
+    tipoMotor: 'Diésel',
+    dimension: '3270 x 1130 x 1650',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
   },
-  {
-    modelo: 'Generador Z3',
-    kva: 200,
-    kilovatios: 160,
-    tipoMotor: 'Eléctrico',
-    dimension: '3.5m x 1.8m',
+    {
+    modelo: 'LK250B',
+    kva: 250,
+    kilovatios: 200,
+    tipoMotor: 'Diésel',
+    dimension: '3920 x 1180 x 1900',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
   },
@@ -56,29 +119,33 @@ const Descargas = () => {
     <div className="table-container">
       <table className="custom-table">
         <thead>
-          <tr>
-            <th>MODELO</th>
-            <th>KVA</th>
-            <th>Kilovatios</th>
-            <th>Tipo de motor</th>
-            <th>Dimensión</th>
-            <th>Descarga</th>
-            <th>Descarga</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <tr key={index}>
-              <td>{item.modelo}</td>
-              <td>{item.kva}</td>
-              <td>{item.kilovatios}</td>
-              <td>{item.tipoMotor}</td>
-              <td>{item.dimension}</td>
-              <td className='descarga'><a href=""><FaDownload /><span className='space'>{item.descarga}</span></a></td>
-              <td className='descarga'><a href=""><FaDownload /><span className='space'>{item.descarga2}</span></a></td>
-            </tr>
-          ))}
-        </tbody>
+  <tr>
+    <th>MODELO</th>
+    <th className="hide-mobile">KVA</th>
+    <th className="hide-mobile">Kilovatios</th>
+    <th className="hide-mobile">Tipo de motor</th>
+    <th className="hide-mobile">Dimensión</th>
+    <th>Descarga</th>
+    <th>Descarga</th>
+  </tr>
+</thead>
+<tbody>
+  {data.map((item, index) => (
+    <tr key={index}>
+      <td>{item.modelo}</td>
+      <td className="hide-mobile">{item.kva}</td>
+      <td className="hide-mobile">{item.kilovatios}</td>
+      <td className="hide-mobile">{item.tipoMotor}</td>
+      <td className="hide-mobile">{item.dimension}</td>
+      <td className="descarga">
+        <a href=""><FaDownload /><span className='space'>{item.descarga}</span></a>
+      </td>
+      <td className="descarga">
+        <a href=""><FaDownload /><span className='space'>{item.descarga2}</span></a>
+      </td>
+    </tr>
+  ))}
+</tbody>
       </table>
     </div>
   );
