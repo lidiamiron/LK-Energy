@@ -1,4 +1,50 @@
+.filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-group label {
+  font-weight: bold;
+}
+
+.filter-group input,
+.filter-group select {
+  padding: 4px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.filter-group button {
+  padding: 6px 12px;
+  border: 1px solid #e29025;
+  background: white;
+  color: #e29025;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-group button.active,
+.search-button {
+  background-color: #e29025;
+  color: white;
+}
+
+.search-button {
+  font-weight: bold;
+}
+
 /*PRODUCTOS GRID*/
+
 
 .product-wrapper {
   display: flex;
