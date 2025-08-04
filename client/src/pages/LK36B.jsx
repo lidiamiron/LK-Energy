@@ -161,7 +161,7 @@ const LK36B = () => {
           <li>✔️ Alternador Lk Power</li>
           <li>✔️ Capacidad de combustible: 9.5 L</li>
         </ul>
-        <button className="product-button">Contactanos→</button>
+        <a href="http://localhost:5173/Contacto"><button className="product-button">Contactanos→</button></a>
       </div>
     </section>
   );

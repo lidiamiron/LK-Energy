@@ -26,7 +26,7 @@ export default function Navbar() {
         <nav>
           {/* Logo */}
           <div className="logo">
-            <a href="/Home">
+            <a href="/">
               <img src={logo} alt="Logo" />
             </a>
           </div>
@@ -34,7 +34,7 @@ export default function Navbar() {
           {/* Menú de navegación */}
           <ul className={isOpen ? "nav-link active" : "nav-link"}>
             <li>
-              <a className={location.pathname === '/Home' ? 'active' : ''} href="/Home">
+              <a className={location.pathname === '/' ? 'active' : ''} href="/">
                 Empresa
               </a>
             </li>

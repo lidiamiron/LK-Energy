@@ -89,7 +89,7 @@ export default function Home() {
               <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>
                 Energía Confiable Para Grandes Proyectos
               </h2>
-              <button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>Solicita tu presupuesto</button>
+              <a href="http://localhost:5173/Contacto"><button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>Solicita tu presupuesto</button></a>
             </div>
             <div className="generador-image">
               <img className="generator" src={generador} alt="foto-generador" />
@@ -113,7 +113,7 @@ export default function Home() {
           <h2 className="about-title">SOBRE NOSOTROS</h2>
           <h1 className="about-heading">LK ENERGY</h1>
           <h2 className="about-subtitle">Te ofrecemos la solución que necesitas.</h2>
-          <p className="contact-us"><a href="#">CONTACTANÓS</a></p>
+          <p className="contact-us"><a href="http://localhost:5173/Contacto">CONTACTANÓS</a></p>
         </div>
 
         <div className="about-right">

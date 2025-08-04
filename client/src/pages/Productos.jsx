@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // <-- AÑADIDO
+import { Link } from "react-router-dom"; 
 import "../pages/Productos.css";
 
 import generador1 from "../assets/generador1.png";

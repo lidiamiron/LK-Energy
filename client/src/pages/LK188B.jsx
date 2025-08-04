@@ -158,7 +158,7 @@ const LK188B = () => {
           <li>✔️ Alternador LK Power</li>
           <li>✔️  Capacidad de combustible: TBD</li>
         </ul>
-        <button className="product-button">Contactanos→</button>
+        <a href="http://localhost:5173/Contacto"><button className="product-button">Contactanos→</button></a>
       </div>
     </section>
   );

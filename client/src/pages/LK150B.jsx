@@ -158,8 +158,7 @@ const LK150B = () => {
           <li>✔️ Alternador LK Power</li>
           <li>✔️ Capacidad de combustible: 20 L</li>
         </ul>
-        <button className="product-button">Contactanos→</button>
-      </div>
+<a href="http://localhost:5173/Contacto"><button className="product-button">Contactanos→</button></a>      </div>
     </section>
   );
 };

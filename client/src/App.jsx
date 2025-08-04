@@ -28,7 +28,7 @@ function App() {
     <Router>
       <MainLayout>
         <Routes>
-          <Route path="/Home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="/productos/generador" element={<ProductGallerySection />} />
           <Route path="/productos/LK21B" element={<LK21B />} />
