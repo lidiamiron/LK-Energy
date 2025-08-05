@@ -12,6 +12,8 @@ const data = [
     dimension: '1970 x 800 x 1075',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK21B.pdf',
+    manual: 'LK21B-m.pdf',
   },
   {
     modelo: 'LK25B',
@@ -21,6 +23,8 @@ const data = [
     dimension: '1970 x 800 x 1075',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK25B.pdf',
+    manual: 'LK25B-m.pdf',
   },
   {
     modelo: 'LK36B',
@@ -30,6 +34,8 @@ const data = [
     dimension: '2170 x 850 x 1075',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK36B.pdf',
+    manual: 'LK36B-m.pdf',
   },
   {
     modelo: 'LK44B',
@@ -39,6 +45,8 @@ const data = [
     dimension: '2170 x 850 x 1075',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK44B.pdf',
+    manual: 'LK44B-m.pdf',
   },
   {
     modelo: 'LK50B',
@@ -48,6 +56,8 @@ const data = [
     dimension: '2270 xx 960 x 1200',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK50B.pdf',
+    manual: 'LK50B-m.pdf',
   },
     {
     modelo: 'LK72B',
@@ -57,6 +67,8 @@ const data = [
     dimension: '2470 x 1010 x 1250',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK72B.pdf',
+    manual: 'LK72B-m.pdf',
   },
     {
     modelo: 'LK88B',
@@ -66,6 +78,8 @@ const data = [
     dimension: '2470 x 1010 x 1250',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK88B.pdf',
+    manual: 'LK88B-m.pdf',
   },
     {
     modelo: 'LK110B',
@@ -75,6 +89,8 @@ const data = [
     dimension: '2770 x 1080 x 1250',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK110B.pdf',
+    manual: 'LK110B-m.pdf',
   },
     {
     modelo: 'LK150B',
@@ -84,6 +100,8 @@ const data = [
     dimension: '3070 x 1080 x 1450',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK150B.pdf',
+    manual: 'LK150B-m.pdf',
   },
     {
     modelo: 'LK165B',
@@ -93,6 +111,8 @@ const data = [
     dimension: '3270 x 1130 x 1650',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK165B.pdf',
+    manual: 'LK165B-m.pdf',
   },
     {
     modelo: 'LK188B',
@@ -102,6 +122,8 @@ const data = [
     dimension: '3270 x 1130 x 1650',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK188B.pdf',
+    manual: 'LK188B-m.pdf',
   },
     {
     modelo: 'LK250B',
@@ -111,6 +133,8 @@ const data = [
     dimension: '3920 x 1180 x 1900',
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
+    ficha: 'LK250B.pdf',
+    manual: 'LK250B-m.pdf',
   },
 ];
 
@@ -137,12 +161,16 @@ const Descargas = () => {
       <td className="hide-mobile">{item.kilovatios}</td>
       <td className="hide-mobile">{item.tipoMotor}</td>
       <td className="hide-mobile">{item.dimension}</td>
-      <td className="descarga">
-        <a href=""><FaDownload /><span className='space'>{item.descarga}</span></a>
-      </td>
-      <td className="descarga">
-        <a href=""><FaDownload /><span className='space'>{item.descarga2}</span></a>
-      </td>
+     <td className="descarga">
+  <a href={`/docs/${item.ficha}`} target="_blank" rel="noreferrer">
+    <FaDownload /><span className='space'>Ficha técnica</span>
+  </a>
+</td>
+<td className="descarga">
+  <a href={`/docs/${item.manual}`} target="_blank" rel="noreferrer">
+    <FaDownload /><span className='space'>Manual de usuario</span>
+  </a>
+</td>
     </tr>
   ))}
 </tbody>
