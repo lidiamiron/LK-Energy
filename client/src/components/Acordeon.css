@@ -4,7 +4,7 @@
   background-color: #383838;
   justify-content: center;
   gap: 4rem;
-  padding: 0 6rem;
+  padding:0 6rem;
   padding-left: 0;
   flex-wrap: wrap;
 }
@@ -12,20 +12,20 @@
 .img-acordeon {
   flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content:left;
    z-index: 2;
 }
 
 .img-acordeon img {
-  max-width: 100%;
-  height: auto;
-  
+  max-width: 80%;
+  height: auto; 
 }
 
 .accordion-box {
   flex: 1;
   display: flex;
   padding-top: 1.5rem ;
+  padding-bottom: 1.5rem;
 }
 
 .accordion {

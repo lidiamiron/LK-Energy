@@ -6,8 +6,9 @@ export default function Contact() {
   return (
     <section className="contact-section">
       <div className="contact-form">
-        <h2>¡Solo di  <span>Hola!</span></h2>
-        <p> ¡Queremos saber más sobre ti!</p>
+        <h2>¡HABLEMOS 
+  <span> DE ENERGÍA!</span></h2>
+        <p> ¿Estás buscando un generador eléctrico y no sabes cuál es el ideal para ti? En LK Generadores estamos para ayudarte. Déjanos tus datos y te contactaremos con asesoría personalizada o un presupuesto a medida.!</p>
 
         <form>
           <div className="input-row">

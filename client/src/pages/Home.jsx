@@ -4,7 +4,7 @@ import generador from "../assets/generador.png";
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
 import workerImage from "../assets/generadores.JPG";
 import Acordeon from "../components/Acordeon";
-import Config from "../assets/configuracion.jpg";
+import Config from "../assets/configuracion.png";
 import Contact from "../pages/Contacto";
 import "../pages/Home.css"
 import FeaturedProducts from '../components/FeaturedProducts';
@@ -146,15 +146,10 @@ export default function Home() {
         </div>
         <div className="accordion-box"><Acordeon /></div> 
       </section>
-
-
-   
       
             <section className='featureProducts'> 
               <FeaturedProducts />
             </section>
-
-
 
       {/* CONTACT SECTION */}
       <section className="contact">

@@ -186,3 +186,76 @@ color: #333;
 .pdf-icon{
   color: red;
 }
+@media (max-width: 768px) {
+  .gallery-section {
+    flex-direction: column;
+    padding: 0 1.5rem;
+ 
+    gap: 2rem;
+    overflow-x: hidden;
+    max-width: 100vw; 
+    box-sizing: border-box; 
+  }
+  
+  .gallery-left {
+    width: 100%;
+    margin: 80px auto;
+     order: 2;
+  }
+  
+  .gallery-right {
+    position: relative;
+  
+    order: 1;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .main-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 50vh; 
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .thumbnails {
+    gap: 8px;
+    padding-bottom: 10px; 
+    -webkit-overflow-scrolling: touch; 
+  }
+  
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0; 
+  }
+  
+ 
+  .specs-container {
+    padding: 1rem 0;
+  }
+  
+  .specs-table {
+    font-size: 0.9rem;
+  }
+  
+  .specs-table td {
+    padding: 0.4rem;
+    word-break: break-word;
+  }
+  
+  .specs-block {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+  }
+  
+  .product-title {
+    font-size: 1.8rem;
+  }
+  
+  .product-subtitle {
+    font-size: 1.1rem;
+  }
+  
+}

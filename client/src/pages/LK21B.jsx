@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import "./LK21B.css";
 import { FaFilePdf } from "react-icons/fa";
 
+
 import generatormain from "../assets/generator-main.png";
 import generador1 from "../assets/generator-1.png";
 import generador2 from "../assets/generator-2.png";
