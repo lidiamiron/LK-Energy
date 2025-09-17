@@ -13,7 +13,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK21B.pdf',
-    manual: 'LK21B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
   {
     modelo: 'LK25B',
@@ -24,7 +24,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK25B.pdf',
-    manual: 'LK25B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
   {
     modelo: 'LK36B',
@@ -35,7 +35,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK36B.pdf',
-    manual: 'LK36B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
   {
     modelo: 'LK44B',
@@ -46,7 +46,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK44B.pdf',
-    manual: 'LK44B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
   {
     modelo: 'LK50B',
@@ -57,7 +57,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK50B.pdf',
-    manual: 'LK50B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
     {
     modelo: 'LK72B',
@@ -68,7 +68,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK72B.pdf',
-    manual: 'LK72B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
     {
     modelo: 'LK88B',
@@ -79,7 +79,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK88B.pdf',
-    manual: 'LK88B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
     {
     modelo: 'LK110B',
@@ -90,7 +90,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK110B.pdf',
-    manual: 'LK110B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
     {
     modelo: 'LK150B',
@@ -101,7 +101,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK150B.pdf',
-    manual: 'LK150B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
     {
     modelo: 'LK165B',
@@ -112,7 +112,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK165B.pdf',
-    manual: 'LK165B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
     {
     modelo: 'LK188B',
@@ -123,7 +123,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK188B.pdf',
-    manual: 'LK188B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
     {
     modelo: 'LK250B',
@@ -134,7 +134,7 @@ const data = [
     descarga: 'Ficha Tecnica',
     descarga2: 'Manual de usuario',
     ficha: 'LK250B.pdf',
-    manual: 'LK250B-m.pdf',
+    manual: 'MANUAL USUARIO ESP LK.pdf',
   },
 ];
 

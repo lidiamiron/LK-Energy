@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import banner from "../assets/banner.svg";
-import generador from "../assets/generador.png"; 
+import generador from "../assets/IMG_6019.png"; 
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
 import workerImage from "../assets/generadores.JPG";
 import Acordeon from "../components/Acordeon";
