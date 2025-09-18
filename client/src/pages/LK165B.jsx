@@ -110,7 +110,7 @@ const ProductSpecs = () => {
           </a>
         </div>
         <div className="doc-item"><a href="" className="pdf-icon"><FaFilePdf /></a>
-          <a href="" target="_blank" rel="noreferrer" className="descargas">
+          <a href="/docs/MANUAL USUARIO ESP LK.pdf" target="_blank" rel="noreferrer" className="descargas">
           
             <p className="descargas">Manual de usuario</p>
           </a>
