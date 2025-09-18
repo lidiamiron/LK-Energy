@@ -53,12 +53,12 @@ export default function Home() {
     {
       icon: <FaTools className="cardIcon" />,
       title: "Recambios",
-      text: "Disponemos de los repuestos y recambios que necesitas para la reparación y el mantenimiento de generadores industriales, asegurando la máxima eficiencia y durabilidad de tus equipos.",
+      text: "Disponemos de recambios que necesitas para la reparación y el mantenimiento de generadores industriales, asegurando la máxima eficiencia y durabilidad de tus equipos.",
     },
     {
       icon: <FaHammer className="cardIcon" />,
       title: "Servicio Técnico",
-      text: "Ofrecemos repuestos y recambios originales para todos los productos de la marca LKEnergy, con servicio de reparación y mantenimiento realizado por nuestros mecánicos oficiales certificados.",
+      text: "Ofrecemos recambios originales para todos los productos de la marca LKEnergy, con servicio de reparación y mantenimiento realizado por nuestros mecánicos oficiales certificados.",
     },
     {
       icon: <FaShieldAlt className="cardIcon" />,
@@ -113,7 +113,7 @@ export default function Home() {
           <h2 className="about-title">SOBRE NOSOTROS</h2>
           <h1 className="about-heading">LK ENERGY</h1>
           <h2 className="about-subtitle">Te ofrecemos la solución que necesitas.</h2>
-          <p className="contact-us"><a href="http://localhost:5173/Contacto">CONTACTANÓS</a></p>
+          <p className="contact-us"><a href="http://localhost:5173/Contacto">CONTACTANOS</a></p>
         </div>
 
         <div className="about-right">

@@ -41,7 +41,7 @@ const Footer = () => {
         <div className="footer-column contact-column">
           <h3 className="footer-title">Contacto</h3>
           <div className="contact-dirrection">
-            <p><FontAwesomeIcon icon={faMapMarkerAlt} /> Dirección: C/ Tramuntana, 2 - Pi Can Mascaró, La Palma de Cervelló, 08756, Barcelona</p>
+            <p><FontAwesomeIcon icon={faMapMarkerAlt} /> Dirección: C/ Tramuntana, 2 - PI Can Mascaró, La Palma de Cervelló, 08756, Barcelona</p>
             <p><FontAwesomeIcon icon={faPhone} /> Teléfono: +34 936 84 66 35 </p>
             <p><FontAwesomeIcon icon={faEnvelope} /> Email: info@lkpower.es</p>
           </div>

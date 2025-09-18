@@ -8,7 +8,7 @@ export default function Contact() {
       <div className="contact-form">
         <h2>¡HABLEMOS 
   <span> DE ENERGÍA!</span></h2>
-        <p> ¿Estás buscando un generador eléctrico y no sabes cuál es el ideal para ti? En LK Generadores estamos para ayudarte. Déjanos tus datos y te contactaremos con asesoría personalizada o un presupuesto a medida.!</p>
+        <p> ¿Estás buscando un generador eléctrico y no sabes cuál es el ideal para ti? En LK Generadores estamos para ayudarte. Déjanos tus datos y te contactaremos con asesoría personalizada o un presupuesto a medida!</p>
 
         <form>
           <div className="input-row">
@@ -26,7 +26,7 @@ export default function Contact() {
 
       <div className="contact-info">
         <h3>Información de <span>Contacto</span></h3>
-        <p> Carrer Tramuntana, 2 - Pi Can Mascaró <br />08756 La Palma de Cervelló,<br /> Barcelona</p>
+        <p> Carrer Tramuntana, 2 - PI Can Mascaró <br />08756 La Palma de Cervelló,<br /> Barcelona</p>
         <p><strong>Llámanos</strong> 936 84 66 35</p>
         <p>Estamos abiertos de Lunes a Viernes<br />09:00 - 18:30</p>
         <h4>Follow Us</h4>

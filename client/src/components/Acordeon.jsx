@@ -6,13 +6,13 @@ const data = [
     {
     title: "¿Por qué elegir LK?",
     content:
-      " En LK ofrecemos soluciones energéticas confiables con más de 25 años de experiencia en el sector. Ofrecemos servicio técnico de calidad a todos nuestros distribuidores de todo el país.",
+      " En LK ofrecemos soluciones energéticas confiables con más de 25 años de experiencia en el sector. Ofrecemos servicio técnico de calidad a todos nuestros distribuidores.",
            
   },
   {
     title: "Eficiencia Energética",
     content:
-      "La industria moderna opera con altos niveles de eficiencia gracias a tecnologías avanzadas, procesos precisos y trabajadores altamente cualificados. Un factor clave en este rendimiento es el sistema de inventario Just in Time, donde cada componente llega a la línea de producción justo a tiempo para su ensamblaje. Para que este proceso funcione sin interrupciones, es esencial contar con un suministro de energía confiable que mantenga la producción activa incluso durante un apagón. En LK Energy proporcionamos la potencia que su operación necesita. Ofrecemos una amplia gama de soluciones energéticas de respaldo y emergencia, diseñadas para garantizar continuidad operativa en cualquier situación."
+      "La industria moderna opera con altos niveles de eficiencia gracias a tecnologías avanzadas, procesos precisos y trabajadores altamente cualificados. Un factor clave en este rendimiento es el sistema de inventario Just in Time, donde cada componente llega a la línea de producción justo a tiempo para su ensamblaje. Para que este proceso funcione sin interrupciones, es esencial contar con un suministro de energía confiable que mantenga la producción activa incluso durante un apagón. En LK Energy proporcionamos la potencia que su operación necesita. Ofrecemos una amplia gama de soluciones energéticas de respaldo y emergencia, diseñadas para garantizar continuidad operativa en cualquier circumstancia."
   },
   {
     title: "Tratamiento de Aguas",
@@ -27,7 +27,7 @@ const data = [
   {
     title: "Sector Sanitario",
     content:
-      "Cuando ocurre un apagón en centros de salud u hospitales, la vida de pacientes, personal y visitantes puede estar en riesgo. Durante una crisis, un hospital se convierte en un punto clave para la comunidad. Los visitantes no se van y muchas personas llegan buscando refugio, atención, comida y agua. Si los generadores de emergencia están dimensionados solo para funciones críticas, puede haber problemas al enfrentar grandes multitudes. Los generadores LK Energy ofrecen soluciones confiables para proteger cualquier edificio frente a apagones o estados de emergencia, asegurando el funcionamiento continuo y seguro de las instalaciones."
+      "Cuando ocurre un apagón en centros de salud u hospitales, la vida de pacientes, personal y visitantes puede estar en riesgo. Durante una crisis, un hospital se convierte en un punto clave para la comunidad. Los visitantes no se van y muchas personas llegan buscando refugio, atención, comida y agua. Los generadores LK Energy ofrecen soluciones confiables para proteger cualquier edificio frente a apagones o estados de emergencia, asegurando el funcionamiento continuo y seguro de las instalaciones."
   },
   {
     title: "Industria Petrolera",
@@ -37,7 +37,7 @@ const data = [
     {
     title: "Sector de la construcción",
     content:
-      "La industria de la construcción es un sector competitivo, dinámico y esencial para el desarrollo económico. Impulsa el crecimiento a través de la construcción de viviendas, obras de ingeniería civil y proyectos comerciales, generando una gran cantidad de empleo en cada país. LK Energy es el aliado ideal para cubrir todas las necesidades de suministro de energía en este sector. Ofrecemos generadores eléctricos específicos y personalizados para cada tipo de obra, adaptándonos a sus condiciones y requerimientos. Somos un proveedor enfocado en la innovación, con soluciones energéticas que marcan una diferencia real en el mercado. Nuestra experiencia incluye numerosos proyectos exitosos en el ámbito de la construcción a nivel global."
+      "La industria de la construcción es un sector competitivo, dinámico y esencial para el desarrollo económico. Impulsa el crecimiento a través de la construcción de viviendas, obras de ingeniería civil y proyectos comerciales, generando una gran cantidad de empleo en todos los países.  LK Energy es el aliado ideal para cubrir todas las necesidades de suministro de energía en este sector. Ofrecemos generadores eléctricos específicos y personalizados para cada tipo de obra, adaptándonos a sus condiciones y requerimientos. Somos un proveedor enfocado en la innovación, con soluciones energéticas que marcan una diferencia real en el mercado. Nuestra experiencia incluye numerosos proyectos exitosos en el ámbito de la construcción a nivel global."
   },
    
 ];
