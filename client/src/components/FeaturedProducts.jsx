@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./FeaturedProducts.css";
-import generatormain from "../assets/generator-main.png";
-import generador1 from "../assets/generator-main.png";
-import generador2 from "../assets/generator-main.png";
-import generador3 from "../assets/generator-main.png";
-import generador4 from "../assets/generator-main.png";
-import generador5 from "../assets/generator-main.png";
+import generatormain from "../assets/generador1.png";
+import generador1 from "../assets/generador1.png";
+import generador2 from "../assets/generador1.png";
+import generador3 from "../assets/generador1.png";
+import generador4 from "../assets/generador1.png";
+import generador5 from "../assets/generador1.png";
 
 const products = [
   {

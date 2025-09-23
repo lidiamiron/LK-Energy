@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import "../pages/Productos.css";
 
 import generador1 from "../assets/generador1.png";
-import generador2 from "../assets/generador2.png";
-import generador3 from "../assets/generador3.png";
-import generador4 from "../assets/generador4.png";
-import generador5 from "../assets/generador5.png";
-import generador6 from "../assets/generador6.png";
-import generador7 from "../assets/generador7.png";
-import generador8 from "../assets/generador8.png";
+import generador2 from "../assets/generador1.png";
+import generador3 from "../assets/generador1.png";
+import generador4 from "../assets/generador1.png";
+import generador5 from "../assets/generador1.png";
+import generador6 from "../assets/generador1.png";
+import generador7 from "../assets/generador1.png";
+import generador8 from "../assets/generador1.png";
 
 const products = [
   { name: "LK21B", power: "21kVA", powerValue: 21, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador1 },
@@ -61,7 +61,7 @@ function ProductGrid() {
           <div className="filter-group">
             <span>Combustible:</span>
             <button onClick={() => setSelectedFuel("Diesel")} className={selectedFuel === "Diesel" ? "active" : ""}>Diesel</button>
-            <button onClick={() => setSelectedFuel("Gas")} className={selectedFuel === "Gas" ? "active" : ""}>Gas</button>
+           
             <button onClick={() => setSelectedFuel("All")} className={selectedFuel === "All" ? "active" : ""}>Todos</button>
           </div>
 

@@ -22,17 +22,17 @@ const ProductSpecs = () => {
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("estructura")}>
-          <h3>Estructura</h3>
+          <h3>Características</h3>
           <span>{openSection === "estructura" ? "↑" : "↓"}</span>
         </div>
         {openSection === "estructura" && (
           <table className="specs-table">
             <tbody>
-              <tr><td>Estructura:</td><td>Cerrada</td></tr>
+              <tr><td>Tipo:</td><td>Cerrada</td></tr>
               <tr><td>Nivel de ruido (a 7 m):</td><td>75 dB</td></tr>
               <tr><td>Dimensiones:</td><td>3070 x 1080 x 1450 mm</td></tr>
               <tr><td>Peso neto:</td><td>1990 kg</td></tr>
-              <tr><td>Motor de arranque</td><td>12V</td></tr>
+              <tr><td>Depósito:</td><td>12V</td></tr>
               
             </tbody>
           </table>
@@ -46,6 +46,10 @@ const ProductSpecs = () => {
         {openSection === "motor" && (
   <ul className="specs-list">
     <li>Modelo: 6M11G150/5</li>
+    <li>Número de cilindros: 6</li>
+    <li>Cilindrada: 6.75 L</li>
+    <li>Diámetro x Carrera: 105 × 130 mm</li>
+    <li>Relación de compresión: 17.5:1</li>
     <li>Temperatura máxima del aceite: 105 °C</li>
     <li>Aspiración: Turbocharged&Aftercooled</li>
     <li>Presión del aceite (operación continua): 1.2–6 bar</li>
@@ -53,10 +57,6 @@ const ProductSpecs = () => {
     <li>Restricción de entrada de aire:</li>
     <li className="sub-item">Filtro sucio: ≤60 mbar</li>
     <li className="sub-item">Filtro limpio: ≤35 mbar</li>
-    <li>Número de cilindros: 6</li>
-    <li>Cilindrada: 6.75 L</li>
-    <li>Diámetro x Carrera: 105 × 130 mm</li>
-    <li>Relación de compresión: 17.5:1</li>
     <li>Flujo de aire de admisión: 8.41 m³/min</li>
     <li>Flujo de gases de escape: 21.82 m³/min</li>
     <li>Temperatura de gases de escape: 550℃</li>
@@ -68,11 +68,11 @@ const ProductSpecs = () => {
     <li>Rango de operación del termostato: 76–90 °C</li>
     <li>Motor de arranque: 12 V</li>
     <li>Temperatura máxima del tanque superior: 105 °C</li>
+    <li>Capacidad máxima de aceite: 20 L</li>
     <li>Consumo de combustible (a 1500 rpm):</li>
     <li className="sub-item">100% de carga (potencia principal): 30.2 L/h</li>
     <li className="sub-item">75% de carga: 23 L/h</li>
     <li className="sub-item">50% de carga: 15.9 L/h</li>
-    <li>Capacidad máxima de aceite: 20 L</li>
   </ul>
 )}
       </div>
