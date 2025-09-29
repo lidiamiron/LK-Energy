@@ -202,12 +202,12 @@ a {
   text-shadow: 0.5px 0.5px 1px rgba(168, 168, 168, 0.7);
   opacity: 0;
   transform: translateX(-30px);
-  transition: all 0.8s ease-out;
+  transition: all 0.2s ease-out;
 }
 .presupuesto.animate {
   opacity: 1;
   transform: translateX(0);
-  transition-delay: 1.8s;
+
 }
 
 .presupuesto1{
@@ -216,17 +216,15 @@ a {
   padding-bottom: 1rem;
   border: solid #e29025;
  background-color: #e29025;
-  
   font-weight: 600;
   text-transform:uppercase;
   color: white;
 }
 .presupuesto1:hover{
-   transition-delay: 0s;
-  background-color: transparent;
-  border: solid #383838;
-  border-radius: 5px;
-  color: #383838;
+
+ background-color: #e69f44;
+  border: solid #e69f44;
+  color: white;
  
 }
 

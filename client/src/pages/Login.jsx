@@ -1,40 +1,47 @@
 import React, { useState } from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '../client';
-import './Login.css'; // Importa el CSS específico
+import './Login.css';
 
-const Login = ({setToken}) => {
-  let navigate = useNavigate()
-  const [formData, setFormData] = useState({ email: '', password: '' })
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState('')
+const Login = ({ setToken }) => {
+  let navigate = useNavigate();
+  let location = useLocation();
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  function handleChange(event){
-    setFormData((prevFormData)=>({
+  // Obtener la ubicación desde donde se intentó acceder
+  const from = location.state?.from || '/';
+
+  function handleChange(event) {
+    setFormData((prevFormData) => ({
       ...prevFormData,
-      [event.target.name]:event.target.value
-    }))
+      [event.target.name]: event.target.value
+    }));
   }
 
-  async function handleSubmit(e){
-    e.preventDefault()
-    setIsLoading(true)
-    setError('')
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setIsLoading(true);
+    setError('');
 
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email: formData.email,
         password: formData.password,
-      })
+      });
 
-      if (error) throw error
-      setToken(data)
-      navigate('/homepage')
+      if (error) throw error;
+      
+      setToken(data);
+      
+      // Redirección inmediata SIN mensajes
+      navigate(from, { replace: true });
       
     } catch (error) {
-      setError(error.message)
+      setError(error.message);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
@@ -54,6 +61,7 @@ const Login = ({setToken}) => {
               type="email"
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -65,6 +73,7 @@ const Login = ({setToken}) => {
               type="password"
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -82,7 +91,7 @@ const Login = ({setToken}) => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Login;

@@ -56,6 +56,30 @@
   margin-left: 1rem;
 }
 
+.descarga {
+  text-align: center;
+}
+
+.download-icon {
+  margin-right: 5px;
+}
+
+.protected-link-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.space {
+  margin-left: 5px;
+}
+
+/* Para los enlaces deshabilitados */
+.descarga span:not(a) {
+  display: inline-flex;
+  align-items: center;
+  color: #666;
+}
+
 @media (max-width: 992px) {
    .hide-mobile {
     display: none;

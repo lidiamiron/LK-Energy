@@ -1,6 +1,9 @@
 import React from 'react';
 import "../pages/Descargas.css"
 import { FaDownload } from "react-icons/fa";
+import ProtectedLink from '../components/ProtectedLink'; 
+
+import { useAuth } from '../context/AuthContext';
 
 
 const data = [
@@ -139,41 +142,44 @@ const data = [
 ];
 
 const Descargas = () => {
+
   return (
     <div className="table-container">
       <table className="custom-table">
         <thead>
-  <tr>
-    <th>MODELO</th>
-    <th className="hide-mobile">KVA</th>
-    <th className="hide-mobile">Kilovatios</th>
-    <th className="hide-mobile">Tipo de motor</th>
-    <th className="hide-mobile">Dimensión</th>
-    <th>Descarga</th>
-    <th>Descarga</th>
-  </tr>
-</thead>
-<tbody>
-  {data.map((item, index) => (
-    <tr key={index}>
-      <td>{item.modelo}</td>
-      <td className="hide-mobile">{item.kva}</td>
-      <td className="hide-mobile">{item.kilovatios}</td>
-      <td className="hide-mobile">{item.tipoMotor}</td>
-      <td className="hide-mobile">{item.dimension}</td>
-     <td className="descarga">
-  <a href={`/docs/${item.ficha}`} target="_blank" rel="noreferrer">
-    <FaDownload /><span className='space'>Ficha técnica</span>
-  </a>
-</td>
-<td className="descarga">
-  <a href={`/docs/${item.manual}`} target="_blank" rel="noreferrer">
-    <FaDownload /><span className='space'>Manual de usuario</span>
-  </a>
-</td>
-    </tr>
-  ))}
-</tbody>
+          <tr>
+            <th>MODELO</th>
+            <th className="hide-mobile">KVA</th>
+            <th className="hide-mobile">Kilovatios</th>
+            <th className="hide-mobile">Tipo de motor</th>
+            <th className="hide-mobile">Dimensión</th>
+            <th>Descarga</th>
+            <th>Descarga</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, index) => (
+            <tr key={index}>
+              <td>{item.modelo}</td>
+              <td className="hide-mobile">{item.kva}</td>
+              <td className="hide-mobile">{item.kilovatios}</td>
+              <td className="hide-mobile">{item.tipoMotor}</td>
+              <td className="hide-mobile">{item.dimension}</td>
+              <td className="descarga">
+                <ProtectedLink href={`/docs/${item.ficha}`}>
+                  <FaDownload className="download-icon" />
+                  <span className='space'>Ficha técnica</span>
+                </ProtectedLink>
+              </td>
+              <td className="descarga">
+                <ProtectedLink href={`/docs/${item.manual}`}>
+                  <FaDownload className="download-icon" />
+                  <span className='space'>Manual de usuario</span>
+                </ProtectedLink>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );

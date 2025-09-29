@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../client';
-import './SignUp.css'; // Importa el CSS específico
+import './SignUp.css';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    fullName: '', email: '', password: ''
+    fullName: '', 
+    email: '', 
+    password: ''
   });
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState(''); // 'success' o 'error'
+  const navigate = useNavigate();
 
   function handleChange(event) {
     setFormData((prevFormData) => ({
@@ -29,16 +32,27 @@ const SignUp = () => {
         password: formData.password,
         options: {
           data: {
-            full_name: formData.fullName,
+            full_name: formData.fullName, // Esto se guardará en user_metadata
           }
         }
       });
 
       if (error) throw error;
       
-      setMessage('¡Revisa tu email para el enlace de verificación!');
+      setMessage('¡Cuenta creada exitosamente! Revisa tu email para el enlace de verificación.');
       setMessageType('success');
-      setFormData({ fullName: '', email: '', password: '' });
+      
+      // Limpiar el formulario
+      setFormData({ 
+        fullName: '', 
+        email: '', 
+        password: '' 
+      });
+
+      // Redirigir al login después de 3 segundos
+      setTimeout(() => {
+        navigate('/login');
+      }, 3000);
       
     } catch (error) {
       setMessage(error.message);
@@ -56,6 +70,11 @@ const SignUp = () => {
         {message && (
           <div className={messageType === 'success' ? 'signup-success-message' : 'signup-error-message'}>
             {message}
+            {messageType === 'success' && (
+              <div className="signup-redirect-message">
+                Serás redirigido al login en 3 segundos...
+              </div>
+            )}
           </div>
         )}
         
@@ -65,9 +84,11 @@ const SignUp = () => {
               className="signup-input"
               placeholder='Nombre completo'
               name='fullName'
+              type="text"
               value={formData.fullName}
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -80,6 +101,7 @@ const SignUp = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              disabled={isLoading}
             />
           </div>
 
@@ -93,6 +115,7 @@ const SignUp = () => {
               onChange={handleChange}
               required
               minLength="6"
+              disabled={isLoading}
             />
             <div className="signup-password-requirements">
               Mínimo 6 caracteres
