@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
-import "../pages/Contacto.css";
+import emailjs from '@emailjs/browser';
+import "./Contacto.css";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,60 +14,67 @@ export default function Contact() {
 
   const [status, setStatus] = useState("");
 
+  // Tus credenciales de EmailJS
+  const EMAILJS_SERVICE_ID = 'service_3rop2or';
+  const EMAILJS_TEMPLATE_ID = 'template_22jr6w7'; 
+  const EMAILJS_PUBLIC_KEY = 'PCIrH42CmhrTcQhLc';
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus("Enviando...");
-
-  try {
-    const isDevelopment = process.env.NODE_ENV === 'development';
-    const apiUrl = isDevelopment 
-      ? 'http://localhost:3000/api/send-email'  // Next.js dev server
-      : '/api/send-email';                      // Producción
-
-    console.log('🔄 Enviando datos a:', apiUrl);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: { 
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    console.log('📩 Response status:', response.status);
-    
-    if (!response.ok) {
-      throw new Error(`Error ${response.status}: ${response.statusText}`);
+    // Validación básica
+    if (!formData.nombre || !formData.email || !formData.mensaje) {
+      setStatus("Por favor, completa los campos requeridos");
+      return;
     }
 
-    const result = await response.json();
-    console.log('✅ Success:', result);
+    setStatus("Enviando...");
 
-    setStatus("¡Mensaje enviado con éxito!");
-    setFormData({
-      nombre: "",
-      apellido: "",
-      email: "",
-      telefono: "",
-      mensaje: ""
-    });
-    
-  } catch (error) {
-    console.error('❌ Error completo:', error);
-    setStatus(`Error: ${error.message}`);
-  }
-};
+    try {
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: `${formData.nombre} ${formData.apellido}`.trim(),
+          from_email: formData.email,
+          phone: formData.telefono || 'No proporcionado',
+          message: formData.mensaje
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      console.log('✅ Email enviado correctamente:', result);
+      
+      setStatus("¡Mensaje enviado con éxito!");
+      setFormData({
+        nombre: "",
+        apellido: "",
+        email: "",
+        telefono: "",
+        mensaje: ""
+      });
+
+    } catch (error) {
+      console.error('❌ Error enviando email:', error);
+      
+      if (error.text?.includes('template ID not found')) {
+        setStatus("Error: Configuración incorrecta. Verifica las credenciales.");
+      } else {
+        setStatus("Error al enviar el mensaje. Intenta nuevamente.");
+      }
+    }
+  };
+
+  // Resto de tu componente se mantiene igual...
   return (
     <section className="contact-section">
       <div className="contact-form">
-        <h2>
-          ¡HABLEMOS <span> DE ENERGÍA!</span>
-        </h2>
+        <h2>¡HABLEMOS <span>DE ENERGÍA!</span></h2>
         <p>
           ¿Estás buscando un generador eléctrico y no sabes cuál es el ideal para ti? 
           En LK Generadores estamos para ayudarte. Déjanos tus datos y te contactaremos 
@@ -78,7 +86,7 @@ export default function Contact() {
             <input
               type="text"
               name="nombre"
-              placeholder="Nombre"
+              placeholder="Nombre *"
               value={formData.nombre}
               onChange={handleChange}
               required
@@ -95,7 +103,7 @@ export default function Contact() {
             <input
               type="email"
               name="email"
-              placeholder="email"
+              placeholder="Email *"
               value={formData.email}
               onChange={handleChange}
               required
@@ -103,27 +111,31 @@ export default function Contact() {
             <input
               type="text"
               name="telefono"
-              placeholder="Telefono"
+              placeholder="Teléfono"
               value={formData.telefono}
               onChange={handleChange}
             />
           </div>
           <textarea
             name="mensaje"
-            placeholder="Mensaje"
+            placeholder="Mensaje *"
             value={formData.mensaje}
             onChange={handleChange}
             required
           ></textarea>
           <button type="submit">ENVIAR</button>
         </form>
-        {status && <p>{status}</p>}
+        
+        {status && (
+          <p className={`status-message ${status.includes('éxito') ? 'success' : 'error'}`}>
+            {status}
+          </p>
+        )}
       </div>
 
+      {/* Resto de tu componente de información de contacto */}
       <div className="contact-info">
-        <h3>
-          Información de <span>Contacto</span>
-        </h3>
+        <h3>Información de <span>Contacto</span></h3>
         <p>
           Carrer Tramuntana, 2 - PI Can Mascaró <br />
           08756 La Palma de Cervelló,<br /> Barcelona
@@ -135,28 +147,16 @@ export default function Contact() {
           Estamos abiertos de Lunes a Viernes<br />
           09:00 - 18:30
         </p>
-        <h4>Follow Us</h4>
+        <h4>Síguenos</h4>
 
         <div className="social-links">
-          <a
-            href="https://www.facebook.com/profile.php?id=61577861317109"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.facebook.com/profile.php?id=61577861317109" target="_blank" rel="noopener noreferrer">
             <FaFacebookSquare />
           </a>
-          <a
-            href="https://www.instagram.com/lkenergyofficial"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.instagram.com/lkenergyofficial" target="_blank" rel="noopener noreferrer">
             <FaInstagram />
           </a>
-          <a
-            href="https://www.linkedin.com/company/lk-energy/?viewAsMember=true"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://www.linkedin.com/company/lk-energy/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
             <FaLinkedin />
           </a>
         </div>
