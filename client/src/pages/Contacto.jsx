@@ -18,34 +18,39 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Enviando...");
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setStatus("Enviando...");
 
-    try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+  try {
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: { 
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      setStatus("¡Mensaje enviado con éxito!");
+      setFormData({
+        nombre: "",
+        apellido: "",
+        email: "",
+        telefono: "",
+        mensaje: ""
       });
-
-      if (response.ok) {
-        setStatus("¡Mensaje enviado con éxito!");
-        setFormData({
-          nombre: "",
-          apellido: "",
-          email: "",
-          telefono: "",
-          mensaje: ""
-        });
-      } else {
-        setStatus("Error al enviar el mensaje.");
-      }
-    } catch (error) {
-      console.error(error);
-      setStatus("Error al enviar el mensaje.");
+    } else {
+      setStatus(`Error: ${result.message || 'Error al enviar el mensaje'}`);
     }
-  };
+  } catch (error) {
+    console.error('Error de red:', error);
+    setStatus("Error de conexión. Intenta nuevamente.");
+  }
+};
 
   return (
     <section className="contact-section">
