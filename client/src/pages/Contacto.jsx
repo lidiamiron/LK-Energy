@@ -23,16 +23,18 @@ export default function Contact() {
   setStatus("Enviando...");
 
   try {
+    console.log('🔄 Enviando datos:', formData);
+    
     const response = await fetch("/api/send-email", {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",
-        "Accept": "application/json"
       },
       body: JSON.stringify(formData),
     });
 
     const result = await response.json();
+    console.log('📩 Response:', result);
 
     if (response.ok) {
       setStatus("¡Mensaje enviado con éxito!");
@@ -43,11 +45,14 @@ export default function Contact() {
         telefono: "",
         mensaje: ""
       });
+      
+      // Resetear el status después de 5 segundos
+      setTimeout(() => setStatus(""), 5000);
     } else {
-      setStatus(`Error: ${result.message || 'Error al enviar el mensaje'}`);
+      setStatus(`Error: ${result.error || 'Error al enviar el mensaje'}`);
     }
   } catch (error) {
-    console.error('Error de red:', error);
+    console.error('❌ Error completo:', error);
     setStatus("Error de conexión. Intenta nuevamente.");
   }
 };
