@@ -23,9 +23,14 @@ export default function Contact() {
   setStatus("Enviando...");
 
   try {
-    console.log('🔄 Enviando datos:', formData);
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    const apiUrl = isDevelopment 
+      ? 'http://localhost:3000/api/send-email'  // Next.js dev server
+      : '/api/send-email';                      // Producción
+
+    console.log('🔄 Enviando datos a:', apiUrl);
     
-    const response = await fetch("/api/send-email", {
+    const response = await fetch(apiUrl, {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",
@@ -33,30 +38,29 @@ export default function Contact() {
       body: JSON.stringify(formData),
     });
 
-    const result = await response.json();
-    console.log('📩 Response:', result);
-
-    if (response.ok) {
-      setStatus("¡Mensaje enviado con éxito!");
-      setFormData({
-        nombre: "",
-        apellido: "",
-        email: "",
-        telefono: "",
-        mensaje: ""
-      });
-      
-      // Resetear el status después de 5 segundos
-      setTimeout(() => setStatus(""), 5000);
-    } else {
-      setStatus(`Error: ${result.error || 'Error al enviar el mensaje'}`);
+    console.log('📩 Response status:', response.status);
+    
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}: ${response.statusText}`);
     }
+
+    const result = await response.json();
+    console.log('✅ Success:', result);
+
+    setStatus("¡Mensaje enviado con éxito!");
+    setFormData({
+      nombre: "",
+      apellido: "",
+      email: "",
+      telefono: "",
+      mensaje: ""
+    });
+    
   } catch (error) {
     console.error('❌ Error completo:', error);
-    setStatus("Error de conexión. Intenta nuevamente.");
+    setStatus(`Error: ${error.message}`);
   }
 };
-
   return (
     <section className="contact-section">
       <div className="contact-form">
