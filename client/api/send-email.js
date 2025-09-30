@@ -11,8 +11,8 @@ export default async function handler(req, res) {
 
   try {
     await resend.emails.send({
-      from: 'tu_correo@dominio.com',       // remitente verificado en Resend
-      to: 'destinatario@dominio.com',      // tu email de recepción
+      from: 'onboarding@resend.dev',       // remitente verificado en Resend
+      to: 'lidia@gh-power.com',      // tu email de recepción
       subject: 'Nuevo mensaje de contacto',
       html: `
         <p><strong>Nombre:</strong> ${nombre} ${apellido}</p>
