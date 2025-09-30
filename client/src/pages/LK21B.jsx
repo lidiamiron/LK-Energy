@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import "./LK21B.css";
 import { FaFilePdf } from "react-icons/fa";
-import ProtectedLink from '../components/ProtectedLink';
 
 
 import generatormain from "../assets/generator-main.png";
@@ -105,17 +104,17 @@ const ProductSpecs = () => {
 
       <div className="docs-block">
         <h2 className="docs-title">Manuales y documentos</h2>
-        <div className="doc-item" ><ProtectedLink href="/docs/LK21B.pdf" className="pdf-icon"><FaFilePdf /></ProtectedLink>
-           <ProtectedLink href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" >
+        <div className="doc-item" ><a href="/docs/LK21B.pdf" className="pdf-icon"><FaFilePdf /></a>
+          <a href="/docs/LK21B.pdf" target="_blank" rel="noreferrer" >
            
  <p className="descargas">Ficha técnica</p>
-          </ProtectedLink>
+          </a>
         </div>
-        <div className="doc-item"><ProtectedLink href="" className="pdf-icon"><FaFilePdf /></ProtectedLink>
-          <ProtectedLink href="/docs/MANUAL USUARIO ESP LK.pdf" target="_blank" rel="noreferrer" className="descargas">
+        <div className="doc-item"><a href="" className="pdf-icon"><FaFilePdf /></a>
+          <a href="/docs/MANUAL USUARIO ESP LK.pdf" target="_blank" rel="noreferrer" className="descargas">
           
             <p className="descargas">Manual de usuario</p>
-          </ProtectedLink>
+          </a>
         </div>
       </div>
     </div>
