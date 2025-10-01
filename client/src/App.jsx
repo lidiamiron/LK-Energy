@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { AuthProvider } from './context/AuthContext';
-
+import LanguageSwitcher from './components/LanguageSwitcher';
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
 import Productos from './pages/Productos';
@@ -69,6 +69,7 @@ function App() {
             <Route path="/contacto" element={<Contacto />} />
           </Routes>
         </MainLayout>
+        <LanguageSwitcher />
       </Router>
     </AuthProvider>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import "./LK25B.css";
 import { FaFilePdf } from "react-icons/fa";
 
@@ -10,6 +11,7 @@ import generador4 from "../assets/generator-4.png";
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
+  const { t } = useTranslation();
   const [openSection, setOpenSection] = useState("estructura");
 
   const toggleSection = (section) => {
@@ -18,100 +20,98 @@ const ProductSpecs = () => {
 
   return (
     <div className="specs-container">
-      <h2 className="specs-title">Especificaciones Técnicas</h2>
+      <h2 className="specs-title">{t('product.specifications.title')}</h2>
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("estructura")}>
-          <h3>Características</h3>
+          <h3>{t('product.specifications.characteristics')}</h3>
           <span>{openSection === "estructura" ? "↑" : "↓"}</span>
         </div>
         {openSection === "estructura" && (
           <table className="specs-table">
             <tbody>
-              <tr><td>Tipo:</td><td>Cerrada</td></tr>
-              <tr><td>Nivel de ruido (a 7 m):</td><td>75 dB</td></tr>
-              <tr><td>Dimensiones:</td><td>1970 x 800 x 1075 mm</td></tr>
-              <tr><td>Peso neto:</td><td>710 kg</td></tr>
-              <tr><td>Depósito:</td><td>12V</td></tr>  
+              <tr><td>{t('product.specifications.type')}</td><td>{t('product.specifications.closed')}</td></tr>
+              <tr><td>{t('product.specifications.noiseLevel')}</td><td>75 dB</td></tr>
+              <tr><td>{t('product.specifications.dimensions')}</td><td>1970 x 800 x 1075 mm</td></tr>
+              <tr><td>{t('product.specifications.weight')}</td><td>710 kg</td></tr>
+              <tr><td>{t('product.specifications.tank')}</td><td>12V</td></tr>  
             </tbody>
           </table>
         )}
       </div>
+
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("motor")}>
-          <h3>Motor</h3>
+          <h3>{t('product.specifications.engine')}</h3>
           <span>{openSection === "motor" ? "↑" : "↓"}</span>
         </div>
         {openSection === "motor" && (
-  <ul className="specs-list">
-    <li>Modelo: 4M06G25/5</li>
-    <li>Número de cilindros: 4</li>
-    <li>Cilindrada: 2.3 L</li>
-    <li>Diámetro x Carrera: 89 × 92 mm</li>
-    <li>Relación de compresión: 17.5:1</li>
-    <li>Temperatura máxima del aceite: 115 °C</li>
-    <li>Aspiración: Natural</li>
-    <li>Presión del aceite (operación continua): 1–5 bar</li>
-    <li>Sistema de combustible: Bomba mecánica</li>
-    <li>Restricción de entrada de aire:</li>
-    <li className="sub-item">Filtro sucio: ≤60 mbar</li>
-    <li className="sub-item">Filtro limpio: ≤35 mbar</li>
-    <li>Flujo de aire de admisión: 1.44 m³/min</li>
-    <li>Flujo de gases de escape: 4.88 m³/min</li>
-    <li>Temperatura de gases de escape: Por determinar (TBD)</li>
-    <li>Velocidad nominal: 1500 rpm</li>
-    <li>Presión de contraflujo máxima (escape): 80 mbar</li>
-    <li>Potencia bruta del motor: 23 kW</li>
-    <li>Capacidad del refrigerante: 3.2 L</li>
-    <li>Tipo de regulador (gobernador): Electrónico</li>
-    <li>Rango de operación del termostato: 72–82 °C</li>
-    <li>Motor de arranque: 12 V</li>
-    <li>Temperatura máxima del tanque superior: 105 °C</li>
-    <li>Capacidad máxima de aceite: 9.5 L</li>
-    <li>Consumo de combustible (a 1500 rpm):</li>
-    <li className="sub-item">100% de carga (potencia principal): 6.1 L/h</li>
-    <li className="sub-item">75% de carga: 4.5 L/h</li>
-    <li className="sub-item">50% de carga: 3.2 L/h</li>
-  </ul>
-)}
+          <ul className="specs-list">
+            <li>{t('product.specifications.engineDetails.model')} 4M06G25/5</li>
+            <li>{t('product.specifications.engineDetails.cylinders')} 4</li>
+            <li>{t('product.specifications.engineDetails.displacement')} 2.3 L</li>
+            <li>{t('product.specifications.engineDetails.boreStroke')} 89 × 92 mm</li>
+            <li>{t('product.specifications.engineDetails.compressionRatio')} 17.5:1</li>
+            <li>{t('product.specifications.engineDetails.maxOilTemp')} 115 °C</li>
+            <li>{t('product.specifications.engineDetails.aspiration')} {t('product.values.natural')}</li>
+            <li>{t('product.specifications.engineDetails.oilPressure')} 1–5 bar</li>
+            <li>{t('product.specifications.engineDetails.fuelSystem')} {t('product.values.mechanicalPump')}</li>
+            <li>{t('product.specifications.engineDetails.airRestriction')}</li>
+            <li className="sub-item">{t('product.specifications.engineDetails.dirtyFilter')} ≤60 mbar</li>
+            <li className="sub-item">{t('product.specifications.engineDetails.cleanFilter')} ≤35 mbar</li>
+            <li>{t('product.specifications.engineDetails.airFlow')} 1.44 m³/min</li>
+            <li>{t('product.specifications.engineDetails.exhaustFlow')} 4.88 m³/min</li>
+            <li>{t('product.specifications.engineDetails.exhaustTemp')} {t('product.values.toBeDetermined')}</li>
+            <li>{t('product.specifications.engineDetails.ratedSpeed')} 1500 rpm</li>
+            <li>{t('product.specifications.engineDetails.backPressure')} 80 mbar</li>
+            <li>{t('product.specifications.engineDetails.enginePower')} 23 kW</li>
+            <li>{t('product.specifications.engineDetails.coolantCapacity')} 3.2 L</li>
+            <li>{t('product.specifications.engineDetails.governor')} {t('product.values.electronic')}</li>
+            <li>{t('product.specifications.engineDetails.thermostat')} 72–82 °C</li>
+            <li>{t('product.specifications.engineDetails.starter')} 12 V</li>
+            <li>{t('product.specifications.engineDetails.maxTankTemp')} 105 °C</li>
+            <li>{t('product.specifications.engineDetails.maxOilCapacity')} 9.5 L</li>
+            <li>{t('product.specifications.engineDetails.fuelConsumption')}</li>
+            <li className="sub-item">{t('product.specifications.engineDetails.fullLoad')} 6.1 L/h</li>
+            <li className="sub-item">{t('product.specifications.engineDetails.load75')} 4.5 L/h</li>
+            <li className="sub-item">{t('product.specifications.engineDetails.load50')} 3.2 L/h</li>
+          </ul>
+        )}
       </div>
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("alternador")}>
-          <h3>Alternador</h3>
+          <h3>{t('product.specifications.alternator')}</h3>
           <span>{openSection === "alternador" ? "↑" : "↓"}</span>
         </div>
         {openSection === "alternador" && (
-  <ul className="specs-list">
-   
-    <li>Tipo de cableado: Trifásico, 4 polos, tipo Y</li>
-    <li>Tipo de excitador: Sin escobillas, autoexcitado</li>
-    <li>Rodamiento: 1</li>
-    <li>Regulación de voltaje: ±(0.25 % ~ 1 %)</li>
-    <li>Factor de potencia: 0.8</li>
-    <li>Grado de protección: IP23</li>
-    <li>Frecuencia: 50 Hz</li>
-    <li>Clase de aislamiento: H</li>
-    <li>Velocidad máxima (overspeed): 2250 rpm</li>
-    <li>Altitud: ≤1000 m</li>
-    
-  </ul>
-)}
+          <ul className="specs-list">
+            <li>{t('product.specifications.alternatorDetails.wiring')} {t('product.values.threePhase')}</li>
+            <li>{t('product.specifications.alternatorDetails.exciter')} {t('product.values.brushless')}</li>
+            <li>{t('product.specifications.alternatorDetails.bearing')} 1</li>
+            <li>{t('product.specifications.alternatorDetails.voltageReg')} ±(0.25 % ~ 1 %)</li>
+            <li>{t('product.specifications.alternatorDetails.powerFactor')} 0.8</li>
+            <li>{t('product.specifications.alternatorDetails.protection')} IP23</li>
+            <li>{t('product.specifications.alternatorDetails.frequency')} 50 Hz</li>
+            <li>{t('product.specifications.alternatorDetails.insulation')} H</li>
+            <li>{t('product.specifications.alternatorDetails.maxSpeed')} 2250 rpm</li>
+            <li>{t('product.specifications.alternatorDetails.altitude')} ≤1000 m</li>
+          </ul>
+        )}
       </div>
 
-
       <div className="docs-block">
-        <h2 className="docs-title">Manuales y documentos</h2>
-        <div className="doc-item" ><a href="/docs/LK25B.pdf" className="pdf-icon"><FaFilePdf /></a>
-          <a href="/docs/LK25B.pdf" target="_blank" rel="noreferrer" >
-           
- <p className="descargas">Ficha técnica</p>
+        <h2 className="docs-title">{t('product.documents.title')}</h2>
+        <div className="doc-item">
+          <a href="/docs/LK25B.pdf" className="pdf-icon"><FaFilePdf /></a>
+          <a href="/docs/LK25B.pdf" target="_blank" rel="noreferrer">
+            <p className="descargas">{t('product.documents.technicalSheet')}</p>
           </a>
         </div>
-        <div className="doc-item"><a href="" className="pdf-icon"><FaFilePdf /></a>
+        <div className="doc-item">
+          <a href="/docs/MANUAL USUARIO ESP LK.pdf" className="pdf-icon"><FaFilePdf /></a>
           <a href="/docs/MANUAL USUARIO ESP LK.pdf" target="_blank" rel="noreferrer" className="descargas">
-          
-            <p className="descargas">Manual de usuario</p>
+            <p className="descargas">{t('product.documents.userManual')}</p>
           </a>
         </div>
       </div>
@@ -121,6 +121,7 @@ const ProductSpecs = () => {
 
 // Componente principal
 const LK25B = () => {
+  const { t } = useTranslation();
   const images = [generatormain, generador1, generador2, generador3, generador4];
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
@@ -147,18 +148,19 @@ const LK25B = () => {
       {/* Parte derecha sticky */}
       <div className="gallery-right">
         <h2 className="product-title">LK25B</h2>
-        <p className="product-subtitle">Trifásico</p>
+        <p className="product-subtitle">{t('product.info.subtitle')}</p>
         <ul className="product-info">
-          <li>⚡ Potencia PRP: 18kW / 23kVA</li>
-          <li>⚡ Potencia ESP: 20kW / 25kVA</li>
-          
-          <li>🔌 Trifásico</li>
-          <li>⚖️ 710 Kg</li>
-          <li>✔️ Motor Baudoin</li>
-          <li>✔️ Alternador LK Power</li>
-          <li>✔️ Capacidad de combustible: 9.5 L</li>
+          <li>{t('product.info.features.prpPower')} 18kW / 23kVA</li>
+          <li>{t('product.info.features.espPower')} 20kW / 25kVA</li>
+          <li>{t('product.info.features.threePhase')}</li>
+          <li>{t('product.info.features.weight')} 710 Kg</li>
+          <li>{t('product.info.features.engine')}</li>
+          <li>{t('product.info.features.alternator')}</li>
+          <li>{t('product.info.features.fuelCapacity')} 9.5 L</li>
         </ul>
-        <a href="http://localhost:5173/Contacto"><button className="product-button">Contactanos→</button></a>
+        <a href="http://localhost:5173/Contacto">
+          <button className="product-button">{t('product.info.contactButton')}</button>
+        </a>
       </div>
     </section>
   );

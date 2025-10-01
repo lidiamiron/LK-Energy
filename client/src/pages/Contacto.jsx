@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { FaFacebookSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
 import emailjs from '@emailjs/browser';
+import { useTranslation } from "react-i18next"; 
 import "./Contacto.css";
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     nombre: "",
     apellido: "",
@@ -14,7 +17,6 @@ export default function Contact() {
 
   const [status, setStatus] = useState("");
 
-  // Tus credenciales de EmailJS
   const EMAILJS_SERVICE_ID = 'service_3rop2or';
   const EMAILJS_TEMPLATE_ID = 'template_22jr6w7'; 
   const EMAILJS_PUBLIC_KEY = 'PCIrH42CmhrTcQhLc';
@@ -27,16 +29,15 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validación básica
     if (!formData.nombre || !formData.email || !formData.mensaje) {
-      setStatus("Por favor, completa los campos requeridos");
+      setStatus(t("contact.status.required"));
       return;
     }
 
-    setStatus("Enviando...");
+    setStatus(t("contact.status.sending"));
 
     try {
-      const result = await emailjs.send(
+      await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
@@ -48,9 +49,7 @@ export default function Contact() {
         EMAILJS_PUBLIC_KEY
       );
 
-      console.log('✅ Email enviado correctamente:', result);
-      
-      setStatus("¡Mensaje enviado con éxito!");
+      setStatus(t("contact.status.success"));
       setFormData({
         nombre: "",
         apellido: "",
@@ -60,33 +59,27 @@ export default function Contact() {
       });
 
     } catch (error) {
-      console.error('❌ Error enviando email:', error);
-      
       if (error.text?.includes('template ID not found')) {
-        setStatus("Error: Configuración incorrecta. Verifica las credenciales.");
+        setStatus(t("contact.status.config_error"));
       } else {
-        setStatus("Error al enviar el mensaje. Intenta nuevamente.");
+        setStatus(t("contact.status.error"));
       }
     }
   };
 
-  // Resto de tu componente se mantiene igual...
   return (
     <section className="contact-section">
       <div className="contact-form">
-        <h2>¡HABLEMOS <span>DE ENERGÍA!</span></h2>
-        <p>
-          ¿Estás buscando un generador eléctrico y no sabes cuál es el ideal para ti? 
-          En LK Generadores estamos para ayudarte. Déjanos tus datos y te contactaremos 
-          con asesoría personalizada o un presupuesto a medida!
-        </p>
+        {/* 👇 renderiza HTML dentro del JSON (span, br) */}
+        <h2 dangerouslySetInnerHTML={{ __html: t("contact.title") }} />
+        <p>{t("contact.intro")}</p>
 
         <form onSubmit={handleSubmit}>
           <div className="input-row">
             <input
               type="text"
               name="nombre"
-              placeholder="Nombre *"
+              placeholder={t("contact.form.name")}
               value={formData.nombre}
               onChange={handleChange}
               required
@@ -94,7 +87,7 @@ export default function Contact() {
             <input
               type="text"
               name="apellido"
-              placeholder="Apellido"
+              placeholder={t("contact.form.surname")}
               value={formData.apellido}
               onChange={handleChange}
             />
@@ -103,7 +96,7 @@ export default function Contact() {
             <input
               type="email"
               name="email"
-              placeholder="Email *"
+              placeholder={t("contact.form.email")}
               value={formData.email}
               onChange={handleChange}
               required
@@ -111,43 +104,37 @@ export default function Contact() {
             <input
               type="text"
               name="telefono"
-              placeholder="Teléfono"
+              placeholder={t("contact.form.phone")}
               value={formData.telefono}
               onChange={handleChange}
             />
           </div>
           <textarea
             name="mensaje"
-            placeholder="Mensaje *"
+            placeholder={t("contact.form.message")}
             value={formData.mensaje}
             onChange={handleChange}
             required
           ></textarea>
-          <button type="submit">ENVIAR</button>
+          <button type="submit">{t("contact.form.submit")}</button>
         </form>
         
         {status && (
-          <p className={`status-message ${status.includes('éxito') ? 'success' : 'error'}`}>
+          <p className={`status-message ${status.includes('éxito') || status.includes('success') ? 'success' : 'error'}`}>
             {status}
           </p>
         )}
       </div>
 
-      {/* Resto de tu componente de información de contacto */}
       <div className="contact-info">
-        <h3>Información de <span>Contacto</span></h3>
+        {/* 👇 también mantiene el span */}
+        <h3 dangerouslySetInnerHTML={{ __html: t("contact.info.title") }} />
+        <p dangerouslySetInnerHTML={{ __html: t("contact.info.address") }} />
         <p>
-          Carrer Tramuntana, 2 - PI Can Mascaró <br />
-          08756 La Palma de Cervelló,<br /> Barcelona
+          <strong>{t("contact.info.call")}</strong> 936 84 66 35
         </p>
-        <p>
-          <strong>Llámanos</strong> 936 84 66 35
-        </p>
-        <p>
-          Estamos abiertos de Lunes a Viernes<br />
-          09:00 - 18:30
-        </p>
-        <h4>Síguenos</h4>
+        <p dangerouslySetInnerHTML={{ __html: t("contact.info.schedule") }} />
+        <h4>{t("contact.info.follow")}</h4>
 
         <div className="social-links">
           <a href="https://www.facebook.com/profile.php?id=61577861317109" target="_blank" rel="noopener noreferrer">

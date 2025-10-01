@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import banner from "../assets/banner.svg";
 import generador from "../assets/IMG_6019.png"; 
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
@@ -9,8 +10,8 @@ import Contact from "../pages/Contacto";
 import "../pages/Home.css"
 import FeaturedProducts from '../components/FeaturedProducts';
 
-
 export default function Home() {
+  const { t } = useTranslation();
   const [scrollY, setScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [textAnimationStarted, setTextAnimationStarted] = useState(false);
@@ -52,18 +53,18 @@ export default function Home() {
   const cards = [
     {
       icon: <FaTools className="cardIcon" />,
-      title: "Recambios",
-      text: "Disponemos de recambios que necesitas para la reparación y el mantenimiento de generadores industriales, asegurando la máxima eficiencia y durabilidad de tus equipos.",
+      title: t("home.sparePartsTitle"),
+      text: t("home.sparePartsDescription"),
     },
     {
       icon: <FaHammer className="cardIcon" />,
-      title: "Servicio Técnico",
-      text: "Ofrecemos recambios originales para todos los productos de la marca LKEnergy, con servicio de reparación y mantenimiento realizado por nuestros mecánicos oficiales certificados.",
+      title: t("home.technicalServiceTitle"),
+      text: t("home.technicalServiceDescription"),
     },
     {
       icon: <FaShieldAlt className="cardIcon" />,
-      title: "Garantías",
-      text: "Garantías completas para todos nuestros productos de hasta 3 años de duración.",
+      title: t("home.warrantiesTitle"),
+      text: t("home.warrantiesDescription"),
     },
   ];
 
@@ -77,19 +78,22 @@ export default function Home() {
             <div className="title-content">
               <h1 className="title">
                 <span className={`title-line title-line-1 ${textAnimationStarted ? 'animate' : ''}`}>
-                  GRUPOS
+                  {t("home.titleLine1")}
                 </span>
                 <br/>
                 <span className={`title-line title-line-2 ${textAnimationStarted ? 'animate' : ''}`}>
-                  ELECTROGENOS
+                  {t("home.titleLine2")}
                 </span>
                 <br/>
-                
               </h1>
               <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>
-                Energía Confiable Para Grandes Proyectos
+                {t("home.subtitle")}
               </h2>
-              <a href="http://localhost:5173/Contacto"><button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>Solicita tu presupuesto</button></a>
+              <a href="http://localhost:5173/Contacto">
+                <button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>
+                  {t("home.budgetButton")}
+                </button>
+              </a>
             </div>
             <div className="generador-image">
               <img className="generator" src={generador} alt="foto-generador" />
@@ -110,16 +114,20 @@ export default function Home() {
             visibility: isVisible ? 'visible' : 'hidden'
           }}
         >
-          <h2 className="about-title">SOBRE NOSOTROS</h2>
-          <h1 className="about-heading">LK ENERGY</h1>
-          <h2 className="about-subtitle">Te ofrecemos la solución que necesitas.</h2>
-          <p className="contact-us"><a href="http://localhost:5173/Contacto">CONTACTANOS</a></p>
+          <h2 className="about-title">{t("home.aboutTitle")}</h2>
+          <h1 className="about-heading">{t("home.aboutHeading")}</h1>
+          <h2 className="about-subtitle">{t("home.aboutSubtitle")}</h2>
+          <p className="contact-us">
+            <a href="http://localhost:5173/Contacto">
+              {t("home.aboutContact")}
+            </a>
+          </p>
         </div>
 
         <div className="about-right">
           <div className="about-description">
             <p>
-              LK Energy es una empresa líder en el suministro y mantenimiento de generadores industriales de alto rendimiento. Nos especializamos en ofrecer soluciones energéticas para empresas de diversos sectores, brindando equipos confiables y servicios de mantenimiento especializados que garantizan la continuidad operativa y la eficiencia energética.
+              {t("home.aboutDescription")}
             </p>
           </div>
           <div className="about-image">
@@ -147,9 +155,10 @@ export default function Home() {
         <div className="accordion-box"><Acordeon /></div> 
       </section>
       
-            <section className='featureProducts'> 
-              <FeaturedProducts />
-            </section>
+      {/* FEATURED PRODUCTS SECTION */}
+      <section className='featureProducts'> 
+        <FeaturedProducts />
+      </section>
 
       {/* CONTACT SECTION */}
       <section className="contact">

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./FeaturedProducts.css";
 import generatormain from "../assets/generador1.png";
 import generador1 from "../assets/generador1.png";
@@ -48,16 +49,20 @@ const products = [
 ];
 
 const FeaturedProducts = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="gallery-container">
-      <h2>Productos Destacados</h2>
+      <h2>{t('featuredProducts.title', 'Productos Destacados')}</h2>
       <div className="product-grid">
         {products.map((product) => (
           <div className="product-card" key={product.id}>
             <img src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
-            <p>{product.kva} KVA</p>
-            <Link to={`/productos/${product.name}`} id="ver-mas-btn">Ver más</Link>
+            <p>{product.kva} {t('featuredProducts.kva', 'KVA')}</p>
+            <Link to={`/productos/${product.name}`} id="ver-mas-btn">
+              {t('featuredProducts.viewMore', 'Ver más')}
+            </Link>
           </div>
         ))}
       </div>

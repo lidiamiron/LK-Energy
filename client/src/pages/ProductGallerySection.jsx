@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import "./ProductGallerySection.css";
 import { FaFilePdf } from "react-icons/fa";
 
@@ -10,6 +11,7 @@ import generador4 from "../assets/generator-4.png";
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
+  const { t } = useTranslation();
   const [openSection, setOpenSection] = useState("estructura");
 
   const toggleSection = (section) => {
@@ -18,23 +20,23 @@ const ProductSpecs = () => {
 
   return (
     <div className="specs-container">
-      <h2 className="specs-title">Especificaciones Técnicas</h2>
+      <h2 className="specs-title">{t('product.specifications.title')}</h2>
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("estructura")}>
-          <h3>Estructura</h3>
+          <h3>{t('product.specifications.structure', 'Estructura')}</h3>
           <span>{openSection === "estructura" ? "↑" : "↓"}</span>
         </div>
         {openSection === "estructura" && (
           <table className="specs-table">
             <tbody>
-              <tr><td>Estructura:</td><td>Abierta</td></tr>
-              <tr><td>Nivel de ruido (a 7 m):</td><td>80 dB</td></tr>
-              <tr><td>Grado de aislamiento:</td><td>F</td></tr>
-              <tr><td>Dimensiones:</td><td>1060 x 660 x 880 mm</td></tr>
-              <tr><td>Peso neto:</td><td>220 kg</td></tr>
-              <tr><td>Tomas:</td><td>16A 230V + 32A 230V</td></tr>
-              <tr><td>Características:</td><td>Display + Kit de ruedas</td></tr>
+              <tr><td>{t('product.specifications.structure', 'Estructura')}:</td><td>{t('product.values.open', 'Abierta')}</td></tr>
+              <tr><td>{t('product.specifications.noiseLevel')}:</td><td>80 dB</td></tr>
+              <tr><td>{t('product.specifications.insulationGrade', 'Grado de aislamiento')}:</td><td>F</td></tr>
+              <tr><td>{t('product.specifications.dimensions')}:</td><td>1060 x 660 x 880 mm</td></tr>
+              <tr><td>{t('product.specifications.weight')}:</td><td>220 kg</td></tr>
+              <tr><td>{t('product.specifications.outlets', 'Tomas')}:</td><td>16A 230V + 32A 230V</td></tr>
+              <tr><td>{t('product.specifications.characteristics')}:</td><td>{t('product.features.displayWheels', 'Display + Kit de ruedas')}</td></tr>
             </tbody>
           </table>
         )}
@@ -42,36 +44,36 @@ const ProductSpecs = () => {
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("caracteristicas")}>
-          <h3>Características</h3>
+          <h3>{t('product.specifications.characteristics')}</h3>
           <span>{openSection === "caracteristicas" ? "↑" : "↓"}</span>
         </div>
         {openSection === "caracteristicas" && (
-          <p className="specs-text">Información adicional sobre las características aquí.</p>
+          <p className="specs-text">{t('product.specifications.additionalInfo', 'Información adicional sobre las características aquí.')}</p>
         )}
       </div>
 
       <div className="specs-block">
         <div className="specs-header" onClick={() => toggleSection("motor")}>
-          <h3>Motor</h3>
+          <h3>{t('product.specifications.engine')}</h3>
           <span>{openSection === "motor" ? "↑" : "↓"}</span>
         </div>
         {openSection === "motor" && (
-          <p className="specs-text">Detalles técnicos del motor aquí.</p>
+          <p className="specs-text">{t('product.specifications.engineDetails', 'Detalles técnicos del motor aquí.')}</p>
         )}
       </div>
 
       <div className="docs-block">
-        <h2 className="docs-title">Manuales y documentos</h2>
-        <div className="doc-item" ><a href="" className="pdf-icon"><FaFilePdf /></a>
-          <a href="/docs/ficha-tecnica.pdf" target="_blank" rel="noreferrer" >
-           
- <p className="descargas">Ficha técnica</p>
+        <h2 className="docs-title">{t('product.documents.title')}</h2>
+        <div className="doc-item">
+          <a href="" className="pdf-icon"><FaFilePdf /></a>
+          <a href="/docs/ficha-tecnica.pdf" target="_blank" rel="noreferrer">
+            <p className="descargas">{t('product.documents.technicalSheet')}</p>
           </a>
         </div>
-        <div className="doc-item"><a href="" className="pdf-icon"><FaFilePdf /></a>
+        <div className="doc-item">
+          <a href="" className="pdf-icon"><FaFilePdf /></a>
           <a href="/docs/manual-usuario.pdf" target="_blank" rel="noreferrer" className="descargas">
-          
-            <p className="descargas">Manual de usuario</p>
+            <p className="descargas">{t('product.documents.userManual')}</p>
           </a>
         </div>
       </div>
@@ -81,6 +83,7 @@ const ProductSpecs = () => {
 
 // Componente principal
 const ProductGallerySection = () => {
+  const { t } = useTranslation();
   const images = [generatormain, generador1, generador2, generador3, generador4];
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
@@ -106,18 +109,18 @@ const ProductGallerySection = () => {
 
       {/* Parte derecha sticky */}
       <div className="gallery-right">
-        <h2 className="product-title">KDG12EA | ABIERTO</h2>
-        <p className="product-subtitle">Monofásico</p>
+        <h2 className="product-title">KDG12EA | {t('product.values.open', 'ABIERTO')}</h2>
+        <p className="product-subtitle">{t('product.info.singlePhase', 'Monofásico')}</p>
         <ul className="product-info">
           <li>⚡ 10.0kW / 10.0kVA</li>
-          <li>🔌 Monofásico</li>
-          <li>⚖️ 220 Kg</li>
-          <li>✔️ Sistema AVR</li>
-          <li>✔️ Arranque eléctrico fácil y rápido</li>
-          <li>✔️ Alarma de aceite, panel Smartgen, ruedas</li>
-          <li>✔️ Capacidad de combustible: 34 L</li>
+          <li>🔌 {t('product.info.singlePhase', 'Monofásico')}</li>
+          <li>⚖️ 220 {t('product.info.kg', 'Kg')}</li>
+          <li>✔️ {t('product.features.avrSystem', 'Sistema AVR')}</li>
+          <li>✔️ {t('product.features.easyStart', 'Arranque eléctrico fácil y rápido')}</li>
+          <li>✔️ {t('product.features.safetyFeatures', 'Alarma de aceite, panel Smartgen, ruedas')}</li>
+          <li>✔️ {t('product.info.features.fuelCapacity')} 34 L</li>
         </ul>
-        <button className="product-button">Encuentra un distribuidor →</button>
+        <button className="product-button">{t('product.info.findDistributor', 'Encuentra un distribuidor')} →</button>
       </div>
     </section>
   );

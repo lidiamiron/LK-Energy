@@ -7,6 +7,8 @@
     "@react-email/components": "^0.5.5",
     "@supabase/supabase-js": "^2.57.4",
     "framer-motion": "^12.23.6",
+    "i18next": "^25.5.2",
+    "react-i18next": "^16.0.0",
     "react-icons": "^5.5.0",
     "resend": "^6.1.1"
   },

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; 
+import { useTranslation } from "react-i18next";
 import "../pages/Productos.css";
 
 import generador1 from "../assets/generador1.png";
@@ -27,6 +28,7 @@ const products = [
 ];
 
 function ProductGrid() {
+  const { t } = useTranslation();
   const [selectedFuel, setSelectedFuel] = useState("All");
   const [selectedFrequency, setSelectedFrequency] = useState("All");
   const [selectedVoltage, setSelectedVoltage] = useState("All");
@@ -51,31 +53,40 @@ function ProductGrid() {
   return (
     <div className="product-wrapper">
       <div className="product-container">
-        <h2>GENERADORES INDUSTRIALES</h2>
+        <h2>{t('products.title', 'GENERADORES INDUSTRIALES')}</h2>
         <p className="product-description">
-          Especializados en motores de alta gama, generadores de combustible alternativo y diésel. Nuestros motores entran al mercado a competir gracias a su eficiencia y prestaciones de alto rendimiento.
+          {t('products.description', 'Especializados en motores de alta gama, generadores de combustible alternativo y diésel. Nuestros motores entran al mercado a competir gracias a su eficiencia y prestaciones de alto rendimiento.')}
         </p>
 
         {/* FILTROS */}
         <div className="filter-panel">
           <div className="filter-group">
-            <span>Combustible:</span>
-            <button onClick={() => setSelectedFuel("Diesel")} className={selectedFuel === "Diesel" ? "active" : ""}>Diesel</button>
-           
-            <button onClick={() => setSelectedFuel("All")} className={selectedFuel === "All" ? "active" : ""}>Todos</button>
+            <span>{t('products.filters.fuel', 'Combustible')}:</span>
+            <button onClick={() => setSelectedFuel("Diesel")} className={selectedFuel === "Diesel" ? "active" : ""}>
+              {t('products.filters.diesel', 'Diesel')}
+            </button>
+            <button onClick={() => setSelectedFuel("All")} className={selectedFuel === "All" ? "active" : ""}>
+              {t('products.filters.all', 'Todos')}
+            </button>
           </div>
 
           <div className="filter-group">
-            <span>Frecuencia:</span>
-            <button onClick={() => setSelectedFrequency("50")} className={selectedFrequency === "50" ? "active" : ""}>50 Hz</button>
-            <button onClick={() => setSelectedFrequency("60")} className={selectedFrequency === "60" ? "active" : ""}>60 Hz</button>
-            <button onClick={() => setSelectedFrequency("All")} className={selectedFrequency === "All" ? "active" : ""}>Todas</button>
+            <span>{t('products.filters.frequency', 'Frecuencia')}:</span>
+            <button onClick={() => setSelectedFrequency("50")} className={selectedFrequency === "50" ? "active" : ""}>
+              50 {t('products.filters.hz', 'Hz')}
+            </button>
+            <button onClick={() => setSelectedFrequency("60")} className={selectedFrequency === "60" ? "active" : ""}>
+              60 {t('products.filters.hz', 'Hz')}
+            </button>
+            <button onClick={() => setSelectedFrequency("All")} className={selectedFrequency === "All" ? "active" : ""}>
+              {t('products.filters.all', 'Todas')}
+            </button>
           </div>
 
           <div className="filter-group">
-            <label>Voltaje:</label>
+            <label>{t('products.filters.voltage', 'Voltaje')}:</label>
             <select value={selectedVoltage} onChange={(e) => setSelectedVoltage(e.target.value)}>
-              <option value="All">Todos</option>
+              <option value="All">{t('products.filters.all', 'Todos')}</option>
               <option value="380/220V">380/220V</option>
               <option value="400/230V">400/230V</option>
               <option value="415/240V">415/240V</option>
@@ -83,16 +94,22 @@ function ProductGrid() {
           </div>
 
           <div className="filter-group">
-            <span>Fase:</span>
-            <button onClick={() => setSelectedPhase("Single")} className={selectedPhase === "Single" ? "active" : ""}>Monofásico</button>
-            <button onClick={() => setSelectedPhase("Three")} className={selectedPhase === "Three" ? "active" : ""}>Trifásico</button>
-            <button onClick={() => setSelectedPhase("All")} className={selectedPhase === "All" ? "active" : ""}>Todas</button>
+            <span>{t('products.filters.phase', 'Fase')}:</span>
+            <button onClick={() => setSelectedPhase("Single")} className={selectedPhase === "Single" ? "active" : ""}>
+              {t('products.filters.singlePhase', 'Monofásico')}
+            </button>
+            <button onClick={() => setSelectedPhase("Three")} className={selectedPhase === "Three" ? "active" : ""}>
+              {t('products.filters.threePhase', 'Trifásico')}
+            </button>
+            <button onClick={() => setSelectedPhase("All")} className={selectedPhase === "All" ? "active" : ""}>
+              {t('products.filters.all', 'Todas')}
+            </button>
           </div>
 
           <div className="filter-group">
-            <label>Potencia:</label>
+            <label>{t('products.filters.power', 'Potencia')}:</label>
             <select value={selectedPower} onChange={(e) => setSelectedPower(e.target.value)}>
-              <option value="All">Todas</option>
+              <option value="All">{t('products.filters.all', 'Todas')}</option>
               {[21, 25, 36, 44, 50, 72, 88, 110, 150, 165, 188, 250].map((kva) => (
                 <option key={kva} value={kva}>{kva} kVA</option>
               ))}
@@ -100,7 +117,9 @@ function ProductGrid() {
           </div>
 
           <div className="filter-group">
-            <button onClick={handleSearch} className="search-button">Buscar</button>
+            <button onClick={handleSearch} className="search-button">
+              {t('products.filters.search', 'Buscar')}
+            </button>
           </div>
         </div>
 
@@ -110,10 +129,10 @@ function ProductGrid() {
             <Link to={`/productos/${product.name}`} className="product-card" key={index}>
               <img src={product.image} alt={product.name} className="product-image" />
               <div className="product-power">
-                ⚡ {product.power} - <span>{product.type}</span>
+                ⚡ {product.power} - <span>{t(`product.values.${product.type.toLowerCase()}`, product.type)}</span>
               </div>
               <h3 className="product-name">{product.name}</h3>
-              <p className="product-subtitle">GRUPOS<br /> ELECTROGENOS</p>
+              <p className="product-subtitle">{t('home.titleLine1', 'GRUPOS')}<br /> {t('home.titleLine2', 'ELECTROGENOS')}</p>
             </Link>
           ))}
         </div>

@@ -334,27 +334,184 @@ nav {
   }
 }
 
+/* Contenedor para idiomas y auth */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Selector de idioma DROPDOWN minimalista */
+.language-selector {
+  position: relative;
+}
+
+.language-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  color: #333;
+  min-width: 80px;
+}
+
+.language-trigger:hover {
+  border-color: #e29025;
+  background: #f8f9fa;
+}
+
+.globe-icon {
+  color: #666;
+  font-size: 14px;
+}
+
+.current-language {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  color: #666;
+  transition: transform 0.3s ease;
+  margin-left: auto;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown de idiomas */
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 5px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.language-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 13px;
+  color: #333;
+}
+
+.language-option:hover {
+  background: #f8f9fa;
+}
+
+.language-option.active {
+  background: #e29025;
+  color: white;
+}
+
+.language-option:first-child {
+  border-radius: 6px 6px 0 0;
+}
+
+.language-option:last-child {
+  border-radius: 0 0 6px 6px;
+}
+
+.language-code {
+  font-weight: 600;
+  width: 20px;
+  text-align: center;
+}
+
+.language-name {
+  flex: 1;
+  text-align: left;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+  .nav-actions {
+    gap: 15px;
+  }
+  
+  .language-trigger {
+    padding: 6px 10px;
+    min-width: 70px;
+    font-size: 13px;
+  }
+  
+  .language-dropdown {
+    right: -10px;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+}
 @media (max-width: 480px) {
   .auth-icons {
     gap: 5px;
   }
-  
   .user-welcome,
   .auth-icon.logout {
     padding: 6px;
   }
-}
-
-@media (max-width: 480px) {
-  .auth-icons {
-    gap: 5px;
-  }
-  
   .auth-icon {
     padding: 6px;
   }
   
   .container {
     padding: 0 15px;
+  }
+  .nav-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .language-selector {
+    order: -1; /* Idiomas primero en móvil */
+  }
+  
+  .language-trigger {
+    min-width: 60px;
+  }
+  
+  .language-name {
+    display: none; /* Ocultar nombre completo en móvil muy pequeño */
+  }
+  
+  .language-option {
+    justify-content: center;
+    gap: 8px;
   }
 }

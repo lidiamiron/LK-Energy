@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../client';
 import './SignUp.css';
 
 const SignUp = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     fullName: '', 
     email: '', 
@@ -39,7 +41,7 @@ const SignUp = () => {
 
       if (error) throw error;
       
-      setMessage('¡Cuenta creada exitosamente! Revisa tu email para el enlace de verificación.');
+      setMessage(t('signup.successMessage', '¡Cuenta creada exitosamente! Revisa tu email para el enlace de verificación.'));
       setMessageType('success');
       
       // Limpiar el formulario
@@ -65,14 +67,14 @@ const SignUp = () => {
   return (
     <div className="signup-container">
       <div className="signup-form-wrapper">
-        <h2 className="signup-title">Crear Cuenta</h2>
+        <h2 className="signup-title">{t('signup.title', 'Crear Cuenta')}</h2>
         
         {message && (
           <div className={messageType === 'success' ? 'signup-success-message' : 'signup-error-message'}>
             {message}
             {messageType === 'success' && (
               <div className="signup-redirect-message">
-                Serás redirigido al login en 3 segundos...
+                {t('signup.redirectMessage', 'Serás redirigido al login en 3 segundos...')}
               </div>
             )}
           </div>
@@ -82,7 +84,7 @@ const SignUp = () => {
           <div className="signup-input-group">
             <input 
               className="signup-input"
-              placeholder='Nombre completo'
+              placeholder={t('signup.form.fullName', 'Nombre completo')}
               name='fullName'
               type="text"
               value={formData.fullName}
@@ -95,7 +97,7 @@ const SignUp = () => {
           <div className="signup-input-group">
             <input 
               className="signup-input"
-              placeholder='Email'
+              placeholder={t('signup.form.email', 'Email')}
               name='email'
               type="email"
               value={formData.email}
@@ -108,7 +110,7 @@ const SignUp = () => {
           <div className="signup-input-group">
             <input 
               className="signup-input"
-              placeholder='Contraseña'
+              placeholder={t('signup.form.password', 'Contraseña')}
               name='password'
               type="password"
               value={formData.password}
@@ -118,7 +120,7 @@ const SignUp = () => {
               disabled={isLoading}
             />
             <div className="signup-password-requirements">
-              Mínimo 6 caracteres
+              {t('signup.passwordRequirements', 'Mínimo 6 caracteres')}
             </div>
           </div>
 
@@ -127,12 +129,12 @@ const SignUp = () => {
             className="signup-submit-btn"
             disabled={isLoading}
           >
-            {isLoading ? 'Creando Cuenta...' : 'Registrarse'}
+            {isLoading ? t('signup.status.creating', 'Creando Cuenta...') : t('signup.form.submit', 'Registrarse')}
           </button>
         </form>
 
         <div className="signup-link-section">
-          ¿Ya tienes una cuenta? <Link to='/login' className="signup-link">Inicia Sesión</Link> 
+          {t('signup.haveAccount', '¿Ya tienes una cuenta?')} <Link to='/login' className="signup-link">{t('signup.loginLink', 'Inicia Sesión')}</Link> 
         </div>
       </div>
     </div>
