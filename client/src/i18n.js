@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next';
 // Importar las traducciones
 import en from './locales/en/translation.json';
 import es from './locales/es/translation.json';
+import fr from './locales/fr/translation.json';
 
 // Configuración simple y directa
 const resources = {
@@ -12,6 +13,9 @@ const resources = {
   },
   es: {
     translation: es
+  },
+  fr: {
+    translation: fr
   }
 };
 

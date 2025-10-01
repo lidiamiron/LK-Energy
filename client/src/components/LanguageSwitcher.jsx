@@ -17,11 +17,21 @@ export default function LanguageSwitcher() {
   };
 
   const getCurrentLanguageName = () => {
-    return i18n.language === 'es' ? 'ES' : 'EN';
+    const languages = {
+      'es': 'ES',
+      'en': 'EN',
+      'fr': 'FR'
+    };
+    return languages[i18n.language] || 'ES';
   };
 
   const getFullLanguageName = () => {
-    return i18n.language === 'es' ? 'Español' : 'English';
+    const languages = {
+      'es': 'Español',
+      'en': 'English',
+      'fr': 'Français'
+    };
+    return languages[i18n.language] || 'Español';
   };
 
   return (
@@ -38,7 +48,6 @@ export default function LanguageSwitcher() {
 
       {/* Menú desplegable */}
       <div className={`language-dropdown-fixed ${isOpen ? 'open' : ''}`}>
-       
         <div className="language-options">
           <button 
             onClick={() => changeLanguage('es')}
@@ -53,6 +62,13 @@ export default function LanguageSwitcher() {
           >
             <span className="language-code-fixed">EN</span>
             <span className="language-name-fixed">English</span>
+          </button>
+          <button 
+            onClick={() => changeLanguage('fr')}
+            className={`language-option-fixed ${i18n.language === 'fr' ? 'active' : ''}`}
+          >
+            <span className="language-code-fixed">FR</span>
+            <span className="language-name-fixed">Français</span>
           </button>
         </div>
       </div>

@@ -126,9 +126,41 @@ const LK21B = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
 
+  // Detectar si es mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 767);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 767);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <section className="gallery-section" ref={sectionRef}>
-      {/* Galería e info técnica a la izquierda */}
+      {/* En mobile, la info va primero */}
+      {isMobile && (
+        <div className="gallery-right">
+          <h2 className="product-title">LK21B</h2>
+          <p className="product-subtitle">{t('product.info.subtitle')}</p>
+          <ul className="product-info">
+            <li>{t('product.info.features.prpPower')} 15kW / 19kVA</li>
+            <li>{t('product.info.features.espPower')} 17kW / 21kVA</li>
+            <li>{t('product.info.features.threePhase')}</li>
+            <li>{t('product.info.features.weight')} 700 Kg</li>
+            <li>{t('product.info.features.engine')}</li>
+            <li>{t('product.info.features.alternator')}</li>
+            <li>{t('product.info.features.fuelCapacity')} 9.5 L</li>
+          </ul>
+          <a href="http://localhost:5173/Contacto">
+            <button className="product-button">{t('product.info.contactButton')}</button>
+          </a>
+        </div>
+      )}
+
+      {/* Galería */}
       <div className="gallery-left">
         <img src={selectedImage} alt="Principal" className="main-image" />
         <div className="thumbnails">
@@ -145,23 +177,25 @@ const LK21B = () => {
         <ProductSpecs />
       </div>
 
-      {/* Parte derecha sticky */}
-      <div className="gallery-right">
-        <h2 className="product-title">LK21B</h2>
-        <p className="product-subtitle">{t('product.info.subtitle')}</p>
-        <ul className="product-info">
-          <li>{t('product.info.features.prpPower')} 15kW / 19kVA</li>
-          <li>{t('product.info.features.espPower')} 17kW / 21kVA</li>
-          <li>{t('product.info.features.threePhase')}</li>
-          <li>{t('product.info.features.weight')} 700 Kg</li>
-          <li>{t('product.info.features.engine')}</li>
-          <li>{t('product.info.features.alternator')}</li>
-          <li>{t('product.info.features.fuelCapacity')} 9.5 L</li>
-        </ul>
-        <a href="http://localhost:5173/Contacto">
-          <button className="product-button">{t('product.info.contactButton')}</button>
-        </a>
-      </div>
+      {/* En desktop, la info va a la derecha */}
+      {!isMobile && (
+        <div className="gallery-right">
+          <h2 className="product-title">LK21B</h2>
+          <p className="product-subtitle">{t('product.info.subtitle')}</p>
+          <ul className="product-info">
+            <li>{t('product.info.features.prpPower')} 15kW / 19kVA</li>
+            <li>{t('product.info.features.espPower')} 17kW / 21kVA</li>
+            <li>{t('product.info.features.threePhase')}</li>
+            <li>{t('product.info.features.weight')} 700 Kg</li>
+            <li>{t('product.info.features.engine')}</li>
+            <li>{t('product.info.features.alternator')}</li>
+            <li>{t('product.info.features.fuelCapacity')} 9.5 L</li>
+          </ul>
+          <a href="http://localhost:5173/Contacto">
+            <button className="product-button">{t('product.info.contactButton')}</button>
+          </a>
+        </div>
+      )}
     </section>
   );
 };

@@ -1,3 +1,8 @@
+/* Hero Section */
+.header {
+  width: 100%;
+  height: 100vh;
+}
 
 .home-banner {
   position: relative;
@@ -289,3 +294,100 @@
 }
 
 
+@media (max-width: 1024px) {
+  .title-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+    padding-top: 100px;
+  }
+  
+  .title-content {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .generator {
+    width: 100%;
+    max-width: 500px;
+    padding-top: 40px;
+ 
+ }
+
+.img-acordeon img {
+    max-width: auto;
+    max-height: 100%;
+}
+}
+
+@media (max-width: 768px) {
+  
+  
+  .title-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .title-content {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 3rem;
+    text-align: center;
+    color: #383838;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 2rem;
+    color: #383838;
+  }
+   
+  .generator {
+    width: 100%;
+    max-width: 400px;
+    
+  }
+
+  .footer-column {
+flex: auto;
+  }
+  .map-container{
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .about .title {
+    font-size: 2rem;
+  }
+  
+  .about .title p {
+    font-size: 1.2rem;
+  }
+  .logo img {
+    height: 30px;
+    width: auto;
+}
+}
