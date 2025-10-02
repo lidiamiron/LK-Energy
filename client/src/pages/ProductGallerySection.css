@@ -140,6 +140,18 @@
   padding: 0.5rem 0;
 }
 
+.specs-list{
+    list-style: none;
+    font-size: 1rem;
+  padding: 0.5rem 0;
+  color: #333;
+}
+
+.sub-item{
+    margin-left: 2rem;
+    list-style:circle;
+}
+
 .docs-block {
   margin-top: 2.5rem;
 }
@@ -173,4 +185,176 @@ color: #333;
 
 .pdf-icon{
   color: red;
+}
+
+@media (max-width: 767px) {
+  .gallery-section {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    justify-content: center !important;
+    align-items: center;
+  }
+
+  .gallery-right {
+    position: static;
+    order: -1; 
+    margin-bottom: 2rem !important;
+    margin-top: 2rem !important;
+    transform: none;
+    top: auto;
+    width: 100%;
+    align-items: center; /* AÑADIR ESTO - Centrar todo el contenido */
+    text-align: center; /* AÑADIR ESTO */
+  }
+
+  .main-image {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .thumbnails {
+    gap: 10px;
+    padding-bottom: 10px;
+    justify-content: center; /* Cambiar a center */
+  }
+
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+
+  .product-title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .product-subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .product-info {
+    text-align: center;
+    align-items: center; /* AÑADIR ESTO */
+    display: flex; /* AÑADIR ESTO */
+    flex-direction: column; /* AÑADIR ESTO */
+  }
+
+  .product-info li {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  .product-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    align-self: center; /* CAMBIAR A center - Esto arregla el problema */
+  }
+
+  /* Especificaciones responsive */
+  .specs-container {
+    padding: 2rem 0;
+  }
+
+  .specs-title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .specs-header {
+    font-size: 1rem;
+    padding: 0.8rem 0;
+  }
+
+  .specs-table {
+    font-size: 0.85rem;
+  }
+
+  .specs-table td {
+    padding: 0.4rem;
+    font-size: 0.85rem;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .specs-table tr {
+    display: block;
+    margin-bottom: 0.5rem;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .specs-table td:first-child {
+    font-weight: bold;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .specs-list {
+    font-size: 0.9rem;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .sub-item {
+    margin-left: 1rem;
+    font-size: 0.85rem;
+    text-align: left;
+  }
+
+  .docs-title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .doc-item {
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
+  .descargas {
+    font-size: 0.95rem;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 576px) {
+  .gallery-section {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+
+  .product-title {
+    font-size: 1.6rem;
+  }
+
+  .specs-header {
+    font-size: 0.95rem;
+  }
+  
+  .product-button {
+    max-width: 100%;
+  }
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 1200px) {
+  .gallery-section {
+    min-height: 70vh;
+  }
 }

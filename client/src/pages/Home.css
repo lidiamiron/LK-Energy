@@ -331,8 +331,6 @@
 }
 
 @media (max-width: 768px) {
-  
-  
   .title-container {
     flex-direction: column;
     text-align: center;
@@ -362,12 +360,11 @@
     
   }
 
-  .footer-column {
-flex: auto;
+  img{
+    width: 170px;
+    height: auto;
   }
-  .map-container{
-    margin-left: 0;
-  }
+
 }
 
 @media (max-width: 576px) {

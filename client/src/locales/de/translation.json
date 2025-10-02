@@ -1,0 +1,273 @@
+{
+  "contact": {
+    "title": "LASSEN SIE UNS <span>ÜBER ENERGIE SPRECHEN!</span>",
+    "intro": "Suchen Sie einen Stromgenerator und wissen nicht, welcher der ideale für Sie ist? Bei LK Generadores sind wir hier, um Ihnen zu helfen. Hinterlassen Sie uns Ihre Daten und wir kontaktieren Sie mit persönlicher Beratung oder einem maßgeschneiderten Angebot!",
+    "form": {
+      "name": "Name *",
+      "surname": "Nachname",
+      "email": "E-Mail *",
+      "phone": "Telefon",
+      "message": "Nachricht *",
+      "submit": "SENDEN"
+    },
+    "status": {
+      "required": "Bitte füllen Sie die erforderlichen Felder aus",
+      "sending": "Wird gesendet...",
+      "success": "Nachricht erfolgreich gesendet!",
+      "error": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.",
+      "config_error": "Fehler: Falsche Konfiguration. Überprüfen Sie die Anmeldedaten."
+    },
+    "info": {
+      "title": "Kontakt<span>informationen</span>",
+      "address": "Carrer Tramuntana, 2 - PI Can Mascaró <br />08756 La Palma de Cervelló,<br /> Barcelona",
+      "call": "Rufen Sie uns an",
+      "schedule": "Wir sind von Montag bis Freitag geöffnet<br />09:00 - 18:30",
+      "follow": "Folgen Sie uns"
+    }
+  },
+  "home": {
+    "titleLine1": "STROMAGGREGATE",
+    "titleLine2": "UND GENERATOREN",
+    "subtitle": "Zuverlässige Energie für Großprojekte",
+    "budgetButton": "ANGEBOT ANFORDERN",
+    "aboutTitle": "ÜBER UNS",
+    "aboutHeading": "LK ENERGY",
+    "aboutSubtitle": "Wir bieten die Lösung, die Sie benötigen.",
+    "aboutContact": "KONTAKTIEREN SIE UNS",
+    "aboutDescription": "LK Energy ist ein führendes Unternehmen in der Lieferung und Wartung von hochleistungsfähigen Industriegeneratoren. Wir spezialisieren uns auf Energielösungen für Unternehmen in verschiedenen Branchen und bieten zuverlässige Geräte und spezialisierte Wartungsdienste, die Betriebskontinuität und Energieeffizienz garantieren.",
+    "sparePartsTitle": "Ersatzteile",
+    "sparePartsDescription": "Wir haben die Ersatzteile, die Sie für die Reparatur und Wartung von Industriegeneratoren benötigen, und gewährleisten so maximale Effizienz und Langlebigkeit Ihrer Geräte.",
+    "technicalServiceTitle": "Technischer Service",
+    "technicalServiceDescription": "Wir bieten originale Ersatzteile für alle LKEnergy-Produkte mit Reparatur- und Wartungsservice durch unsere zertifizierten Mechaniker.",
+    "warrantiesTitle": "Garantien",
+    "warrantiesDescription": "Vollständige Garantien für alle unsere Produkte mit bis zu 3 Jahren Laufzeit."
+  },
+  "downloads": {
+    "title": "Downloads",
+    "tableHeaders": {
+      "model": "MODELL",
+      "kva": "KVA",
+      "kilowatts": "Kilowatt",
+      "engineType": "Motortyp",
+      "dimension": "Abmessungen",
+      "download": "Download"
+    },
+    "documents": {
+      "technicalSheet": "Technisches Datenblatt",
+      "userManual": "Bedienungsanleitung"
+    },
+    "engineType": "Diesel"
+  },
+  "dashboard": {
+    "welcome": "Willkommen zurück,",
+    "logout": "Abmelden",
+    "user": "Benutzer"
+  },
+  "product": {
+    "specifications": {
+      "title": "Technische Spezifikationen",
+      "characteristics": "Eigenschaften",
+      "engine": "Motor",
+      "alternator": "Generator",
+      "type": "Typ:",
+      "noiseLevel": "Geräuschpegel (bei 7 m):",
+      "dimensions": "Abmessungen:",
+      "weight": "Nettogewicht:",
+      "tank": "Tank:",
+      "closed": "Geschlossen",
+      "engineDetails": {
+        "model": "Modell:",
+        "cylinders": "Zylinderanzahl:",
+        "displacement": "Hubraum:",
+        "boreStroke": "Bohrung × Hub:",
+        "compressionRatio": "Verdichtungsverhältnis:",
+        "maxOilTemp": "Maximale Öltemperatur:",
+        "aspiration": "Ansaugung:",
+        "oilPressure": "Öldruck (Dauerbetrieb):",
+        "fuelSystem": "Kraftstoffsystem:",
+        "airRestriction": "Luftansaugwiderstand:",
+        "dirtyFilter": "Verschmutzter Filter:",
+        "cleanFilter": "Sauberer Filter:",
+        "airFlow": "Luftansaugstrom:",
+        "exhaustFlow": "Abgasstrom:",
+        "exhaustTemp": "Abgastemperatur:",
+        "ratedSpeed": "Nenndrehzahl:",
+        "backPressure": "Maximaler Gegendruck (Abgas):",
+        "enginePower": "Bruttomotorenleistung:",
+        "coolantCapacity": "Kühlmittelkapazität:",
+        "governor": "Reglertyp:",
+        "thermostat": "Thermostat-Betriebsbereich:",
+        "starter": "Anlasser:",
+        "maxTankTemp": "Maximale obere Tanktemperatur:",
+        "maxOilCapacity": "Maximale Ölkapazität:",
+        "fuelConsumption": "Kraftstoffverbrauch (bei 1500 U/min):",
+        "fullLoad": "100% Last (Hauptleistung):",
+        "load75": "75% Last:",
+        "load50": "50% Last:"
+      },
+      "alternatorDetails": {
+        "wiring": "Verdrahtungstyp:",
+        "exciter": "Erregertyp:",
+        "bearing": "Lager:",
+        "voltageReg": "Spannungsregelung:",
+        "powerFactor": "Leistungsfaktor:",
+        "protection": "Schutzart:",
+        "frequency": "Frequenz:",
+        "insulation": "Isolationsklasse:",
+        "maxSpeed": "Maximale Drehzahl (Überdrehzahl):",
+        "altitude": "Höhe:"
+      }
+    },
+    "documents": {
+      "title": "Handbücher und Dokumente",
+      "technicalSheet": "Technisches Datenblatt",
+      "userManual": "Bedienungsanleitung"
+    },
+    "info": {
+      "subtitle": "Dreiphasig",
+      "features": {
+        "prpPower": "⚡ PRP-Leistung:",
+        "espPower": "⚡ ESP-Leistung:",
+        "threePhase": "🔌 Dreiphasig",
+        "weight": "⚖️",
+        "engine": "✔️ Baudoin Motor",
+        "alternator": "✔️ LK Power Generator",
+        "fuelCapacity": "✔️ Kraftstoffkapazität:"
+      },
+      "contactButton": "Kontaktieren Sie uns→"
+    },
+    "values": {
+      "threePhase": "Dreiphasig, 4 Pole, Y-Typ",
+      "natural": "Natürlich",
+      "turbocharged": "Turboaufgeladen",
+      "turbochargedAftercooled": "Turboaufgeladen & Ladeluftkühlung",
+      "mechanicalPump": "Mechanische Pumpe",
+      "brushless": "Bürstenlos, selbsterregt",
+      "electronic": "Elektronisch"
+    }
+  },
+  "login": {
+    "title": "Anmeldung",
+    "form": {
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "Anmelden"
+    },
+    "status": {
+      "sending": "Wird angemeldet..."
+    },
+    "noAccount": "Noch kein Konto?",
+    "signupLink": "Hier registrieren"
+  },
+  "signup": {
+    "title": "Konto erstellen",
+    "form": {
+      "fullName": "Vollständiger Name",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "submit": "Registrieren"
+    },
+    "status": {
+      "creating": "Konto wird erstellt..."
+    },
+    "successMessage": "Konto erfolgreich erstellt! Überprüfen Sie Ihre E-Mail auf den Bestätigungslink.",
+    "redirectMessage": "Sie werden in 3 Sekunden zur Anmeldung weitergeleitet...",
+    "passwordRequirements": "Mindestens 6 Zeichen",
+    "haveAccount": "Bereits ein Konto?",
+    "loginLink": "Anmelden"
+  },
+  "products": {
+    "title": "INDUSTRIE-GENERATOREN",
+    "description": "Spezialisiert auf Hochleistungsmotoren, Generatoren mit alternativen Kraftstoffen und Dieselgeneratoren. Unsere Motoren konkurrieren auf dem Markt dank ihrer Effizienz und Hochleistungsmerkmale.",
+    "filters": {
+      "fuel": "Kraftstoff",
+      "diesel": "Diesel",
+      "frequency": "Frequenz",
+      "hz": "Hz",
+      "voltage": "Spannung",
+      "phase": "Phase",
+      "singlePhase": "Einphasig",
+      "threePhase": "Dreiphasig",
+      "power": "Leistung",
+      "search": "Suchen",
+      "all": "Alle"
+    }
+  },
+  "accordion": {
+    "whyChooseLK": {
+      "title": "Warum LK wählen?",
+      "content": "Bei LK bieten wir zuverlässige Energielösungen mit über 25 Jahren Erfahrung in der Branche. Wir bieten qualitativ hochwertigen technischen Service für alle unsere Händler."
+    },
+    "energyEfficiency": {
+      "title": "Energieeffizienz",
+      "content": "Die moderne Industrie arbeitet mit hohen Effizienzniveaus dank fortschrittlicher Technologien, präziser Prozesse und hochqualifizierter Arbeitskräfte. Ein Schlüsselfaktor für diese Leistung ist das Just-in-Time-Inventarsystem, bei dem jede Komponente genau rechtzeitig für die Montage an der Produktionslinie ankommt. Damit dieser Prozess ohne Unterbrechungen funktioniert, ist eine zuverlässige Stromversorgung unerlässlich, die die Produktion auch bei einem Stromausfall aktiv hält. Bei LK Energy bieten wir die Energie, die Ihr Betrieb benötigt. Wir bieten ein breites Spektrum an Backup- und Notstromlösungen, die entwickelt wurden, um die Betriebskontinuität unter allen Umständen zu gewährleisten."
+    },
+    "waterTreatment": {
+      "title": "Wasseraufbereitung",
+      "content": "Die Wassernachfrage wächst rasant. Der globale Wasserverbrauch verdoppelt sich alle 20 Jahre. Daher konzentrieren sich Gemeinden und Behörden darauf, diese Ressource durch die Reinigung und Wiederverwendung von Abwasser effizienter und intelligenter zu managen. Heute mehr denn je müssen Kläranlagen große Wassermengen sammeln, transportieren und verarbeiten, um sie dann in die Umwelt zurückzuführen oder in Aktivitäten wie der Bewässerung wiederzuverwenden. Während längerer Unterbrechungen kann eine unzureichende Behandlung jedoch schwerwiegende ökologische und finanzielle Folgen haben. LK Energy bietet zuverlässige Energielösungen für den Wassersektor. Die Installation eines Stromaggregats ermöglicht den kontinuierlichen Betrieb der Anlage in kritischen Situationen wie Stromausfällen und gewährleistet die Wasserversorgung einer gesamten Stadt auch unter unkontrollierbaren Umständen."
+    },
+    "dataCenter": {
+      "title": "Rechenzentren",
+      "content": "Bei LK Energy bieten wir Stromgenerator-Lösungen, die entwickelt wurden, um eine stabile und zuverlässige Versorgung auch unter anspruchsvollen Bedingungen zu gewährleisten. Unsere Technologien integrieren Cloud-Plattformen und Echtzeit-Virtualisierung, um die operative Kontinuität unserer Kunden mit wartungsfreundlichen Geräten zu verbessern, die für Parallelbetrieb bereit sind. Wir bieten effiziente, maßgeschneiderte Energie-Backup-Lösungen mit an die Umgebung angepasstem Design, das die visuelle Auswirkung reduziert und maximale Leistung in jedem Projekt gewährleistet."
+    },
+    "healthSector": {
+      "title": "Gesundheitssektor",
+      "content": "Wenn in Gesundheitszentren oder Krankenhäusern ein Stromausfall auftritt, können die Leben von Patienten, Personal und Besuchern gefährdet sein. Während einer Krise wird ein Krankenhaus zu einem Schlüsselpunkt für die Gemeinschaft. Besucher gehen nicht weg und viele Menschen kommen auf der Suche nach Schutz, Behandlung, Nahrung und Wasser. LK Energy-Generatoren bieten zuverlässige Lösungen, um jedes Gebäude vor Stromausfällen oder Notständen zu schützen und den kontinuierlichen und sicheren Betrieb der Einrichtungen zu gewährleisten."
+    },
+    "oilIndustry": {
+      "title": "Ölindustrie",
+      "content": "Die Öl- und Gasindustrie bewegt täglich milliardenschwere Projekte, die Exploration, Bohrungen, Betrieb, Raffination und Vertrieb abdecken. Nach Jahren hoher Kosten steht sie unter starkem Druck, ihre Effizienz und Produktivität zu steigern und ihre Umweltauswirkungen zu reduzieren. LK Energy bietet zuverlässige Stromaggregat-Lösungen, die für extreme Bedingungen ausgelegt sind. Unsere Geräte garantieren kontinuierliche Energie in anspruchsvollen Betriebsumgebungen, ideal für die Bedürfnisse des Energiesektors."
+    },
+    "constructionSector": {
+      "title": "Bausektor",
+      "content": "Die Bauindustrie ist ein wettbewerbsintensiver, dynamischer Sektor, der für die wirtschaftliche Entwicklung unerlässlich ist. Sie treibt das Wachstum durch Wohnungsbau, Tiefbauprojekte und gewerbliche Projekte voran und generiert in allen Ländern bedeutende Beschäftigung. LK Energy ist der ideale Partner, um alle Energieversorgungsbedürfnisse in diesem Sektor abzudecken. Wir bieten spezifische und maßgeschneiderte Stromgeneratoren für jede Art von Bauprojekt, die sich an Ihre Bedingungen und Anforderungen anpassen. Wir sind ein auf Innovation ausgerichteter Anbieter mit Energielösungen, die einen echten Unterschied auf dem Markt machen. Unsere Erfahrung umfasst zahlreiche erfolgreiche Projekte im Baubereich weltweit."
+    }
+  },
+  "featuredProducts": {
+    "title": "Empfohlene Produkte",
+    "kva": "KVA",
+    "viewMore": "Mehr anzeigen"
+  },
+  "footer": {
+    "tagline": "INDUSTRIE-STROMGENERATOREN",
+    "slogan": "Zuverlässige Energie für Ihr Unternehmen",
+    "menu": "Menü",
+    "company": "Unternehmen",
+    "products": "Produkte",
+    "downloads": "Downloads",
+    "contact": "Kontakt",
+    "followUs": "Folgen Sie uns",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "mapTitle": "Standort auf der Karte",
+    "terms": "Datenschutzbestimmungen und Bedingungen",
+    "copyright": "Copyright © {{year}} Power10. Alle Rechte vorbehalten."
+  },
+  "navbar": {
+    "company": "Unternehmen",
+    "products": "Produkte",
+    "downloads": "Downloads",
+    "contact": "Kontakt",
+    "user": "Benutzer",
+    "loading": "Lädt...",
+    "hello": "Hallo",
+    "logout": "Abmelden",
+    "login": "Anmelden",
+    "signup": "Registrieren",
+    "changeLanguage": "Sprache ändern"
+  },
+  "whyChooseLK": {
+    "title": "Warum LK wählen?",
+    "description": "Bei LK bieten wir zuverlässige Energielösungen mit über 25 Jahren Erfahrung in der Branche. Wir bedienen das gesamte Land mit hochwertigen Generatoren und spezialisiertem technischem Support.",
+    "imageAlt": "LK Arbeitsteam",
+    "sectors": {
+      "commercial": "EINKAUFSZENTREN UND GESCHÄFTE",
+      "industrial": "INDUSTRIESEKTOR",
+      "waterTreatment": "WASSERAUFBEREITUNG",
+      "dataCenters": "RECHENZENTREN",
+      "health": "GESUNDHEITSSEKTOR",
+      "oilIndustry": "ÖLINDUSTRIE",
+      "construction": "BAUSEKTOR"
+    }
+  }
+}

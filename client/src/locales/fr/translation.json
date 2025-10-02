@@ -19,18 +19,12 @@
     },
     "info": {
       "title": "Informations de <span>Contact</span>",
-      "address": {
-        "line1": "Carrer Tramuntana, 2 - PI Can Mascaró",
-        "line2": "08756 La Palma de Cervelló,",
-        "line3": "Barcelone"
-      },
+      "address": "Carrer Tramuntana, 2 - PI Can Mascaró <br />08756 La Palma de Cervelló,<br /> Barcelona",
       "call": "Appelez-nous",
-      "schedule": {
-        "line1": "Nous sommes ouverts du lundi au vendredi",
-        "line2": "09:00 - 18:30"
-      },
+      "schedule": "Nous sommes ouverts du lundi au vendredi<br />09:00 - 18:30",
       "follow": "Suivez-nous"
     }
+    
   },
   "home": {
     "titleLine1": "GROUPES",

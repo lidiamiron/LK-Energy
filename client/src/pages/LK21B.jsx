@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import "./LK21B.css";
+
 import { FaFilePdf } from "react-icons/fa";
 
 import generatormain from "../assets/generator-main.png";
@@ -8,7 +8,7 @@ import generador1 from "../assets/generator-1.png";
 import generador2 from "../assets/generator-2.png";
 import generador3 from "../assets/generator-3.png";
 import generador4 from "../assets/generator-4.png";
-
+import "./ProductGallerySection.css";
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
   const { t } = useTranslation();

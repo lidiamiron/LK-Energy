@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import "./LK165B.css";
+import "./ProductGallerySection.css";
+
 import { FaFilePdf } from "react-icons/fa";
 
 import generatormain from "../assets/generator-main.png";

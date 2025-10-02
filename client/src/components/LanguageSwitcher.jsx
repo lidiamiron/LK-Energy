@@ -20,7 +20,8 @@ export default function LanguageSwitcher() {
     const languages = {
       'es': 'ES',
       'en': 'EN',
-      'fr': 'FR'
+      'fr': 'FR',
+      'de': 'DE' // ✅ Agregar alemán
     };
     return languages[i18n.language] || 'ES';
   };
@@ -29,7 +30,8 @@ export default function LanguageSwitcher() {
     const languages = {
       'es': 'Español',
       'en': 'English',
-      'fr': 'Français'
+      'fr': 'Français',
+      'de': 'Deutsch' // ✅ Agregar alemán
     };
     return languages[i18n.language] || 'Español';
   };
@@ -69,6 +71,13 @@ export default function LanguageSwitcher() {
           >
             <span className="language-code-fixed">FR</span>
             <span className="language-name-fixed">Français</span>
+          </button>
+          <button 
+            onClick={() => changeLanguage('de')}
+            className={`language-option-fixed ${i18n.language === 'de' ? 'active' : ''}`}
+          >
+            <span className="language-code-fixed">DE</span>
+            <span className="language-name-fixed">Deutsch</span>
           </button>
         </div>
       </div>

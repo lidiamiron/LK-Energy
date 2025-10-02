@@ -132,3 +132,34 @@ line-height: 1.6;
 
 }
 
+@media (max-width: 992px) {
+
+  .contact-column {
+    min-width: 100%;
+    margin-top: 30px;
+  }
+  
+  .map-container {
+    max-width: 300px;
+    margin: 15px auto 0;
+  }
+}
+
+@media (max-width: 768px) {
+  
+
+
+  .footer-column {
+    min-width: 50%;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .copyright {
+    text-align: center;
+  }
+}
