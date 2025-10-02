@@ -70,7 +70,7 @@ export default function Contact() {
   return (
     <section className="contact-section">
       <div className="contact-form">
-        {/* 👇 renderiza HTML dentro del JSON (span, br) */}
+       
         <h2 dangerouslySetInnerHTML={{ __html: t("contact.title") }} />
         <p>{t("contact.intro")}</p>
 

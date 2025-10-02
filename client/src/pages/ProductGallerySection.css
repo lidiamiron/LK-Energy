@@ -204,8 +204,8 @@ color: #333;
     transform: none;
     top: auto;
     width: 100%;
-    align-items: center; /* AÑADIR ESTO - Centrar todo el contenido */
-    text-align: center; /* AÑADIR ESTO */
+    align-items: center; 
+    text-align: center; 
   }
 
   .main-image {
@@ -216,7 +216,7 @@ color: #333;
   .thumbnails {
     gap: 10px;
     padding-bottom: 10px;
-    justify-content: center; /* Cambiar a center */
+    justify-content: center; 
   }
 
   .thumbnail {
@@ -237,9 +237,9 @@ color: #333;
 
   .product-info {
     text-align: center;
-    align-items: center; /* AÑADIR ESTO */
-    display: flex; /* AÑADIR ESTO */
-    flex-direction: column; /* AÑADIR ESTO */
+    align-items: center; 
+    display: flex; 
+    flex-direction: column; 
   }
 
   .product-info li {
@@ -253,7 +253,7 @@ color: #333;
     max-width: 300px;
     padding: 14px 24px;
     font-size: 1rem;
-    align-self: center; /* CAMBIAR A center - Esto arregla el problema */
+    align-self: center; 
   }
 
   /* Especificaciones responsive */

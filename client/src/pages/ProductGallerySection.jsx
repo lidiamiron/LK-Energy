@@ -9,7 +9,7 @@ import generador2 from "../assets/generator-2.png";
 import generador3 from "../assets/generator-3.png";
 import generador4 from "../assets/generator-4.png";
 
-// Subcomponente para especificaciones
+
 const ProductSpecs = () => {
   const { t } = useTranslation();
   const [openSection, setOpenSection] = useState("estructura");
@@ -81,7 +81,7 @@ const ProductSpecs = () => {
   );
 };
 
-// Componente principal
+
 const ProductGallerySection = () => {
   const { t } = useTranslation();
   const images = [generatormain, generador1, generador2, generador3, generador4];
@@ -90,7 +90,7 @@ const ProductGallerySection = () => {
 
   return (
     <section className="gallery-section" ref={sectionRef}>
-      {/* Galería e info técnica a la izquierda */}
+     
       <div className="gallery-left">
         <img src={selectedImage} alt="Principal" className="main-image" />
         <div className="thumbnails">
@@ -107,7 +107,7 @@ const ProductGallerySection = () => {
         <ProductSpecs />
       </div>
 
-      {/* Parte derecha sticky */}
+     
       <div className="gallery-right">
         <h2 className="product-title">KDG12EA | {t('product.values.open', 'ABIERTO')}</h2>
         <p className="product-subtitle">{t('product.info.singlePhase', 'Monofásico')}</p>

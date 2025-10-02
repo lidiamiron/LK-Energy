@@ -43,7 +43,7 @@ function App() {
   }, [])
 
   return (
-    <AuthProvider> {/* AuthProvider debe envolver TODO */}
+    <AuthProvider> 
       <Router>
         <MainLayout>
           <Routes>
