@@ -49,7 +49,7 @@ const Footer = () => {
               {t('contact.info.address.line3', 'Barcelona')}
             </p>
             <p><FontAwesomeIcon icon={faPhone} /> {t('footer.phone', 'Teléfono')}: +34 936 84 66 35 </p>
-            <p><FontAwesomeIcon icon={faEnvelope} /> {t('footer.email', 'Email')}: info@lkpower.es</p>
+            <p><FontAwesomeIcon icon={faEnvelope} /> {t('footer.email', 'Email')}: info@lkenergy.com</p>
           </div>
           <div className="map-container">
             <iframe 
