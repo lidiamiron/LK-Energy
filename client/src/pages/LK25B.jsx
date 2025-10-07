@@ -1,14 +1,13 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import "./ProductGallerySection.css";
-
 import { FaFilePdf } from "react-icons/fa";
-
 import generatormain from "../assets/generator-main.png";
 import generador1 from "../assets/generator-1.png";
 import generador2 from "../assets/generator-2.png";
 import generador3 from "../assets/generator-3.png";
 import generador4 from "../assets/generator-4.png";
+import SEO from '../components/SEO';
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
@@ -127,43 +126,110 @@ const LK25B = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
 
-  return (
-    <section className="gallery-section" ref={sectionRef}>
-      {/* Galería e info técnica a la izquierda */}
-      <div className="gallery-left">
-        <img src={selectedImage} alt="Principal" className="main-image" />
-        <div className="thumbnails">
-          {images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`Miniatura ${index + 1}`}
-              className={`thumbnail ${selectedImage === img ? "active" : ""}`}
-              onClick={() => setSelectedImage(img)}
-            />
-          ))}
-        </div>
-        <ProductSpecs />
-      </div>
+  // SOLO SE AÑADE: Schema.org para Product
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Generador LK25B - LK Energy",
+    "description": "Generador eléctrico LK25B de 25 KVA, 20 kW. Motor diésel 4M06G25/5, 4 cilindros, 2.3L. Especificaciones técnicas completas para uso industrial.",
+    "brand": {
+      "@type": "Brand",
+      "name": "LK Energy"
+    },
+    "model": "LK25B",
+    "sku": "LK25B",
+    "mpn": "LK25B",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Potencia",
+        "value": "25 KVA / 20 kW"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Tipo de Motor", 
+        "value": "Diésel"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindros",
+        "value": "4"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Peso",
+        "value": "710 kg"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Dimensiones",
+        "value": "1970 x 800 x 1075 mm"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Modelo Motor",
+        "value": "4M06G25/5"
+      }
+    ],
+    "url": "https://lkenergy.com/productos/LK25B"
+  };
 
-      {/* Parte derecha sticky */}
-      <div className="gallery-right">
-        <h2 className="product-title">LK25B</h2>
-        <p className="product-subtitle">{t('product.info.subtitle')}</p>
-        <ul className="product-info">
-          <li>{t('product.info.features.prpPower')} 18kW / 23kVA</li>
-          <li>{t('product.info.features.espPower')} 20kW / 25kVA</li>
-          <li>{t('product.info.features.threePhase')}</li>
-          <li>{t('product.info.features.weight')} 710 Kg</li>
-          <li>{t('product.info.features.engine')}</li>
-          <li>{t('product.info.features.alternator')}</li>
-          <li>{t('product.info.features.fuelCapacity')} 9.5 L</li>
-        </ul>
-        <a href="http://localhost:5173/Contacto">
-          <button className="product-button">{t('product.info.contactButton')}</button>
-        </a>
-      </div>
-    </section>
+  return (
+    <>
+      <SEO 
+        title="Generador LK25B - 25 KVA | LK Energy | Especificaciones Técnicas"
+        description="Generador eléctrico LK25B de 25 KVA, 20 kW. Motor diésel 4M06G25/5, 4 cilindros, 2.3L. Consumo: 6.1 L/h a plena carga. Especificaciones completas."
+        keywords="generador LK25B, LK25B especificaciones, 25 KVA, generador diésel, LK Energy, motor 4M06G25/5, 20 kW"
+        canonical="/productos/LK25B"
+        ogType="product"
+      />
+
+      {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
+      <script type="application/ld+json">
+        {JSON.stringify(productSchema)}
+      </script>
+
+      <section className="gallery-section" ref={sectionRef}>
+        {/* Galería e info técnica a la izquierda */}
+        <div className="gallery-left">
+          <img 
+            src={selectedImage} 
+            alt="Generador eléctrico LK25B - Vista principal" 
+            className="main-image" 
+          />
+          <div className="thumbnails">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Generador LK25B - Vista ${index + 1}`}
+                className={`thumbnail ${selectedImage === img ? "active" : ""}`}
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
+          <ProductSpecs />
+        </div>
+
+        {/* Parte derecha sticky */}
+        <div className="gallery-right">
+          <h1 className="product-title">LK25B</h1>
+          <p className="product-subtitle">{t('product.info.subtitle')}</p>
+          <ul className="product-info">
+            <li>{t('product.info.features.prpPower')} 18kW / 23kVA</li>
+            <li>{t('product.info.features.espPower')} 20kW / 25kVA</li>
+            <li>{t('product.info.features.threePhase')}</li>
+            <li>{t('product.info.features.weight')} 710 Kg</li>
+            <li>{t('product.info.features.engine')}</li>
+            <li>{t('product.info.features.alternator')}</li>
+            <li>{t('product.info.features.fuelCapacity')} 9.5 L</li>
+          </ul>
+          <a href="/Contacto" aria-label="Solicitar presupuesto para generador LK25B">
+            <button className="product-button">{t('product.info.contactButton')}</button>
+          </a>
+        </div>
+      </section>
+    </>
   );
 };
 

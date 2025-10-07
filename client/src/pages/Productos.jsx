@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom"; 
 import { useTranslation } from "react-i18next";
 import "../pages/Productos.css";
+import SEO from '../components/SEO';
 
 import generador1 from "../assets/generador1.png";
 import generador2 from "../assets/generador1.png";
@@ -51,93 +52,102 @@ function ProductGrid() {
   });
 
   return (
-    <div className="product-wrapper">
-      <div className="product-container">
-        <h2>{t('products.title', 'GENERADORES INDUSTRIALES')}</h2>
-        <p className="product-description">
-          {t('products.description', 'Especializados en motores de alta gama, generadores de combustible alternativo y diésel. Nuestros motores entran al mercado a competir gracias a su eficiencia y prestaciones de alto rendimiento.')}
-        </p>
+    <>
+      <SEO 
+        title="Catálogo de Generadores Industriales | LK Energy | 21-250 KVA"
+        description="Catálogo completo de generadores diésel trifásicos LK Energy. Desde 21 KVA hasta 250 KVA. Filtra por potencia, voltaje y características técnicas."
+        keywords="generadores industriales, generadores diésel, grupos electrógenos, LK Energy, generadores trifásicos, 21 KVA, 25 KVA, 36 KVA, 44 KVA, 50 KVA, 72 KVA, 88 KVA, 110 KVA, 150 KVA, 165 KVA, 188 KVA, 250 KVA"
+        canonical="/productos"
+      />
 
-        {/* FILTROS */}
-        <div className="filter-panel">
-          <div className="filter-group">
-            <span>{t('products.filters.fuel', 'Combustible')}:</span>
-            <button onClick={() => setSelectedFuel("Diesel")} className={selectedFuel === "Diesel" ? "active" : ""}>
-              {t('products.filters.diesel', 'Diesel')}
-            </button>
-            <button onClick={() => setSelectedFuel("All")} className={selectedFuel === "All" ? "active" : ""}>
-              {t('products.filters.all', 'Todos')}
-            </button>
+      <div className="product-wrapper">
+        <div className="product-container">
+          <h2>{t('products.title', 'GENERADORES INDUSTRIALES')}</h2>
+          <p className="product-description">
+            {t('products.description', 'Especializados en motores de alta gama, generadores de combustible alternativo y diésel. Nuestros motores entran al mercado a competir gracias a su eficiencia y prestaciones de alto rendimiento.')}
+          </p>
+
+          {/* FILTROS - Mismo diseño original */}
+          <div className="filter-panel">
+            <div className="filter-group">
+              <span>{t('products.filters.fuel', 'Combustible')}:</span>
+              <button onClick={() => setSelectedFuel("Diesel")} className={selectedFuel === "Diesel" ? "active" : ""}>
+                {t('products.filters.diesel', 'Diesel')}
+              </button>
+              <button onClick={() => setSelectedFuel("All")} className={selectedFuel === "All" ? "active" : ""}>
+                {t('products.filters.all', 'Todos')}
+              </button>
+            </div>
+
+            <div className="filter-group">
+              <span>{t('products.filters.frequency', 'Frecuencia')}:</span>
+              <button onClick={() => setSelectedFrequency("50")} className={selectedFrequency === "50" ? "active" : ""}>
+                50 {t('products.filters.hz', 'Hz')}
+              </button>
+              <button onClick={() => setSelectedFrequency("60")} className={selectedFrequency === "60" ? "active" : ""}>
+                60 {t('products.filters.hz', 'Hz')}
+              </button>
+              <button onClick={() => setSelectedFrequency("All")} className={selectedFrequency === "All" ? "active" : ""}>
+                {t('products.filters.all', 'Todas')}
+              </button>
+            </div>
+
+            <div className="filter-group">
+              <label>{t('products.filters.voltage', 'Voltaje')}:</label>
+              <select value={selectedVoltage} onChange={(e) => setSelectedVoltage(e.target.value)}>
+                <option value="All">{t('products.filters.all', 'Todos')}</option>
+                <option value="380/220V">380/220V</option>
+                <option value="400/230V">400/230V</option>
+                <option value="415/240V">415/240V</option>
+              </select>
+            </div>
+
+            <div className="filter-group">
+              <span>{t('products.filters.phase', 'Fase')}:</span>
+              <button onClick={() => setSelectedPhase("Single")} className={selectedPhase === "Single" ? "active" : ""}>
+                {t('products.filters.singlePhase', 'Monofásico')}
+              </button>
+              <button onClick={() => setSelectedPhase("Three")} className={selectedPhase === "Three" ? "active" : ""}>
+                {t('products.filters.threePhase', 'Trifásico')}
+              </button>
+              <button onClick={() => setSelectedPhase("All")} className={selectedPhase === "All" ? "active" : ""}>
+                {t('products.filters.all', 'Todas')}
+              </button>
+            </div>
+
+            <div className="filter-group">
+              <label>{t('products.filters.power', 'Potencia')}:</label>
+              <select value={selectedPower} onChange={(e) => setSelectedPower(e.target.value)}>
+                <option value="All">{t('products.filters.all', 'Todas')}</option>
+                {[21, 25, 36, 44, 50, 72, 88, 110, 150, 165, 188, 250].map((kva) => (
+                  <option key={kva} value={kva}>{kva} kVA</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="filter-group">
+              <button onClick={handleSearch} className="search-button">
+                {t('products.filters.search', 'Buscar')}
+              </button>
+            </div>
           </div>
 
-          <div className="filter-group">
-            <span>{t('products.filters.frequency', 'Frecuencia')}:</span>
-            <button onClick={() => setSelectedFrequency("50")} className={selectedFrequency === "50" ? "active" : ""}>
-              50 {t('products.filters.hz', 'Hz')}
-            </button>
-            <button onClick={() => setSelectedFrequency("60")} className={selectedFrequency === "60" ? "active" : ""}>
-              60 {t('products.filters.hz', 'Hz')}
-            </button>
-            <button onClick={() => setSelectedFrequency("All")} className={selectedFrequency === "All" ? "active" : ""}>
-              {t('products.filters.all', 'Todas')}
-            </button>
+          {/* PRODUCTOS - Mismo diseño original */}
+          <div className="product-grid">
+            {filteredProducts.map((product, index) => (
+              <Link to={`/productos/${product.name}`} className="product-card" key={index}>
+                <img src={product.image} alt={`Generador ${product.name} - ${product.power} ${product.type}`} className="product-image" />
+                <div className="product-power">
+                  ⚡ {product.power} - <span>{t(`product.values.${product.type.toLowerCase()}`, product.type)}</span>
+                </div>
+                <h3 className="product-name">{product.name}</h3>
+                <p className="product-subtitle">{t('home.titleLine1', 'GRUPOS')}<br /> {t('home.titleLine2', 'ELECTROGENOS')}</p>
+              </Link>
+            ))}
           </div>
-
-          <div className="filter-group">
-            <label>{t('products.filters.voltage', 'Voltaje')}:</label>
-            <select value={selectedVoltage} onChange={(e) => setSelectedVoltage(e.target.value)}>
-              <option value="All">{t('products.filters.all', 'Todos')}</option>
-              <option value="380/220V">380/220V</option>
-              <option value="400/230V">400/230V</option>
-              <option value="415/240V">415/240V</option>
-            </select>
-          </div>
-
-          <div className="filter-group">
-            <span>{t('products.filters.phase', 'Fase')}:</span>
-            <button onClick={() => setSelectedPhase("Single")} className={selectedPhase === "Single" ? "active" : ""}>
-              {t('products.filters.singlePhase', 'Monofásico')}
-            </button>
-            <button onClick={() => setSelectedPhase("Three")} className={selectedPhase === "Three" ? "active" : ""}>
-              {t('products.filters.threePhase', 'Trifásico')}
-            </button>
-            <button onClick={() => setSelectedPhase("All")} className={selectedPhase === "All" ? "active" : ""}>
-              {t('products.filters.all', 'Todas')}
-            </button>
-          </div>
-
-          <div className="filter-group">
-            <label>{t('products.filters.power', 'Potencia')}:</label>
-            <select value={selectedPower} onChange={(e) => setSelectedPower(e.target.value)}>
-              <option value="All">{t('products.filters.all', 'Todas')}</option>
-              {[21, 25, 36, 44, 50, 72, 88, 110, 150, 165, 188, 250].map((kva) => (
-                <option key={kva} value={kva}>{kva} kVA</option>
-              ))}
-            </select>
-          </div>
-
-          <div className="filter-group">
-            <button onClick={handleSearch} className="search-button">
-              {t('products.filters.search', 'Buscar')}
-            </button>
-          </div>
-        </div>
-
-        {/* PRODUCTOS */}
-        <div className="product-grid">
-          {filteredProducts.map((product, index) => (
-            <Link to={`/productos/${product.name}`} className="product-card" key={index}>
-              <img src={product.image} alt={product.name} className="product-image" />
-              <div className="product-power">
-                ⚡ {product.power} - <span>{t(`product.values.${product.type.toLowerCase()}`, product.type)}</span>
-              </div>
-              <h3 className="product-name">{product.name}</h3>
-              <p className="product-subtitle">{t('home.titleLine1', 'GRUPOS')}<br /> {t('home.titleLine2', 'ELECTROGENOS')}</p>
-            </Link>
-          ))}
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

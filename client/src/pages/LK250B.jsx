@@ -1,14 +1,13 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import "./ProductGallerySection.css";
-
 import { FaFilePdf } from "react-icons/fa";
-
 import generatormain from "../assets/generator-main.png";
 import generador1 from "../assets/generator-1.png";
 import generador2 from "../assets/generator-2.png";
 import generador3 from "../assets/generator-3.png";
 import generador4 from "../assets/generator-4.png";
+import SEO from '../components/SEO';
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
@@ -127,43 +126,140 @@ const LK250B = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
 
-  return (
-    <section className="gallery-section" ref={sectionRef}>
-      {/* Galería e info técnica a la izquierda */}
-      <div className="gallery-left">
-        <img src={selectedImage} alt="Principal" className="main-image" />
-        <div className="thumbnails">
-          {images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`Miniatura ${index + 1}`}
-              className={`thumbnail ${selectedImage === img ? "active" : ""}`}
-              onClick={() => setSelectedImage(img)}
-            />
-          ))}
-        </div>
-        <ProductSpecs />
-      </div>
+  // SOLO SE AÑADE: Schema.org para Product
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Generador LK250B - LK Energy",
+    "description": "Generador eléctrico LK250B de 250 KVA, 200 kW. Motor diésel 6 cilindros turboalimentado con aftercooling 6M16G250/5, 9.726L. Máxima potencia industrial con sistema 24V para aplicaciones de alta demanda.",
+    "brand": {
+      "@type": "Brand",
+      "name": "LK Energy"
+    },
+    "model": "LK250B",
+    "sku": "LK250B",
+    "mpn": "LK250B",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Potencia",
+        "value": "250 KVA / 200 kW"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Tipo de Motor", 
+        "value": "Diésel 6 Cilindros Turboalimentado con Aftercooling"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindros",
+        "value": "6"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindrada",
+        "value": "9.726 L"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Compresión",
+        "value": "17:1"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Peso",
+        "value": "2750 kg"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Dimensiones",
+        "value": "3920 x 1180 x 1900 mm"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Modelo Motor",
+        "value": "6M16G250/5"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Sistema Arranque",
+        "value": "24V"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Potencia Motor",
+        "value": "216 kW"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Consumo Plena Carga",
+        "value": "50.9 L/h"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Flujo de Aire",
+        "value": "14.4 m³/min"
+      }
+    ],
+    "url": "https://lkenergy.com/productos/LK250B"
+  };
 
-      {/* Parte derecha sticky */}
-      <div className="gallery-right">
-        <h2 className="product-title">LK250B</h2>
-        <p className="product-subtitle">{t('product.info.subtitle')}</p>
-        <ul className="product-info">
-          <li>{t('product.info.features.prpPower')} 184kW / 230kVA</li>
-          <li>{t('product.info.features.espPower')} 200kW / 250kVA</li>
-          <li>{t('product.info.features.threePhase')}</li>
-          <li>{t('product.info.features.weight')} 2750 Kg</li>
-          <li>{t('product.info.features.engine')}</li>
-          <li>{t('product.info.features.alternator')}</li>
-          <li>{t('product.info.features.fuelCapacity')} 22 L</li>
-        </ul>
-        <a href="http://localhost:5173/Contacto">
-          <button className="product-button">{t('product.info.contactButton')}</button>
-        </a>
-      </div>
-    </section>
+  return (
+    <>
+      <SEO 
+        title="Generador LK250B - 250 KVA | LK Energy | Motor 6 Cilindros 6M16G250/5"
+        description="Generador eléctrico LK250B de 250 KVA, 200 kW. Motor diésel 6 cilindros turboalimentado con aftercooling 6M16G250/5, 9.726L. Consumo: 50.9 L/h a plena carga. Máxima potencia industrial."
+        keywords="generador LK250B, LK250B 250 KVA, generador 6 cilindros, motor 6M16G250/5, LK Energy, 200 kW, cilindrada 9.726L, generador industrial máxima potencia"
+        canonical="/productos/LK250B"
+        ogType="product"
+      />
+
+      {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
+      <script type="application/ld+json">
+        {JSON.stringify(productSchema)}
+      </script>
+
+      <section className="gallery-section" ref={sectionRef}>
+        {/* Galería e info técnica a la izquierda */}
+        <div className="gallery-left">
+          <img 
+            src={selectedImage} 
+            alt="Generador eléctrico LK250B - Vista principal" 
+            className="main-image" 
+          />
+          <div className="thumbnails">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Generador LK250B - Vista ${index + 1}`}
+                className={`thumbnail ${selectedImage === img ? "active" : ""}`}
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
+          <ProductSpecs />
+        </div>
+
+        {/* Parte derecha sticky */}
+        <div className="gallery-right">
+          <h1 className="product-title">LK250B</h1>
+          <p className="product-subtitle">{t('product.info.subtitle')}</p>
+          <ul className="product-info">
+            <li>{t('product.info.features.prpPower')} 184kW / 230kVA</li>
+            <li>{t('product.info.features.espPower')} 200kW / 250kVA</li>
+            <li>{t('product.info.features.threePhase')}</li>
+            <li>{t('product.info.features.weight')} 2750 Kg</li>
+            <li>{t('product.info.features.engine')}</li>
+            <li>{t('product.info.features.alternator')}</li>
+            <li>{t('product.info.features.fuelCapacity')} 22 L</li>
+          </ul>
+          <a href="/Contacto" aria-label="Solicitar presupuesto para generador LK250B">
+            <button className="product-button">{t('product.info.contactButton')}</button>
+          </a>
+        </div>
+      </section>
+    </>
   );
 };
 

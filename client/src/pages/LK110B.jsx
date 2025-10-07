@@ -1,14 +1,13 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import "./ProductGallerySection.css";
-
 import { FaFilePdf } from "react-icons/fa";
-
 import generatormain from "../assets/generator-main.png";
 import generador1 from "../assets/generator-1.png";
 import generador2 from "../assets/generator-2.png";
 import generador3 from "../assets/generator-3.png";
 import generador4 from "../assets/generator-4.png";
+import SEO from '../components/SEO';
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
@@ -127,43 +126,125 @@ const LK110B = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
 
-  return (
-    <section className="gallery-section" ref={sectionRef}>
-      {/* Galería e info técnica a la izquierda */}
-      <div className="gallery-left">
-        <img src={selectedImage} alt="Principal" className="main-image" />
-        <div className="thumbnails">
-          {images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`Miniatura ${index + 1}`}
-              className={`thumbnail ${selectedImage === img ? "active" : ""}`}
-              onClick={() => setSelectedImage(img)}
-            />
-          ))}
-        </div>
-        <ProductSpecs />
-      </div>
+  // SOLO SE AÑADE: Schema.org para Product
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Generador LK110B - LK Energy",
+    "description": "Generador eléctrico LK110B de 110 KVA, 88 kW. Motor diésel turboalimentado con aftercooling 4M10G110/5, 4 cilindros, 4.087L. Máxima potencia para aplicaciones industriales exigentes.",
+    "brand": {
+      "@type": "Brand",
+      "name": "LK Energy"
+    },
+    "model": "LK110B",
+    "sku": "LK110B",
+    "mpn": "LK110B",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Potencia",
+        "value": "110 KVA / 88 kW"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Tipo de Motor", 
+        "value": "Diésel Turboalimentado con Aftercooling"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindros",
+        "value": "4"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindrada",
+        "value": "4.087 L"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Peso",
+        "value": "1456 kg"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Dimensiones",
+        "value": "2770 x 1080 x 1250 mm"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Modelo Motor",
+        "value": "4M10G110/5"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Consumo Plena Carga",
+        "value": "21.25 L/h"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Flujo de Aire",
+        "value": "6.26 m³/min"
+      }
+    ],
+    "url": "https://lkenergy.com/productos/LK110B"
+  };
 
-      {/* Parte derecha sticky */}
-      <div className="gallery-right">
-        <h2 className="product-title">LK110B</h2>
-        <p className="product-subtitle">{t('product.info.subtitle')}</p>
-        <ul className="product-info">
-          <li>{t('product.info.features.prpPower')} 80kW / 100kVA</li>
-          <li>{t('product.info.features.espPower')} 88kW / 110kVA</li>
-          <li>{t('product.info.features.threePhase')}</li>
-          <li>{t('product.info.features.weight')} 1456 Kg</li>
-          <li>{t('product.info.features.engine')}</li>
-          <li>{t('product.info.features.alternator')}</li>
-          <li>{t('product.info.features.fuelCapacity')} 14 L</li>
-        </ul>
-        <a href="http://localhost:5173/Contacto">
-          <button className="product-button">{t('product.info.contactButton')}</button>
-        </a>
-      </div>
-    </section>
+  return (
+    <>
+      <SEO 
+        title="Generador LK110B - 110 KVA | LK Energy | Motor 4M10G110/5 Turboalimentado con Aftercooling"
+        description="Generador eléctrico LK110B de 110 KVA, 88 kW. Motor diésel turboalimentado con aftercooling 4M10G110/5, 4 cilindros, 4.087L. Consumo: 21.25 L/h a plena carga. Especificaciones completas."
+        keywords="generador LK110B, LK110B 110 KVA, generador turboalimentado aftercooling, motor 4M10G110/5, LK Energy, 88 kW, generador industrial máxima potencia"
+        canonical="/productos/LK110B"
+        ogType="product"
+      />
+
+      {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
+      <script type="application/ld+json">
+        {JSON.stringify(productSchema)}
+      </script>
+
+      <section className="gallery-section" ref={sectionRef}>
+        {/* Galería e info técnica a la izquierda */}
+        <div className="gallery-left">
+          <img 
+            src={selectedImage} 
+            alt="Generador eléctrico LK110B - Vista principal" 
+            className="main-image" 
+          />
+          <div className="thumbnails">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Generador LK110B - Vista ${index + 1}`}
+                className={`thumbnail ${selectedImage === img ? "active" : ""}`}
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
+          <ProductSpecs />
+        </div>
+
+        {/* Parte derecha sticky */}
+        <div className="gallery-right">
+          <h1 className="product-title">LK110B</h1>
+          <p className="product-subtitle">{t('product.info.subtitle')}</p>
+          <ul className="product-info">
+            <li>{t('product.info.features.prpPower')} 80kW / 100kVA</li>
+            <li>{t('product.info.features.espPower')} 88kW / 110kVA</li>
+            <li>{t('product.info.features.threePhase')}</li>
+            <li>{t('product.info.features.weight')} 1456 Kg</li>
+            <li>{t('product.info.features.engine')}</li>
+            <li>{t('product.info.features.alternator')}</li>
+            <li>{t('product.info.features.fuelCapacity')} 14 L</li>
+          </ul>
+          <a href="/Contacto" aria-label="Solicitar presupuesto para generador LK110B">
+            <button className="product-button">{t('product.info.contactButton')}</button>
+          </a>
+        </div>
+      </section>
+    </>
   );
 };
 

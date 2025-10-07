@@ -1,14 +1,14 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
-
 import { FaFilePdf } from "react-icons/fa";
-
 import generatormain from "../assets/generator-main.png";
 import generador1 from "../assets/generator-1.png";
 import generador2 from "../assets/generator-2.png";
 import generador3 from "../assets/generator-3.png";
 import generador4 from "../assets/generator-4.png";
 import "./ProductGallerySection.css";
+import SEO from '../components/SEO';
+
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
   const { t } = useTranslation();
@@ -138,65 +138,127 @@ const LK21B = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // SOLO SE AÑADE: Schema.org para Product
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Generador LK21B - LK Energy",
+    "description": "Generador eléctrico LK21B de 21 KVA, 17 kW. Motor diésel 4M06G20/5, 4 cilindros, 2.3L. Ideal para uso industrial y comercial.",
+    "brand": {
+      "@type": "Brand",
+      "name": "LK Energy"
+    },
+    "model": "LK21B",
+    "sku": "LK21B",
+    "mpn": "LK21B",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Potencia",
+        "value": "21 KVA / 17 kW"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Tipo de Motor", 
+        "value": "Diésel"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindros",
+        "value": "4"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Peso",
+        "value": "700 kg"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Dimensiones",
+        "value": "1970 x 800 x 1075 mm"
+      }
+    ],
+    "url": "https://lkenergy.com/productos/LK21B"
+  };
+
   return (
-    <section className="gallery-section" ref={sectionRef}>
-      {/* En mobile, la info va primero */}
-      {isMobile && (
-        <div className="gallery-right">
-          <h2 className="product-title">LK21B</h2>
-          <p className="product-subtitle">{t('product.info.subtitle')}</p>
-          <ul className="product-info">
-            <li>{t('product.info.features.prpPower')} 15kW / 19kVA</li>
-            <li>{t('product.info.features.espPower')} 17kW / 21kVA</li>
-            <li>{t('product.info.features.threePhase')}</li>
-            <li>{t('product.info.features.weight')} 700 Kg</li>
-            <li>{t('product.info.features.engine')}</li>
-            <li>{t('product.info.features.alternator')}</li>
-            <li>{t('product.info.features.fuelCapacity')} 9.5 L</li>
-          </ul>
-          <a href="http://localhost:5173/Contacto">
-            <button className="product-button">{t('product.info.contactButton')}</button>
-          </a>
-        </div>
-      )}
+    <>
+      <SEO 
+        title="Generador LK21B - 21 KVA | LK Energy | Especificaciones Técnicas"
+        description="Generador eléctrico LK21B de 21 KVA, 17 kW. Motor diésel 4M06G20/5, 4 cilindros, 2.3L. Especificaciones técnicas completas, fichas y manuales de usuario."
+        keywords="generador LK21B, LK21B especificaciones, 21 KVA, generador diésel, LK Energy, motor 4M06G20/5"
+        canonical="/productos/LK21B"
+        ogType="product"
+      />
 
-      {/* Galería */}
-      <div className="gallery-left">
-        <img src={selectedImage} alt="Principal" className="main-image" />
-        <div className="thumbnails">
-          {images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`Miniatura ${index + 1}`}
-              className={`thumbnail ${selectedImage === img ? "active" : ""}`}
-              onClick={() => setSelectedImage(img)}
-            />
-          ))}
-        </div>
-        <ProductSpecs />
-      </div>
+      {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
+      <script type="application/ld+json">
+        {JSON.stringify(productSchema)}
+      </script>
 
-      {/* En desktop, la info va a la derecha */}
-      {!isMobile && (
-        <div className="gallery-right">
-          <h2 className="product-title">LK21B</h2>
-          <p className="product-subtitle">{t('product.info.subtitle')}</p>
-          <ul className="product-info">
-            <li>{t('product.info.features.prpPower')} 15kW / 19kVA</li>
-            <li>{t('product.info.features.espPower')} 17kW / 21kVA</li>
-            <li>{t('product.info.features.threePhase')}</li>
-            <li>{t('product.info.features.weight')} 700 Kg</li>
-            <li>{t('product.info.features.engine')}</li>
-            <li>{t('product.info.features.alternator')}</li>
-            <li>{t('product.info.features.fuelCapacity')} 9.5 L</li>
-          </ul>
-          <a href="http://localhost:5173/Contacto">
-            <button className="product-button">{t('product.info.contactButton')}</button>
-          </a>
+      <section className="gallery-section" ref={sectionRef}>
+        {/* En mobile, la info va primero */}
+        {isMobile && (
+          <div className="gallery-right">
+            <h1 className="product-title">LK21B</h1>
+            <p className="product-subtitle">{t('product.info.subtitle')}</p>
+            <ul className="product-info">
+              <li>{t('product.info.features.prpPower')} 15kW / 19kVA</li>
+              <li>{t('product.info.features.espPower')} 17kW / 21kVA</li>
+              <li>{t('product.info.features.threePhase')}</li>
+              <li>{t('product.info.features.weight')} 700 Kg</li>
+              <li>{t('product.info.features.engine')}</li>
+              <li>{t('product.info.features.alternator')}</li>
+              <li>{t('product.info.features.fuelCapacity')} 9.5 L</li>
+            </ul>
+            <a href="/Contacto" aria-label="Solicitar presupuesto para generador LK21B">
+              <button className="product-button">{t('product.info.contactButton')}</button>
+            </a>
+          </div>
+        )}
+
+        {/* Galería */}
+        <div className="gallery-left">
+          <img 
+            src={selectedImage} 
+            alt="Generador eléctrico LK21B - Vista principal" 
+            className="main-image" 
+          />
+          <div className="thumbnails">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Generador LK21B - Vista ${index + 1}`}
+                className={`thumbnail ${selectedImage === img ? "active" : ""}`}
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
+          <ProductSpecs />
         </div>
-      )}
-    </section>
+
+        {/* En desktop, la info va a la derecha */}
+        {!isMobile && (
+          <div className="gallery-right">
+            <h1 className="product-title">LK21B</h1>
+            <p className="product-subtitle">{t('product.info.subtitle')}</p>
+            <ul className="product-info">
+              <li>{t('product.info.features.prpPower')} 15kW / 19kVA</li>
+              <li>{t('product.info.features.espPower')} 17kW / 21kVA</li>
+              <li>{t('product.info.features.threePhase')}</li>
+              <li>{t('product.info.features.weight')} 700 Kg</li>
+              <li>{t('product.info.features.engine')}</li>
+              <li>{t('product.info.features.alternator')}</li>
+              <li>{t('product.info.features.fuelCapacity')} 9.5 L</li>
+            </ul>
+            <a href="/Contacto" aria-label="Solicitar presupuesto para generador LK21B">
+              <button className="product-button">{t('product.info.contactButton')}</button>
+            </a>
+          </div>
+        )}
+      </section>
+    </>
   );
 };
 

@@ -1,14 +1,13 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import "./ProductGallerySection.css";
-
 import { FaFilePdf } from "react-icons/fa";
-
 import generatormain from "../assets/generator-main.png";
 import generador1 from "../assets/generator-1.png";
 import generador2 from "../assets/generator-2.png";
 import generador3 from "../assets/generator-3.png";
 import generador4 from "../assets/generator-4.png";
+import SEO from '../components/SEO';
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
@@ -127,43 +126,120 @@ const LK88B = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
 
-  return (
-    <section className="gallery-section" ref={sectionRef}>
-      {/* Galería e info técnica a la izquierda */}
-      <div className="gallery-left">
-        <img src={selectedImage} alt="Principal" className="main-image" />
-        <div className="thumbnails">
-          {images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`Miniatura ${index + 1}`}
-              className={`thumbnail ${selectedImage === img ? "active" : ""}`}
-              onClick={() => setSelectedImage(img)}
-            />
-          ))}
-        </div>
-        <ProductSpecs />
-      </div>
+  // SOLO SE AÑADE: Schema.org para Product
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Generador LK88B - LK Energy",
+    "description": "Generador eléctrico LK88B de 88 KVA, 70 kW. Motor diésel turboalimentado 4M10G88/5, 4 cilindros, 4.087L. Alta potencia para aplicaciones industriales intensivas.",
+    "brand": {
+      "@type": "Brand",
+      "name": "LK Energy"
+    },
+    "model": "LK88B",
+    "sku": "LK88B",
+    "mpn": "LK88B",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Potencia",
+        "value": "88 KVA / 70 kW"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Tipo de Motor", 
+        "value": "Diésel Turboalimentado"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindros",
+        "value": "4"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindrada",
+        "value": "4.087 L"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Peso",
+        "value": "1278 kg"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Dimensiones",
+        "value": "2470 x 1010 x 1250 mm"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Modelo Motor",
+        "value": "4M10G88/5"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Consumo Plena Carga",
+        "value": "18.8 L/h"
+      }
+    ],
+    "url": "https://lkenergy.com/productos/LK88B"
+  };
 
-      {/* Parte derecha sticky */}
-      <div className="gallery-right">
-        <h2 className="product-title">LK88B</h2>
-        <p className="product-subtitle">{t('product.info.subtitle')}</p>
-        <ul className="product-info">
-          <li>{t('product.info.features.prpPower')} 64kW / 80kVA</li>
-          <li>{t('product.info.features.espPower')} 70kW / 88kVA</li>
-          <li>{t('product.info.features.threePhase')}</li>
-          <li>{t('product.info.features.weight')} 1278 Kg</li>
-          <li>{t('product.info.features.engine')}</li>
-          <li>{t('product.info.features.alternator')}</li>
-          <li>{t('product.info.features.fuelCapacity')} 14 L</li>
-        </ul>
-        <a href="http://localhost:5173/Contacto">
-          <button className="product-button">{t('product.info.contactButton')}</button>
-        </a>
-      </div>
-    </section>
+  return (
+    <>
+      <SEO 
+        title="Generador LK88B - 88 KVA | LK Energy | Motor 4M10G88/5 Turboalimentado"
+        description="Generador eléctrico LK88B de 88 KVA, 70 kW. Motor diésel turboalimentado 4M10G88/5, 4 cilindros, 4.087L. Consumo: 18.8 L/h a plena carga. Especificaciones completas."
+        keywords="generador LK88B, LK88B 88 KVA, generador turboalimentado, motor 4M10G88/5, LK Energy, 70 kW, generador industrial alta potencia"
+        canonical="/productos/LK88B"
+        ogType="product"
+      />
+
+      {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
+      <script type="application/ld+json">
+        {JSON.stringify(productSchema)}
+      </script>
+
+      <section className="gallery-section" ref={sectionRef}>
+        {/* Galería e info técnica a la izquierda */}
+        <div className="gallery-left">
+          <img 
+            src={selectedImage} 
+            alt="Generador eléctrico LK88B - Vista principal" 
+            className="main-image" 
+          />
+          <div className="thumbnails">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Generador LK88B - Vista ${index + 1}`}
+                className={`thumbnail ${selectedImage === img ? "active" : ""}`}
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
+          <ProductSpecs />
+        </div>
+
+        {/* Parte derecha sticky */}
+        <div className="gallery-right">
+          <h1 className="product-title">LK88B</h1>
+          <p className="product-subtitle">{t('product.info.subtitle')}</p>
+          <ul className="product-info">
+            <li>{t('product.info.features.prpPower')} 64kW / 80kVA</li>
+            <li>{t('product.info.features.espPower')} 70kW / 88kVA</li>
+            <li>{t('product.info.features.threePhase')}</li>
+            <li>{t('product.info.features.weight')} 1278 Kg</li>
+            <li>{t('product.info.features.engine')}</li>
+            <li>{t('product.info.features.alternator')}</li>
+            <li>{t('product.info.features.fuelCapacity')} 14 L</li>
+          </ul>
+          <a href="/Contacto" aria-label="Solicitar presupuesto para generador LK88B">
+            <button className="product-button">{t('product.info.contactButton')}</button>
+          </a>
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -9,6 +9,7 @@ import Config from "../assets/configuracion.png";
 import Contact from "../pages/Contacto";
 import "../pages/Home.css"
 import FeaturedProducts from '../components/FeaturedProducts';
+import SEO from '../components/SEO';
 
 export default function Home() {
   const { t } = useTranslation();
@@ -70,6 +71,14 @@ export default function Home() {
 
   return (
     <main>
+      <SEO 
+        title="LK Energy - Generadores Eléctricos Industriales | 25 Años de Experiencia"
+        description="LK Energy - Fabricantes de generadores eléctricos industriales con 25 años de experiencia. Servicio técnico, repuestos y garantías. Soluciones energéticas para todos los sectores."
+        keywords="generadores eléctricos, LK Energy, generadores industriales, energía de respaldo, grupos electrógenos, servicio técnico generadores"
+        canonical="/"
+        ogType="website"
+      />
+
       {/* HEADER */}
       <section className="header">
         <div className="home-banner">

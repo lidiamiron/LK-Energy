@@ -41,8 +41,27 @@ export default function Acordeon() {
     },
   ];
 
+  // SOLO SE AÑADE: Schema.org FAQ markup
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": data.map((item, index) => ({
+      "@type": "Question",
+      "name": item.title,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.content
+      }
+    }))
+  };
+
   return (
     <div className="accordion">
+      {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
+      </script>
+
       {data.map((item, index) => (
         <div className="accordion-item" key={index}>
           <button

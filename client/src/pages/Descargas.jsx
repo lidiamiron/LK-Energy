@@ -4,6 +4,7 @@ import "../pages/Descargas.css"
 import { FaDownload } from "react-icons/fa";
 import ProtectedLink from '../components/ProtectedLink'; 
 import { useAuth } from '../context/AuthContext';
+import SEO from '../components/SEO';
 
 const data = [
   {
@@ -119,45 +120,115 @@ const data = [
 const Descargas = () => {
   const { t } = useTranslation();
 
+  // SOLO SE AÑADE: Schema.org para CollectionPage
+  const downloadsSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Descargas - Documentación Técnica LK Energy",
+    "description": "Descarga fichas técnicas y manuales de usuario de generadores eléctricos LK Energy: LK21B, LK25B, LK36B, LK44B, LK50B, LK72B, LK88B, LK110B, LK150B, LK165B, LK188B, LK250B",
+    "url": "https://lkenergy.com/descargas",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": data.length,
+      "itemListElement": data.map((item, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Product",
+          "name": `Generador ${item.modelo}`,
+          "model": item.modelo,
+          "description": `Generador eléctrico ${item.modelo} de ${item.kva} KVA - Ficha técnica y manual de usuario`,
+          "manufacturer": {
+            "@type": "Organization",
+            "name": "LK Energy"
+          },
+          "additionalProperty": [
+            {
+              "@type": "PropertyValue",
+              "name": "KVA",
+              "value": item.kva.toString()
+            },
+            {
+              "@type": "PropertyValue", 
+              "name": "Kilovatios",
+              "value": item.kilovatios.toString()
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Tipo de Motor",
+              "value": item.tipoMotor
+            },
+            {
+              "@type": "PropertyValue",
+              "name": "Dimensiones",
+              "value": item.dimension
+            }
+          ]
+        }
+      }))
+    }
+  };
+
   return (
-    <div className="table-container">
-      <table className="custom-table">
-        <thead>
-          <tr>
-            <th>{t('downloads.tableHeaders.model')}</th>
-            <th className="hide-mobile">{t('downloads.tableHeaders.kva')}</th>
-            <th className="hide-mobile">{t('downloads.tableHeaders.kilowatts')}</th>
-            <th className="hide-mobile">{t('downloads.tableHeaders.engineType')}</th>
-            <th className="hide-mobile">{t('downloads.tableHeaders.dimension')}</th>
-            <th>{t('downloads.tableHeaders.download')}</th>
-            <th>{t('downloads.tableHeaders.download')}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <tr key={index}>
-              <td>{item.modelo}</td>
-              <td className="hide-mobile">{item.kva}</td>
-              <td className="hide-mobile">{item.kilovatios}</td>
-              <td className="hide-mobile">{t('downloads.engineType')}</td>
-              <td className="hide-mobile">{item.dimension}</td>
-              <td className="descarga">
-                <ProtectedLink href={`/docs/${item.ficha}`}>
-                  <FaDownload className="download-icon" />
-                  <span className='space'>{t('downloads.documents.technicalSheet')}</span>
-                </ProtectedLink>
-              </td>
-              <td className="descarga">
-                <ProtectedLink href={`/docs/${item.manual}`}>
-                  <FaDownload className="download-icon" />
-                  <span className='space'>{t('downloads.documents.userManual')}</span>
-                </ProtectedLink>
-              </td>
+    <>
+      <SEO 
+        title="Descargas - Documentación Técnica Generadores LK Energy"
+        description="Descarga fichas técnicas y manuales de usuario de todos los modelos de generadores LK Energy: LK21B, LK25B, LK36B, LK44B, LK50B, LK72B, LK88B, LK110B, LK150B, LK165B, LK188B, LK250B"
+        keywords="descargas LK Energy, fichas técnicas generadores, manuales usuario, documentación técnica, generadores eléctricos PDF"
+        canonical="/descargas"
+        ogType="website"
+      />
+
+      <div className="table-container">
+        {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
+        <script type="application/ld+json">
+          {JSON.stringify(downloadsSchema)}
+        </script>
+
+        <table className="custom-table" role="grid" aria-label="Tabla de descargas de documentación técnica">
+          <thead>
+            <tr>
+              <th scope="col">{t('downloads.tableHeaders.model')}</th>
+              <th scope="col" className="hide-mobile">{t('downloads.tableHeaders.kva')}</th>
+              <th scope="col" className="hide-mobile">{t('downloads.tableHeaders.kilowatts')}</th>
+              <th scope="col" className="hide-mobile">{t('downloads.tableHeaders.engineType')}</th>
+              <th scope="col" className="hide-mobile">{t('downloads.tableHeaders.dimension')}</th>
+              <th scope="col">{t('downloads.tableHeaders.download')}</th>
+              <th scope="col">{t('downloads.tableHeaders.download')}</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {data.map((item, index) => (
+              <tr key={index} itemScope itemType="https://schema.org/Product">
+                <td itemProp="model">{item.modelo}</td>
+                <td className="hide-mobile" itemProp="additionalProperty">{item.kva}</td>
+                <td className="hide-mobile" itemProp="additionalProperty">{item.kilovatios}</td>
+                <td className="hide-mobile" itemProp="additionalProperty">{t('downloads.engineType')}</td>
+                <td className="hide-mobile" itemProp="additionalProperty">{item.dimension}</td>
+                <td className="descarga">
+                  <ProtectedLink 
+                    href={`/docs/${item.ficha}`}
+                    aria-label={`Descargar ficha técnica del generador ${item.modelo}`}
+                  >
+                    <FaDownload className="download-icon" aria-hidden="true" />
+                    <span className='space'>{t('downloads.documents.technicalSheet')}</span>
+                  </ProtectedLink>
+                </td>
+                <td className="descarga">
+                  <ProtectedLink 
+                    href={`/docs/${item.manual}`}
+                    aria-label={`Descargar manual de usuario del generador ${item.modelo}`}
+                  >
+                    <FaDownload className="download-icon" aria-hidden="true" />
+                    <span className='space'>{t('downloads.documents.userManual')}</span>
+                  </ProtectedLink>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 

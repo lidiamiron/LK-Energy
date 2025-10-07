@@ -9,11 +9,50 @@ import "../components/Footer.css"
 const Footer = () => {
   const { t } = useTranslation();
 
+  // Schema.org markup para Organization - SOLO SE AÑADE ESTO
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "LK Energy",
+    "alternateName": "LK Energy Generadores Eléctricos",
+    "url": "https://lkenergy.com",
+    "logo": "https://lkenergy.com/logo-white.svg",
+    "description": "LK Energy - Fabricantes de generadores eléctricos industriales. Soluciones energéticas confiables para empresas e industria.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrer Tramuntana, 2 - PI Can Mascaró",
+      "addressLocality": "La Palma de Cervelló",
+      "postalCode": "08756",
+      "addressRegion": "Barcelona",
+      "addressCountry": "ES"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+34-936-84-66-35",
+      "email": "info@lkenergy.com",
+      "contactType": "customer service",
+      "areaServed": "ES",
+      "availableLanguage": ["Spanish", "English"]
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61577861317109",
+      "https://www.instagram.com/lkenergyofficial/",
+      "https://www.linkedin.com/company/lk-energy/"
+    ]
+  };
+
   return (
     <footer className="Lk-footer">
+      {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
+      <script type="application/ld+json">
+        {JSON.stringify(organizationSchema)}
+      </script>
+
       <div className="footer-top">
         <div className="footer-brand">
-          <a href="/Home"><img src={logo} alt="Logo LK Energy" /></a>
+          <a href="/" aria-label="LK Energy - Página de inicio">
+            <img src={logo} alt="LK Energy - Generadores Eléctricos Industriales" />
+          </a>
           <p className="tagline">{t('footer.tagline', 'GENERADORES ELECTRICOS INDUSTRIALES')}</p>
           <p className="live-session">{t('footer.slogan', 'Energía Confiable para tu Empresa')}</p>
         </div>
@@ -21,35 +60,69 @@ const Footer = () => {
         <div className="footer-column">
           <h3 className="footer-title">{t('footer.menu', 'Menu')}</h3>
           <ul className="footer-links">
-            <a href="/"><li>{t('footer.company', 'Empresa')}</li></a>
-            <a href="/Productos"><li>{t('footer.products', 'Productos')}</li></a>
-            <a href="/Descargas"><li>{t('footer.downloads', 'Descargas')}</li></a>
-            <a href="/Contacto"><li>{t('footer.contact', 'Contacto')}</li></a>
+            <a href="/" aria-label="Página de empresa">
+              <li>{t('footer.company', 'Empresa')}</li>
+            </a>
+            <a href="/Productos" aria-label="Catálogo de productos">
+              <li>{t('footer.products', 'Productos')}</li>
+            </a>
+            <a href="/Descargas" aria-label="Descargas y documentación">
+              <li>{t('footer.downloads', 'Descargas')}</li>
+            </a>
+            <a href="/Contacto" aria-label="Página de contacto">
+              <li>{t('footer.contact', 'Contacto')}</li>
+            </a>
           </ul>
         </div>
         
         <div className="footer-column">
           <h3 className="footer-title">{t('footer.followUs', 'Síguenos')}</h3>
           <ul className="footer-links ">
-             <a href="https://www.facebook.com/profile.php?id=61577861317109"><li><FaFacebookSquare className="redes" />Facebook</li></a>
-             <a href="https://www.instagram.com/lkenergyofficial/"><li><FaInstagram className="redes" />Instagram</li></a>
-             <a href="https://www.linkedin.com/company/lk-energy/?viewAsMember=true"><li><FaLinkedin className="redes"/>Linkedin</li></a>
+             <a 
+               href="https://www.facebook.com/profile.php?id=61577861317109" 
+               aria-label="Síguenos en Facebook"
+               rel="noopener noreferrer"
+             >
+               <li><FaFacebookSquare className="redes" />Facebook</li>
+             </a>
+             <a 
+               href="https://www.instagram.com/lkenergyofficial/" 
+               aria-label="Síguenos en Instagram"
+               rel="noopener noreferrer"
+             >
+               <li><FaInstagram className="redes" />Instagram</li>
+             </a>
+             <a 
+               href="https://www.linkedin.com/company/lk-energy/?viewAsMember=true" 
+               aria-label="Síguenos en LinkedIn"
+               rel="noopener noreferrer"
+             >
+               <li><FaLinkedin className="redes"/>Linkedin</li>
+             </a>
           </ul>
         </div>
 
         <div className="footer-column contact-column">
           <h3 className="footer-title">{t('footer.contact', 'Contacto')}</h3>
           <div className="contact-dirrection">
-            <p>
+            <p itemScope itemType="https://schema.org/PostalAddress">
               <FontAwesomeIcon icon={faMapMarkerAlt} /> 
-              {t(' contact.info.address.line1', 'Carrer Tramuntana, 2 - PI Can Mascaró')}
+              <span itemProp="streetAddress">{t(' contact.info.address.line1', 'Carrer Tramuntana, 2 - PI Can Mascaró')}</span>
               <br />
-              {t('contact.info.address.line2', '08756 La Palma de Cervelló,')}
+              <span itemProp="addressLocality">{t('contact.info.address.line2', '08756 La Palma de Cervelló,')}</span>
               <br />
-              {t('contact.info.address.line3', 'Barcelona')}
+              <span itemProp="addressRegion">{t('contact.info.address.line3', 'Barcelona')}</span>
             </p>
-            <p><FontAwesomeIcon icon={faPhone} /> {t('footer.phone', 'Teléfono')}: +34 936 84 66 35 </p>
-            <p><FontAwesomeIcon icon={faEnvelope} /> {t('footer.email', 'Email')}: info@lkenergy.com</p>
+            <p itemScope itemType="https://schema.org/ContactPoint">
+              <FontAwesomeIcon icon={faPhone} /> 
+              {t('footer.phone', 'Teléfono')}: 
+              <span itemProp="telephone"> +34 936 84 66 35</span>
+            </p>
+            <p itemScope itemType="https://schema.org/ContactPoint">
+              <FontAwesomeIcon icon={faEnvelope} /> 
+              {t('footer.email', 'Email')}: 
+              <span itemProp="email"> info@lkenergy.com</span>
+            </p>
           </div>
           <div className="map-container">
             <iframe 
@@ -60,7 +133,7 @@ const Footer = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title={t('footer.mapTitle', 'Ubicación en mapa')}>
+              title={t('footer.mapTitle', 'Ubicación de LK Energy en mapa - Carrer Tramuntana, 2 - PI Can Mascaró, Barcelona')}>
             </iframe>
           </div>
         </div>

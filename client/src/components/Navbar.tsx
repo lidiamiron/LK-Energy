@@ -65,14 +65,67 @@ export default function Navbar() {
     return i18n.language === 'es' ? 'ES' : 'EN';
   };
 
+  // SOLO SE AÑADE: Schema.org para SiteNavigationElement
+  const navigationSchema = {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    "name": "Navegación Principal LK Energy",
+    "description": "Menú de navegación para generadores eléctricos LK Energy",
+    "mainEntity": [
+      {
+        "@type": "SiteNavigationElement",
+        "name": t('navbar.company', 'Empresa'),
+        "url": "https://lkenergy.com/",
+        "position": 1
+      },
+      {
+        "@type": "SiteNavigationElement", 
+        "name": t('navbar.products', 'Productos'),
+        "url": "https://lkenergy.com/productos",
+        "position": 2,
+        "hasMenuItem": [
+          { "@type": "SiteNavigationElement", "name": "LK21B", "url": "https://lkenergy.com/productos/LK21B" },
+          { "@type": "SiteNavigationElement", "name": "LK25B", "url": "https://lkenergy.com/productos/LK25B" },
+          { "@type": "SiteNavigationElement", "name": "LK36B", "url": "https://lkenergy.com/productos/LK36B" },
+          { "@type": "SiteNavigationElement", "name": "LK44B", "url": "https://lkenergy.com/productos/LK44B" },
+          { "@type": "SiteNavigationElement", "name": "LK50B", "url": "https://lkenergy.com/productos/LK50B" },
+          { "@type": "SiteNavigationElement", "name": "LK72B", "url": "https://lkenergy.com/productos/LK72B" },
+          { "@type": "SiteNavigationElement", "name": "LK88B", "url": "https://lkenergy.com/productos/LK88B" },
+          { "@type": "SiteNavigationElement", "name": "LK110B", "url": "https://lkenergy.com/productos/LK110B" },
+          { "@type": "SiteNavigationElement", "name": "LK150B", "url": "https://lkenergy.com/productos/LK150B" },
+          { "@type": "SiteNavigationElement", "name": "LK165B", "url": "https://lkenergy.com/productos/LK165B" },
+          { "@type": "SiteNavigationElement", "name": "LK188B", "url": "https://lkenergy.com/productos/LK188B" },
+          { "@type": "SiteNavigationElement", "name": "LK250B", "url": "https://lkenergy.com/productos/LK250B" }
+        ]
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "name": t('navbar.downloads', 'Descargas'),
+        "url": "https://lkenergy.com/descargas",
+        "position": 3
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "name": t('navbar.contact', 'Contacto'),
+        "url": "https://lkenergy.com/contacto",
+        "position": 4
+      }
+    ]
+  };
+
   return (
     <header className={isHomePage ? "fixed-header" : "sticky-header"}>
+      {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
+      <script type="application/ld+json">
+        {JSON.stringify(navigationSchema)}
+      </script>
+
       <div className="container">
-        <nav>
+        <nav role="navigation" aria-label="Navegación principal">
           {/* Logo a la izquierda */}
           <div className="logo">
-            <a href="/">
-              <img src={logo} alt="Logo" />
+            <a href="/" aria-label="LK Energy - Página de inicio">
+              <img src={logo} alt="LK Energy - Generadores Eléctricos Industriales" />
             </a>
           </div>
 
@@ -81,7 +134,11 @@ export default function Navbar() {
             {/* Menú de navegación */}
             <ul className={isOpen ? "nav-link active" : "nav-link"}>
               <li>
-                <a className={location.pathname === '/' ? 'active' : ''} href="/">
+                <a 
+                  className={location.pathname === '/' ? 'active' : ''} 
+                  href="/"
+                  aria-current={location.pathname === '/' ? 'page' : undefined}
+                >
                   {t('navbar.company', 'Empresa')}
                 </a>
               </li>
@@ -96,34 +153,73 @@ export default function Navbar() {
                   href="/productos" 
                   className={`${location.pathname.startsWith('/productos') ? 'active' : ''} ${openDropdown === 'productos' ? 'open' : ''}`}
                   onClick={(e) => window.innerWidth <= 768 && e.preventDefault()}
+                  aria-haspopup="true"
+                  aria-expanded={openDropdown === 'productos'}
+                  aria-current={location.pathname.startsWith('/productos') ? 'page' : undefined}
                 >
                   {t('navbar.products', 'Productos')}
                 </a>
-                <div className={`submenu-container ${openDropdown === 'productos' ? 'open' : ''}`}>
+                <div 
+                  className={`submenu-container ${openDropdown === 'productos' ? 'open' : ''}`}
+                  role="menu"
+                  aria-label="Submenú de productos"
+                >
                   <ul className="submenu">
-                    <li><a href="/productos/LK21B">LK21B</a></li>
-                    <li><a href="/productos/LK25B">LK25B</a></li>
-                    <li><a href="/productos/LK36B">LK36B</a></li>
-                    <li><a href="/productos/LK44B">LK44B</a></li>
-                    <li><a href="/productos/LK50B">LK50B</a></li>
-                    <li><a href="/productos/LK72B">LK72B</a></li>
-                    <li><a href="/productos/LK88B">LK88B</a></li>
-                    <li><a href="/productos/LK110B">LK110B</a></li>
-                    <li><a href="/productos/LK150B">LK150B</a></li>
-                    <li><a href="/productos/LK165B">LK165B</a></li>
-                    <li><a href="/productos/LK188B">LK188B</a></li>
-                    <li><a href="/productos/LK250B">LK250B</a></li>
+                    <li>
+                      <a href="/productos/LK21B" role="menuitem">LK21B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK25B" role="menuitem">LK25B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK36B" role="menuitem">LK36B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK44B" role="menuitem">LK44B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK50B" role="menuitem">LK50B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK72B" role="menuitem">LK72B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK88B" role="menuitem">LK88B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK110B" role="menuitem">LK110B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK150B" role="menuitem">LK150B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK165B" role="menuitem">LK165B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK188B" role="menuitem">LK188B</a>
+                    </li>
+                    <li>
+                      <a href="/productos/LK250B" role="menuitem">LK250B</a>
+                    </li>
                   </ul>
                 </div>
               </li>
 
               <li>
-                <a className={location.pathname === '/Descargas' ? 'active' : ''} href="/Descargas">
+                <a 
+                  className={location.pathname === '/Descargas' ? 'active' : ''} 
+                  href="/Descargas"
+                  aria-current={location.pathname === '/Descargas' ? 'page' : undefined}
+                >
                   {t('navbar.downloads', 'Descargas')}
                 </a>
               </li>
               <li>
-                <a className={location.pathname === '/Contacto' ? 'active' : ''} href="/Contacto">
+                <a 
+                  className={location.pathname === '/Contacto' ? 'active' : ''} 
+                  href="/Contacto"
+                  aria-current={location.pathname === '/Contacto' ? 'page' : undefined}
+                >
                   {t('navbar.contact', 'Contacto')}
                 </a>
               </li>
@@ -141,26 +237,37 @@ export default function Navbar() {
                 ) : user ? (
                   <>
                     <div className="user-welcome">
-                      <FaUser className="user-icon" />
+                      <FaUser className="user-icon" aria-hidden="true" />
                       <span className="user-name">{t('navbar.hello', 'Hola')}, {getUserName()}</span>
                     </div>
                     <button 
                       onClick={handleLogout}
                       className="auth-icon logout"
                       title={t('navbar.logout', 'Cerrar Sesión')}
+                      aria-label={t('navbar.logout', 'Cerrar Sesión')}
                     >
-                      <FaSignOutAlt />
+                      <FaSignOutAlt aria-hidden="true" />
                       <span>{t('navbar.logout', 'Logout')}</span>
                     </button>
                   </>
                 ) : (
                   <>
-                    <a href="/login" className="auth-icon" title={t('navbar.login', 'Iniciar Sesión')}>
-                      <FaUser />
+                    <a 
+                      href="/login" 
+                      className="auth-icon" 
+                      title={t('navbar.login', 'Iniciar Sesión')}
+                      aria-label={t('navbar.login', 'Iniciar Sesión')}
+                    >
+                      <FaUser aria-hidden="true" />
                       <span>{t('navbar.login', 'Login')}</span>
                     </a>
-                    <a href="/signup" className="auth-icon signup" title={t('navbar.signup', 'Registrarse')}>
-                      <FaUserPlus />
+                    <a 
+                      href="/signup" 
+                      className="auth-icon signup" 
+                      title={t('navbar.signup', 'Registrarse')}
+                      aria-label={t('navbar.signup', 'Registrarse')}
+                    >
+                      <FaUserPlus aria-hidden="true" />
                       <span>{t('navbar.signup', 'Sign Up')}</span>
                     </a>
                   </>
@@ -169,8 +276,15 @@ export default function Navbar() {
             </div>
 
             {/* Ícono del menú hamburguesa */}
-            <div className="icon" onClick={toggleMenu}>
-              <FaBars />
+            <div 
+              className="icon" 
+              onClick={toggleMenu}
+              role="button"
+              aria-label="Menú de navegación"
+              aria-expanded={isOpen}
+              aria-controls="nav-menu"
+            >
+              <FaBars aria-hidden="true" />
             </div>
           </div>
         </nav>

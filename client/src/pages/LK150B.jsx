@@ -1,14 +1,13 @@
 import React, { useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import "./ProductGallerySection.css";
-
 import { FaFilePdf } from "react-icons/fa";
-
 import generatormain from "../assets/generator-main.png";
 import generador1 from "../assets/generator-1.png";
 import generador2 from "../assets/generator-2.png";
 import generador3 from "../assets/generator-3.png";
 import generador4 from "../assets/generator-4.png";
+import SEO from '../components/SEO';
 
 // Subcomponente para especificaciones
 const ProductSpecs = () => {
@@ -127,43 +126,125 @@ const LK150B = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const sectionRef = useRef(null);
 
-  return (
-    <section className="gallery-section" ref={sectionRef}>
-      {/* Galería e info técnica a la izquierda */}
-      <div className="gallery-left">
-        <img src={selectedImage} alt="Principal" className="main-image" />
-        <div className="thumbnails">
-          {images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt={`Miniatura ${index + 1}`}
-              className={`thumbnail ${selectedImage === img ? "active" : ""}`}
-              onClick={() => setSelectedImage(img)}
-            />
-          ))}
-        </div>
-        <ProductSpecs />
-      </div>
+  // SOLO SE AÑADE: Schema.org para Product
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Generador LK150B - LK Energy",
+    "description": "Generador eléctrico LK150B de 150 KVA, 120 kW. Motor diésel 6 cilindros turboalimentado con aftercooling 6M11G150/5, 6.75L. Potencia industrial superior para aplicaciones de alta demanda.",
+    "brand": {
+      "@type": "Brand",
+      "name": "LK Energy"
+    },
+    "model": "LK150B",
+    "sku": "LK150B",
+    "mpn": "LK150B",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Potencia",
+        "value": "150 KVA / 120 kW"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Tipo de Motor", 
+        "value": "Diésel 6 Cilindros Turboalimentado con Aftercooling"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindros",
+        "value": "6"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Cilindrada",
+        "value": "6.75 L"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Peso",
+        "value": "1990 kg"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Dimensiones",
+        "value": "3070 x 1080 x 1450 mm"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Modelo Motor",
+        "value": "6M11G150/5"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Consumo Plena Carga",
+        "value": "30.2 L/h"
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Flujo de Aire",
+        "value": "8.41 m³/min"
+      }
+    ],
+    "url": "https://lkenergy.com/productos/LK150B"
+  };
 
-      {/* Parte derecha sticky */}
-      <div className="gallery-right">
-        <h2 className="product-title">LK150B</h2>
-        <p className="product-subtitle">{t('product.info.subtitle')}</p>
-        <ul className="product-info">
-          <li>{t('product.info.features.prpPower')} 108kW / 135kVA</li>
-          <li>{t('product.info.features.espPower')} 120kW / 150kVA</li>
-          <li>{t('product.info.features.threePhase')}</li>
-          <li>{t('product.info.features.weight')} 1990 Kg</li>
-          <li>{t('product.info.features.engine')}</li>
-          <li>{t('product.info.features.alternator')}</li>
-          <li>{t('product.info.features.fuelCapacity')} 20 L</li>
-        </ul>
-        <a href="http://localhost:5173/Contacto">
-          <button className="product-button">{t('product.info.contactButton')}</button>
-        </a>
-      </div>
-    </section>
+  return (
+    <>
+      <SEO 
+        title="Generador LK150B - 150 KVA | LK Energy | Motor 6 Cilindros 6M11G150/5"
+        description="Generador eléctrico LK150B de 150 KVA, 120 kW. Motor diésel 6 cilindros turboalimentado con aftercooling 6M11G150/5, 6.75L. Consumo: 30.2 L/h a plena carga. Potencia industrial superior."
+        keywords="generador LK150B, LK150B 150 KVA, generador 6 cilindros, motor 6M11G150/5, LK Energy, 120 kW, generador industrial alta potencia, 6.75L cilindrada"
+        canonical="/productos/LK150B"
+        ogType="product"
+      />
+
+      {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
+      <script type="application/ld+json">
+        {JSON.stringify(productSchema)}
+      </script>
+
+      <section className="gallery-section" ref={sectionRef}>
+        {/* Galería e info técnica a la izquierda */}
+        <div className="gallery-left">
+          <img 
+            src={selectedImage} 
+            alt="Generador eléctrico LK150B - Vista principal" 
+            className="main-image" 
+          />
+          <div className="thumbnails">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Generador LK150B - Vista ${index + 1}`}
+                className={`thumbnail ${selectedImage === img ? "active" : ""}`}
+                onClick={() => setSelectedImage(img)}
+              />
+            ))}
+          </div>
+          <ProductSpecs />
+        </div>
+
+        {/* Parte derecha sticky */}
+        <div className="gallery-right">
+          <h1 className="product-title">LK150B</h1>
+          <p className="product-subtitle">{t('product.info.subtitle')}</p>
+          <ul className="product-info">
+            <li>{t('product.info.features.prpPower')} 108kW / 135kVA</li>
+            <li>{t('product.info.features.espPower')} 120kW / 150kVA</li>
+            <li>{t('product.info.features.threePhase')}</li>
+            <li>{t('product.info.features.weight')} 1990 Kg</li>
+            <li>{t('product.info.features.engine')}</li>
+            <li>{t('product.info.features.alternator')}</li>
+            <li>{t('product.info.features.fuelCapacity')} 20 L</li>
+          </ul>
+          <a href="/Contacto" aria-label="Solicitar presupuesto para generador LK150B">
+            <button className="product-button">{t('product.info.contactButton')}</button>
+          </a>
+        </div>
+      </section>
+    </>
   );
 };
 
