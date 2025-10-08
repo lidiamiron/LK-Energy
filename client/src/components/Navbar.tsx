@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { FaBars, FaUser, FaUserPlus, FaSignOutAlt, FaGlobe } from "react-icons/fa";
+import { FaBars, FaUser, FaUserPlus, FaSignOutAlt, FaAngleDown } from "react-icons/fa";
 import { useAuth } from '../context/AuthContext';
 import { supabase } from '../client';
 import { useTranslation } from 'react-i18next';
@@ -10,26 +10,66 @@ import "../components/Navbar.css";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [languageOpen, setLanguageOpen] = useState(false);
+  const [productosClickCount, setProductosClickCount] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
   const { user, loading } = useAuth();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const isHomePage = location.pathname === '/' || location.pathname === '/Home';
+  const navRef = useRef(null); // Ref for nav to detect outside clicks
 
   const toggleMenu = () => {
+    console.log('Toggling menu. Current isOpen:', isOpen);
     setIsOpen(!isOpen);
-  };
-
-  const toggleDropdown = (dropdownName) => {
-    if (window.innerWidth <= 768) {
-      setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
+    if (isOpen) {
+      console.log('Closing menu, resetting dropdown and click count');
+      setOpenDropdown(null);
+      setProductosClickCount(0);
     }
   };
 
-  const toggleLanguageDropdown = () => {
-    setLanguageOpen(!languageOpen);
+  const handleProductosClick = (e) => {
+    if (window.innerWidth <= 1024) {
+      e.preventDefault(); // Prevent default navigation only in mobile
+      e.stopPropagation(); // Stop event propagation
+      console.log('Productos clicked. Current click count:', productosClickCount, 'openDropdown:', openDropdown);
+      if (productosClickCount === 0) {
+        setOpenDropdown('productos');
+        setProductosClickCount(1);
+        console.log('Opening submenu. New openDropdown:', 'productos', 'New click count:', 1);
+      } else {
+        console.log('Navigating to /productos');
+        navigate('/productos');
+        setProductosClickCount(0);
+        setOpenDropdown(null);
+        console.log('Resetting state. New openDropdown:', null, 'New click count:', 0);
+      }
+    }
+    // In desktop view (> 1024px), do nothing and allow default navigation
   };
+
+  // Handle clicks on other menu items to close submenu
+  const handleOtherMenuClick = (e) => {
+    if (openDropdown === 'productos') {
+      console.log('Closing submenu due to other menu item click');
+      setOpenDropdown(null);
+      setProductosClickCount(0);
+    }
+  };
+
+  // Handle clicks outside the nav to close menu and submenu
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        console.log('Clicked outside nav, closing menu and submenu');
+        setIsOpen(false);
+        setOpenDropdown(null);
+        setProductosClickCount(0);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -41,31 +81,17 @@ export default function Navbar() {
     }
   };
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-    setLanguageOpen(false);
-  };
-
   const getUserName = () => {
     if (!user) return '';
-    
     if (user.user_metadata?.full_name) {
       return user.user_metadata.full_name;
     }
-    
     if (user.email) {
       return user.email.split('@')[0];
     }
-    
     return t('navbar.user', 'Usuario');
   };
 
-  // Obtener el nombre del idioma actual
-  const getCurrentLanguageName = () => {
-    return i18n.language === 'es' ? 'ES' : 'EN';
-  };
-
-  // SOLO SE AÑADE: Schema.org para SiteNavigationElement
   const navigationSchema = {
     "@context": "https://schema.org",
     "@type": "SiteNavigationElement",
@@ -115,49 +141,42 @@ export default function Navbar() {
 
   return (
     <header className={isHomePage ? "fixed-header" : "sticky-header"}>
-      {/* SOLO SE AÑADE ESTE SCRIPT - No afecta diseño */}
       <script type="application/ld+json">
         {JSON.stringify(navigationSchema)}
       </script>
 
       <div className="container">
-        <nav role="navigation" aria-label="Navegación principal">
-          {/* Logo a la izquierda */}
+        <nav role="navigation" aria-label="Navegación principal" ref={navRef}>
           <div className="logo">
             <a href="/" aria-label="LK Energy - Página de inicio">
               <img src={logo} alt="LK Energy - Generadores Eléctricos Industriales" />
             </a>
           </div>
 
-          {/* Contenedor para menú y auth icons a la derecha */}
           <div className="nav-right">
-            {/* Menú de navegación */}
-            <ul className={isOpen ? "nav-link active" : "nav-link"}>
+            <ul className={isOpen ? "nav-link active" : "nav-link"} id="nav-menu">
               <li>
                 <a 
                   className={location.pathname === '/' ? 'active' : ''} 
                   href="/"
                   aria-current={location.pathname === '/' ? 'page' : undefined}
+                  onClick={handleOtherMenuClick}
                 >
                   {t('navbar.company', 'Empresa')}
                 </a>
               </li>
               
-              <li 
-                className="dropdown-wrapper"
-                onClick={() => toggleDropdown('productos')}
-                onMouseEnter={() => window.innerWidth > 768 && setOpenDropdown('productos')}
-                onMouseLeave={() => window.innerWidth > 768 && setOpenDropdown(null)}
-              >
+              <li className="dropdown-wrapper">
                 <a 
                   href="/productos" 
                   className={`${location.pathname.startsWith('/productos') ? 'active' : ''} ${openDropdown === 'productos' ? 'open' : ''}`}
-                  onClick={(e) => window.innerWidth <= 768 && e.preventDefault()}
+                  onClick={handleProductosClick}
                   aria-haspopup="true"
                   aria-expanded={openDropdown === 'productos'}
                   aria-current={location.pathname.startsWith('/productos') ? 'page' : undefined}
                 >
                   {t('navbar.products', 'Productos')}
+                  <FaAngleDown className={`dropdown-arrow ${openDropdown === 'productos' ? 'open' : ''}`} />
                 </a>
                 <div 
                   className={`submenu-container ${openDropdown === 'productos' ? 'open' : ''}`}
@@ -165,42 +184,18 @@ export default function Navbar() {
                   aria-label="Submenú de productos"
                 >
                   <ul className="submenu">
-                    <li>
-                      <a href="/productos/LK21B" role="menuitem">LK21B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK25B" role="menuitem">LK25B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK36B" role="menuitem">LK36B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK44B" role="menuitem">LK44B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK50B" role="menuitem">LK50B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK72B" role="menuitem">LK72B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK88B" role="menuitem">LK88B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK110B" role="menuitem">LK110B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK150B" role="menuitem">LK150B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK165B" role="menuitem">LK165B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK188B" role="menuitem">LK188B</a>
-                    </li>
-                    <li>
-                      <a href="/productos/LK250B" role="menuitem">LK250B</a>
-                    </li>
+                    <li><a href="/productos/LK21B" role="menuitem">LK21B</a></li>
+                    <li><a href="/productos/LK25B" role="menuitem">LK25B</a></li>
+                    <li><a href="/productos/LK36B" role="menuitem">LK36B</a></li>
+                    <li><a href="/productos/LK44B" role="menuitem">LK44B</a></li>
+                    <li><a href="/productos/LK50B" role="menuitem">LK50B</a></li>
+                    <li><a href="/productos/LK72B" role="menuitem">LK72B</a></li>
+                    <li><a href="/productos/LK88B" role="menuitem">LK88B</a></li>
+                    <li><a href="/productos/LK110B" role="menuitem">LK110B</a></li>
+                    <li><a href="/productos/LK150B" role="menuitem">LK150B</a></li>
+                    <li><a href="/productos/LK165B" role="menuitem">LK165B</a></li>
+                    <li><a href="/productos/LK188B" role="menuitem">LK188B</a></li>
+                    <li><a href="/productos/LK250B" role="menuitem">LK250B</a></li>
                   </ul>
                 </div>
               </li>
@@ -210,6 +205,7 @@ export default function Navbar() {
                   className={location.pathname === '/Descargas' ? 'active' : ''} 
                   href="/Descargas"
                   aria-current={location.pathname === '/Descargas' ? 'page' : undefined}
+                  onClick={handleOtherMenuClick}
                 >
                   {t('navbar.downloads', 'Descargas')}
                 </a>
@@ -219,16 +215,14 @@ export default function Navbar() {
                   className={location.pathname === '/Contacto' ? 'active' : ''} 
                   href="/Contacto"
                   aria-current={location.pathname === '/Contacto' ? 'page' : undefined}
+                  onClick={handleOtherMenuClick}
                 >
                   {t('navbar.contact', 'Contacto')}
                 </a>
               </li>
             </ul>
 
-            {/* Contenedor para idiomas y auth */}
             <div className="nav-actions">
-
-              {/* Iconos de autenticación */}
               <div className="auth-icons">
                 {loading ? (
                   <div className="auth-loading">
@@ -275,7 +269,6 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Ícono del menú hamburguesa */}
             <div 
               className="icon" 
               onClick={toggleMenu}

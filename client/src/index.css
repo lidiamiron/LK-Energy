@@ -18,26 +18,5 @@ a {
 }
 
 
-/* Ajustes responsivos */
 
-
-@media (max-width: 768px) {
-  
-
-
-  img{
-    width: 170px;
-    height: auto;
-
-  }
-    .acordeon-section {
-    flex-direction: column;
-    padding: 2rem;
-  }
-
-  .accordion-box, .img-acordeon {
-    flex: unset;
-    width: 100%;
-  }
-}
 

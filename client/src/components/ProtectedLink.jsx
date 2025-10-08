@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../components/ProtectedLink.css'; // Import the CSS file
 
 const SimpleProtectedLink = ({ href, children, className = '' }) => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    // Verificar si hay token en sessionStorage (como lo guardas en tu App.js)
     const token = sessionStorage.getItem('token');
     
     if (!token) {
@@ -20,28 +20,16 @@ const SimpleProtectedLink = ({ href, children, className = '' }) => {
     console.log('Token encontrado, permitiendo descarga');
   };
 
-  // Verificar token
   const token = sessionStorage.getItem('token');
   
   if (!token) {
     return (
       <span 
-        className={className}
+        className={`protected-link-span ${className}`} // Add class for span
         onClick={handleClick}
-        style={{ 
-          cursor: 'pointer',
-          display: 'inline-flex',
-          alignItems: 'center',
-          
-          padding: '8px 12px',
-        }}
       >
         {children}
-        <small style={{ 
-          color: '#dc3545', 
-          marginLeft: '8px',
-          fontSize: '0.75rem'
-        }}>
+        <small className="protected-link-small">
           (Inicia sesión)
         </small>
       </span>

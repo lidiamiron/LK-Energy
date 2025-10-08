@@ -1,78 +1,41 @@
+# -------------------------------------
+# React + Vite Routing Fix (lkenergy.com)
+# -------------------------------------
+
+# Habilitar reescrituras
+Options -MultiViews
 RewriteEngine On
 
-# Redirección HTTPS (recomendado para SEO)
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Asegurar que el RewriteBase es correcto (raíz del dominio)
+RewriteBase /
 
-# Redirección www a non-www (elige una versión para SEO)
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+# Evitar redirecciones innecesarias con trailing slash
+DirectorySlash Off
 
-# Manejo de rutas SPA para React Router
+# Ignorar archivos y carpetas reales
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
 
-# Compresión GZIP (mejora velocidad - importante para SEO)
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/plain
-  AddOutputFilterByType DEFLATE text/html
-  AddOutputFilterByType DEFLATE text/xml
-  AddOutputFilterByType DEFLATE text/css
-  AddOutputFilterByType DEFLATE application/xml
-  AddOutputFilterByType DEFLATE application/xhtml+xml
-  AddOutputFilterByType DEFLATE application/rss+xml
-  AddOutputFilterByType DEFLATE application/javascript
-  AddOutputFilterByType DEFLATE application/x-javascript
-  AddOutputFilterByType DEFLATE application/json
-</IfModule>
+# Redirigir todo lo demás al index.html de Vite
+RewriteRule ^ index.html [L,QSA]
 
-# Caché para mejor performance (SEO)
+# -----------------------------
+# Cabeceras opcionales de cache
+# (mejoran rendimiento del build)
+# -----------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
-  
-  # Imágenes
-  ExpiresByType image/jpg "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/avif "access plus 1 year"
-  ExpiresByType image/ico "access plus 1 year"
-  
-  # CSS y JavaScript
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
-  ExpiresByType application/x-javascript "access plus 1 month"
-  
-  # Fuentes
-  ExpiresByType font/woff2 "access plus 1 year"
-  ExpiresByType font/woff "access plus 1 year"
-  ExpiresByType font/ttf "access plus 1 year"
-  ExpiresByType font/eot "access plus 1 year"
-  
-  # HTML - cache corto para actualizaciones
-  ExpiresByType text/html "access plus 2 hours"
+  ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
-# Headers de seguridad (importante para SEO)
+# Evitar que el navegador use versiones antiguas
 <IfModule mod_headers.c>
-  # XSS Protection
-  Header set X-XSS-Protection "1; mode=block"
-  
-  # MIME Sniffing Protection
-  Header set X-Content-Type-Options "nosniff"
-  
-  # Clickjacking Protection
-  Header set X-Frame-Options "SAMEORIGIN"
-  
-  # HSTS (HTTP Strict Transport Security)
-  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-  
-  # Referrer Policy para SEO
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(js|css|html)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
 </IfModule>
-
-# Error documents
-ErrorDocument 404 /index.html

@@ -94,3 +94,16 @@
     padding: 8px;
   }
 }
+
+@media (max-width: 460px) {
+ 
+  .table-container{
+    margin: 0 20px;
+  }
+   .custom-table th,
+  .custom-table td {
+    font-size: 0.5rem;
+    padding: 8px;
+  }
+ 
+}

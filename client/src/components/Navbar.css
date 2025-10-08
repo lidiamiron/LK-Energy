@@ -29,7 +29,6 @@
   padding: 0 20px;
 }
 
-
 .container nav {
   display: flex;
   justify-content: space-between;
@@ -151,7 +150,7 @@ nav {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
+  from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -304,7 +303,7 @@ nav {
   font-size: 10px;
   color: #666;
   transition: transform 0.3s ease;
-  margin-left: auto;
+  margin-left: 5px;
 }
 
 .dropdown-arrow.open {
@@ -407,7 +406,9 @@ nav {
     width: 250px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 0 0 0 8px;
-    z-index: 1001;
+    z-index: 1002;
+    max-height: calc(100vh - 80px); /* Limit height to viewport minus navbar */
+    overflow-y: auto; /* Enable scrolling for hamburger menu */
   }
   
   .nav-link.active li {
@@ -419,6 +420,8 @@ nav {
     padding: 0.8rem 1rem;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
   }
   
   .nav-link.active li a:hover {
@@ -434,26 +437,52 @@ nav {
     display: none;
   }
   
+  .dropdown-wrapper {
+    position: relative;
+    z-index: 1004;
+  }
+  
   .submenu-container {
+    display: none !important;
     position: static;
-    box-shadow: none;
+    background: transparent;
+    padding: 0 0 0 1.5rem;
+    width: 100%;
     border: none;
-    background-color: transparent;
-    padding-left: 1rem;
-    display: none;
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease;
+    box-shadow: none;
+    z-index: 1005;
+    opacity: 0;
+    visibility: hidden;
+    animation: fadeIn 0.3s ease forwards;
+    max-height: 200px; /* Limit submenu height */
+    overflow-y: auto; /* Enable scrolling for submenu */
   }
   
   .submenu-container.open {
-    display: block;
-    height: auto;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1005;
   }
   
   .submenu li a {
-    padding: 8px 16px;
-    font-size: 1.1rem;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    color: #555;
+    text-align: left;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submenu li a:hover {
+    background-color: #f5f5f5;
   }
 }
 
@@ -477,7 +506,6 @@ nav {
     gap: 15px;
   }
   
-  /* Ajustes para auth icons en móvil */
   .auth-icons {
     gap: 10px;
   }
@@ -507,9 +535,9 @@ nav {
     gap: 4px;
   }
   
-  /* Menú hamburguesa ajustado para móvil */
   .container .nav-link.active {
     width: 200px;
+    max-height: calc(100vh - 70px); /* Adjust for smaller screens */
   }
 }
 
@@ -554,9 +582,13 @@ nav {
     gap: 8px;
   }
   
-  /* Menú más compacto para móviles muy pequeños */
   .container .nav-link.active {
     width: 180px;
     right: 10px;
+    max-height: calc(100vh - 60px); /* Adjust for very small screens */
+  }
+  .logo img {
+    height: 25px;
+    width: auto;
   }
 }

@@ -1,0 +1,29 @@
+/* Styles for the span element */
+.protected-link-span {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+}
+
+/* Styles for the small element */
+.protected-link-small {
+  color: #dc3545;
+  margin-left: 8px;
+  font-size: 0.75rem;
+}
+
+/* Media query for screens 460px or smaller */
+@media (max-width: 460px) {
+  .protected-link-small {
+    font-size: 0.5rem;
+
+  
+  margin-left: 3px;
+ 
+}
+.protected-link-span {
+  
+  padding: 4px 6px;
+}
+}

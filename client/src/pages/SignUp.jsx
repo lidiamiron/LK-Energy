@@ -34,7 +34,7 @@ const SignUp = () => {
         password: formData.password,
         options: {
           data: {
-            full_name: formData.fullName, // Esto se guardará en user_metadata
+            full_name: formData.fullName, 
           }
         }
       });

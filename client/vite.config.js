@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   
   // Configuración importante para rutas y SEO
-  base: './',
+  base: '/',
   
   build: {
     outDir: 'dist',

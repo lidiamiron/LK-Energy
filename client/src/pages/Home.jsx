@@ -98,7 +98,7 @@ export default function Home() {
               <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>
                 {t("home.subtitle")}
               </h2>
-              <a href="http://localhost:5173/Contacto">
+              <a href="http://lkenergy.com/Contacto">
                 <button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>
                   {t("home.budgetButton")}
                 </button>
@@ -127,7 +127,7 @@ export default function Home() {
           <h1 className="about-heading">{t("home.aboutHeading")}</h1>
           <h2 className="about-subtitle">{t("home.aboutSubtitle")}</h2>
           <p className="contact-us">
-            <a href="http://localhost:5173/Contacto">
+            <a href="http://lkenergy.com/Contacto">
               {t("home.aboutContact")}
             </a>
           </p>
@@ -174,5 +174,4 @@ export default function Home() {
         <Contact />
       </section>
     </main>
-  );
-}
+  );}
