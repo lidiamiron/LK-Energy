@@ -5,8 +5,8 @@
     "form": {
       "name": "Nombre *",
       "surname": "Apellido",
-      "email": "Email *",
-      "phone": "Teléfono",
+      "email": " Email *",
+      "phone": " Teléfono",
       "message": "Mensaje *",
       "submit": "ENVIAR"
     },
@@ -19,8 +19,8 @@
     },
     "info": {
       "title": "Información de <span>Contacto</span>",
-      "address": "Carrer Tramuntana, 2 - PI Can Mascaró <br />08756 La Palma de Cervelló,<br /> Barcelona",
-      "call": "Llámanos",
+      "address": " Carrer Tramuntana, 2 - PI Can Mascaró <br />08756 La Palma de Cervelló,<br /> Barcelona",
+      "call": "Llámanos: ",
       "schedule": "Estamos abiertos de Lunes a Viernes<br />09:00 - 18:30",
       "follow": "Síguenos"
     }

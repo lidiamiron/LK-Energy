@@ -52,6 +52,7 @@
   transition: all 0.3s ease;
   background-color: #f8f9fa;
   box-sizing: border-box;
+  color: #333;
 }
 
 .login-input:focus {
