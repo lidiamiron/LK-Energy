@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../components/ProtectedLink.css'; // Import the CSS file
+import '../components/ProtectedLink.css'; 
+
 
 const SimpleProtectedLink = ({ href, children, className = '' }) => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const SimpleProtectedLink = ({ href, children, className = '' }) => {
   if (!token) {
     return (
       <span 
-        className={`protected-link-span ${className}`} // Add class for span
+        className={`protected-link-span ${className}`} 
         onClick={handleClick}
       >
         {children}
