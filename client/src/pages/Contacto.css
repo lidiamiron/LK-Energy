@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: 4rem 2rem;
-  background: linear-gradient(to right, #e29025, #ffbf6b);
+  background: linear-gradient(to right, #f9f9ff, #d3d3da);
   color: white;
   gap: 5rem;
   justify-content: center;
@@ -19,18 +19,18 @@
 }
 
 .contact-form h2 {
-  color: #fff;
+  color:#e29026;
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
 
 .contact-form h2 span {
-  color: #252525;
+  color: #383838;
 }
 
 .contact-form p {
   margin-bottom: 1.5rem;
-  color: #252525;
+  color: #383838;
 }
 
 .input-row {
@@ -50,7 +50,7 @@ textarea {
   border-radius: 8px;
   border: none;
   outline: none;
-  background-color: #ce7807;
+  background-color: #d3d3da;
   color: white;
   font-size: 1rem;
 }
@@ -62,9 +62,9 @@ textarea {
 }
 
 button {
-  background-color: #ffffff;
+  background-color: #383838;
   border: none;
-  color: #ce7807;
+  color: #f9f9ff;
   padding: 0.7rem 2rem;
   font-size: 1rem;
   border-radius: 6px;
@@ -73,12 +73,14 @@ button {
 }
 
 button:hover {
-  background-color: #ffbf6b;
+  background-color: #6e6d6d;
+  color: white;
 }
 
 .contact-info h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: #383838;
 }
 
 .contact-info h3 span {
@@ -95,7 +97,7 @@ button:hover {
 .contact-info h4 {
   margin-top: 2rem;
    margin-bottom: 1rem;
-  color: white;
+  color: #383838;
 }
 
 .social-links{
@@ -103,7 +105,7 @@ button:hover {
 }
 .social-links a {
   margin-right: 1rem;
-  color: #252525;
+  color: #383838;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
@@ -115,9 +117,9 @@ button:hover {
 }  
 
 input::placeholder{
-  color: rgb(255, 240, 200);
+  color: #383838;
 }  
 
 input, textarea::placeholder{
-  color: rgb(255, 240, 200);
+  color: #383838;
 }   
