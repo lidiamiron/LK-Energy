@@ -8,12 +8,13 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden; /* Prevent scrollbars or overflow issues */
+  background-color: #1b1b1ba9;
 }
 
 .home-banner {
   position: relative;
   width: 100%;
-  height: 100vh; /* Explicitly set to viewport height */
+  height: 100vh; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,15 +26,14 @@ body {
   object-fit: cover;
   position: absolute;
   top: 0;
-  left: 0;
+  
   z-index: -1;
 }
 
 /* Imagen del generador */
 .generator {
-  width: 1070px;
-  max-width: 100%;
-  height: auto;
+  height: 100vh;
+  display: none;
 }
 
 /* Title container */
@@ -45,22 +45,24 @@ body {
   width: 100%;
   padding: 0 2rem;
   box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+  gap: 50px;
 }
 
 .title-content {
   z-index: 1;
   color: white;
-  padding-right: 30px;
+  text-align: center;
+  
 }
 
 /* Estilos del título con animaciones */
 .title {
-  font-size: 4rem;
+  font-size: 55px;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #383838;
+  color: #ffffff;
   text-shadow: 1px 1px 2px rgba(253, 253, 253, 0.7);
-  text-align: left;
+  text-align: center;
 }
 
 .title-line {
@@ -91,13 +93,14 @@ body {
 /* Animación del subtítulo */
 .subtitle {
   text-align: left;
-  font-size: 2rem;
-  color: #383838;
+  font-size: 20px;
+  color: #ffffff;
   font-weight: 300;
   text-shadow: 0.5px 0.5px 1px rgba(168, 168, 168, 0.7);
   opacity: 0;
   transform: translateX(-30px);
   transition: all 0.8s ease-out;
+  text-align: center;
 }
 
 .subtitle.animate {
@@ -113,7 +116,6 @@ body {
   transform: translateX(-30px);
   transition: all 0.8s ease-out;
     transition-delay: 1.8s;
-
 }
 .presupuesto.animate {
   opacity: 1;
@@ -126,18 +128,21 @@ body {
   margin-top: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border: solid #383838;
- background-color: #383838;
+  border: solid #ffffff;
+ background-color: #ffffff;
   font-weight: 600;
   text-transform:uppercase;
-  color: white;
+  color: rgb(44, 44, 44);
+      text-align: center;
+
 }
 .presupuesto1:hover{
 
- background-color: #666666;
-  border: solid #666666;
-  color: white;
-  transition-delay: 0.2s;
+ background-color: #cccccc;
+ border: solid #cccccc ;
+  color: rgb(63, 63, 63);
+  transition-delay: none;
+  
  
 }
 
@@ -193,7 +198,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.about-image img {
+.about-image video {
   width: 100%;
   border-radius: 6px;
   height: auto;
@@ -328,9 +333,8 @@ body {
   }
 
   .banner {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover;
+    width: 100vh;
+    height: 100%;
   }
 }
 
@@ -350,13 +354,13 @@ body {
   .title {
     font-size: 3rem;
     text-align: center;
-    color: #383838;
+    color: white;
   }
 
   .subtitle {
     text-align: center;
     font-size: 2rem;
-    color: #383838;
+    color: white;
   }
 
   

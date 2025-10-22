@@ -149,7 +149,7 @@ export default function Navbar() {
         <nav role="navigation" aria-label="Navegación principal" ref={navRef}>
           <div className="logo">
             <a href="/" aria-label="LK Energy - Página de inicio">
-              <img src={logo} alt="LK Energy - Generadores Eléctricos Industriales" />
+              <img src={logo}  alt="LK Energy - Generadores Eléctricos Industriales" />
             </a>
           </div>
 

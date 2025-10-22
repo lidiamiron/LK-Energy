@@ -8,7 +8,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 }
 
 .sticky-header {
@@ -19,7 +19,7 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 }
 
 /* Contenedor principal */
@@ -33,15 +33,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
+}
+.container nav img{
+  
+  height: 40px!important;
+
 }
 
-.container nav .logo {
-  width: 250px;
+ .container .logo{
+  margin-bottom: 0!important;
+  
 }
 
-.container .nav-link {
-  display: flex;
-}
+
 
 .container .nav-link li {
   list-style: none;
@@ -50,7 +55,7 @@
 
 .container ul li a {
   color: #383838;
-  font-size: 1.3rem;
+  font-size: 18px;
   padding: 0.7rem 0.6rem;
   display: block;
   border-radius: 4px;
@@ -68,24 +73,7 @@
   display: none;
 }
 
-/* Layout del nav */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
 
-/* Logo a la izquierda */
-.logo {
-  flex-shrink: 0;
-  align-self: center;
-}
-
-.logo img {
-  height: 40px;
-  width: auto;
-}
 
 /* Contenedor del menú y auth icons a la derecha */
 .nav-right {
@@ -133,7 +121,7 @@ nav {
 .submenu-container {
   display: none;
   position: absolute;
-  top: 162%;
+  top: 132%;
   left: -39%;
   min-width: 200px;
   z-index: 1001;
@@ -184,8 +172,7 @@ nav {
   padding: 8px 12px;
   border-radius: 4px;
   transition: all 0.3s ease;
-  font-weight: 500;
-  border: 1px solid transparent;
+  font-size: 18px;
 }
 
 .auth-icon:hover {
@@ -206,7 +193,7 @@ nav {
 }
 
 .auth-icon svg {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* Estilos para el estado de usuario logueado */
@@ -539,6 +526,9 @@ nav {
     width: 200px;
     max-height: calc(100vh - 70px); /* Adjust for smaller screens */
   }
+  .container .logo img{
+    height: 30px!important;
+  }
 }
 
 /* Móviles pequeños - 576px y menores */
@@ -587,8 +577,8 @@ nav {
     right: 10px;
     max-height: calc(100vh - 60px); /* Adjust for very small screens */
   }
-  .logo img {
-    height: 25px;
-    width: auto;
+   .container .logo img {
+    height: 25px!important;
+    
   }
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import banner from "../assets/banner.svg";
-import generador from "../assets/IMG_6019.png"; 
+import banner from "../assets/banner3.png";
+import generador from "../assets/generador-ai.png"; 
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
-import workerImage from "../assets/generadores.JPG";
+import workerImage from "../assets/generadores.mp4";
 import Acordeon from "../components/Acordeon";
 import Config from "../assets/configuracion.png";
 import Contact from "../pages/Contacto";
@@ -140,7 +140,10 @@ export default function Home() {
             </p>
           </div>
           <div className="about-image">
-            <img src={workerImage} alt="Generadores industriales" />
+            <video src={workerImage} 
+        autoPlay
+        loop
+        muted alt="Generadores industriales" />
           </div>
         </div>
       </section>
