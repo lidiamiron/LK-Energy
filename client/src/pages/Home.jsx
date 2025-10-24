@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import banner from "../assets/banner3.png";
+import banner from "../assets/banner4.png";
 import generador from "../assets/generador-ai.png"; 
 import { FaTools, FaHammer, FaShieldAlt } from "react-icons/fa";
 import workerImage from "../assets/generadores.mp4";
