@@ -28,6 +28,8 @@ import LK250B from './pages/LK250B';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
+import ScrollToTop from './components/ScrollToTop';
+
 
 function App() {
   const [token, setToken] = useState(false)
@@ -48,6 +50,7 @@ function App() {
       <AuthProvider> 
         <Router>
           <MainLayout>
+          <ScrollToTop />
             <Routes>
               <Route path={'/signup'} element={<SignUp />} />
               <Route path={'/login'} element={<Login setToken={setToken} />} />

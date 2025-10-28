@@ -9,6 +9,7 @@ import generador3 from "../assets/generador1.png";
 import generador4 from "../assets/generador1.png";
 import generador5 from "../assets/generador1.png";
 
+
 const products = [
   {
     id: 1,

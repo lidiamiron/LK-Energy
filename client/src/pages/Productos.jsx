@@ -14,18 +14,18 @@ import generador7 from "../assets/generador1.png";
 import generador8 from "../assets/generador1.png";
 
 const products = [
-  { name: "LK21B", power: "21kVA", powerValue: 21, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador1 },
-  { name: "LK25B", power: "25kVA", powerValue: 25, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador2 },
-  { name: "LK36B", power: "36kVA", powerValue: 36, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador3 },
-  { name: "LK44B", power: "44kVA", powerValue: 44, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador4 },
-  { name: "LK50B", power: "50kVA", powerValue: 50, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador5 },
-  { name: "LK72B", power: "72kVA", powerValue: 72, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador6 },
-  { name: "LK88B", power: "88kVA", powerValue: 88, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador7 },
-  { name: "LK110B", power: "110kVA", powerValue: 110, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador8 },
-  { name: "LK150B", power: "150kVA", powerValue: 150, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador8 },
-  { name: "LK165B", power: "165kVA", powerValue: 165, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador8 },
-  { name: "LK188B", power: "188kVA", powerValue: 188, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador8 },
-  { name: "LK250B", power: "250kVA", powerValue: 250, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage:  ["380/220V", "400/230V", "415/240V" ], phase: "Three", image: generador8 },
+  { name: "LK21B", power: "21kVA", powerValue: 21, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador1, enclosure: "Closed"  },
+  { name: "LK25B", power: "25kVA", powerValue: 25, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador2, enclosure: "Closed" },
+  { name: "LK36B", power: "36kVA", powerValue: 36, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador3, enclosure: "Closed"  },
+  { name: "LK44B", power: "44kVA", powerValue: 44, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador4, enclosure: "Closed" },
+  { name: "LK50B", power: "50kVA", powerValue: 50, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador5, enclosure: "Closed"  },
+  { name: "LK72B", power: "72kVA", powerValue: 72, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador6, enclosure: "Closed" },
+  { name: "LK88B", power: "88kVA", powerValue: 88, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador7, enclosure: "Closed"  },
+  { name: "LK110B", power: "110kVA", powerValue: 110, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador8, enclosure: "Closed" },
+  { name: "LK150B", power: "150kVA", powerValue: 150, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador8, enclosure: "Closed"  },
+  { name: "LK165B", power: "165kVA", powerValue: 165, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador8, enclosure: "Closed" },
+  { name: "LK188B", power: "188kVA", powerValue: 188, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador8, enclosure: "Closed"  },
+  { name: "LK250B", power: "250kVA", powerValue: 250, type: "Trifásico", fuel: "Diesel", frequency: "50", voltage: ["380/220V", "400/230V", "415/240V"], phase: "Three", image: generador8, enclosure: "Closed" },
 ];
 
 function ProductGrid() {
@@ -36,20 +36,22 @@ function ProductGrid() {
   const [selectedPhase, setSelectedPhase] = useState("All");
   const [selectedPower, setSelectedPower] = useState("All");
   const [applyFilters, setApplyFilters] = useState(false);
+  const [selectedEnclosure, setSelectedEnclosure] = useState("All");
+
 
   const handleSearch = () => setApplyFilters(true);
 
-  const filteredProducts = products.filter((product) => {
-    if (!applyFilters) return true;
+const filteredProducts = products.filter((product) => {
+  if (!applyFilters) return true;
 
-    const matchesFuel = selectedFuel === "All" || product.fuel === selectedFuel;
-    const matchesFrequency = selectedFrequency === "All" || product.frequency === selectedFrequency;
-    const matchesVoltage = selectedVoltage === "All" || product.voltage.includes(selectedVoltage);
-    const matchesPhase = selectedPhase === "All" || product.phase === selectedPhase;
-    const matchesPower = selectedPower === "All" || product.powerValue === parseInt(selectedPower);
+  const matchesEnclosure = selectedEnclosure === "All" || product.enclosure === selectedEnclosure;
+  const matchesFrequency = selectedFrequency === "All" || product.frequency === selectedFrequency;
+  const matchesVoltage = selectedVoltage === "All" || product.voltage.includes(selectedVoltage);
+  const matchesPhase = selectedPhase === "All" || product.phase === selectedPhase;
+  const matchesPower = selectedPower === "All" || product.powerValue === parseInt(selectedPower);
 
-    return matchesFuel && matchesFrequency && matchesVoltage && matchesPhase && matchesPower;
-  });
+  return matchesEnclosure && matchesFrequency && matchesVoltage && matchesPhase && matchesPower;
+});
 
   return (
     <>
@@ -70,14 +72,26 @@ function ProductGrid() {
           {/* FILTROS - Mismo diseño original */}
           <div className="filter-panel">
             <div className="filter-group">
-              <span>{t('products.filters.fuel', 'Combustible')}:</span>
-              <button onClick={() => setSelectedFuel("Diesel")} className={selectedFuel === "Diesel" ? "active" : ""}>
-                {t('products.filters.diesel', 'Diesel')}
-              </button>
-              <button onClick={() => setSelectedFuel("All")} className={selectedFuel === "All" ? "active" : ""}>
-                {t('products.filters.all', 'Todos')}
-              </button>
-            </div>
+  <span>{t('products.filters.enclosure', 'Modelo de caseta')}:</span>
+  <button
+    onClick={() => setSelectedEnclosure("Open")}
+    className={selectedEnclosure === "Open" ? "active" : ""}
+  >
+    {t('products.filters.open', 'Abierto')}
+  </button>
+  <button
+    onClick={() => setSelectedEnclosure("Closed")}
+    className={selectedEnclosure === "Closed" ? "active" : ""}
+  >
+    {t('products.filters.closed', 'Cerrado')}
+  </button>
+  <button
+    onClick={() => setSelectedEnclosure("All")}
+    className={selectedEnclosure === "All" ? "active" : ""}
+  >
+    {t('products.filters.all', 'Todos')}
+  </button>
+</div>
 
             <div className="filter-group">
               <span>{t('products.filters.frequency', 'Frecuencia')}:</span>

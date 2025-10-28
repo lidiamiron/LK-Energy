@@ -47,10 +47,12 @@
     "title": "Téléchargements",
     "tableHeaders": {
       "model": "MODÈLE",
-      "kva": "KVA",
-      "kilowatts": "Kilowatts",
-      "engineType": "Type de moteur",
-      "dimension": "Dimension",
+      "espKva": "ESP KVA",
+    "espKw": "ESP kW",
+    "prpKva": "PRP KVA",
+    "prpKw": "PRP kW",
+    "baudouin": "Baudouin",
+    "alternator": "Alternador",
       "download": "Télécharger"
     },
     "documents": {

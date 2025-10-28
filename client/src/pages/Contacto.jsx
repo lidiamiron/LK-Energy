@@ -202,8 +202,12 @@ export default function Contact() {
           <p dangerouslySetInnerHTML={{ __html: t("contact.info.address") }} />
           <p>
             <strong>{t("contact.info.call")}</strong> 
-            <span itemProp="telephone">936 84 66 35</span>
+            <span itemProp="telephone">+34 934 18 51 73</span>
           </p>
+          <p itemScope itemType="https://schema.org/ContactPoint">
+                        <strong>{t('footer.email', 'Email')}</strong>: 
+                        <span itemProp="email"> info@lkenergy.com</span>
+                      </p>
           <p dangerouslySetInnerHTML={{ __html: t("contact.info.schedule") }} />
           <h4>{t("contact.info.follow")}</h4>
 

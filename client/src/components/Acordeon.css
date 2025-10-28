@@ -3,9 +3,8 @@
   display: flex;
   background-color: #383838;
   justify-content: center;
-  gap: 4rem;
-  padding:0 6rem;
-  padding-left: 0;
+  gap: 1rem;
+  padding-right: 6rem;
   flex-wrap: wrap;
 }
 
@@ -17,7 +16,7 @@
 }
 
 .img-acordeon img {
-  max-width: 80%;
+  max-width: 50%;
   height: auto; 
 }
 
@@ -80,6 +79,23 @@
   font-size: 1rem;
   line-height: 1.6;
 }
+.accordion-inner {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.accordion-inner p {
+  flex: 1 1 60%;
+  margin: 0;
+}
+.accordion-inner img {
+  flex: 0 0 220px;
+  width: 50px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
 
 @media (max-width: 768px){
 .acordeon-section{
@@ -99,5 +115,7 @@
     flex: unset;
     width: 100%;
   }
+
+
 
 }
