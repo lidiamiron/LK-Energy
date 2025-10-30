@@ -20,19 +20,15 @@ export default function Home() {
   const aboutLeftRef = useRef(null);
 
   useEffect(() => {
-    // Iniciar animación del texto después de un pequeño delay
     const timer = setTimeout(() => {
       setTextAnimationStarted(true);
     }, 500);
 
     const handleScroll = () => {
       setScrollY(window.scrollY);
-      
-      // Calcular visibilidad
       if (aboutSectionRef.current && aboutLeftRef.current) {
         const sectionRect = aboutSectionRef.current.getBoundingClientRect();
         const elementRect = aboutLeftRef.current.getBoundingClientRect();
-        
         setIsVisible(
           elementRect.bottom > sectionRect.top && 
           elementRect.top < sectionRect.bottom
@@ -41,42 +37,36 @@ export default function Home() {
     };
     
     window.addEventListener("scroll", handleScroll);
-    
     return () => {
       window.removeEventListener("scroll", handleScroll);
       clearTimeout(timer);
     };
   }, []);
 
-  // Calcula el desplazamiento (máximo 100px)
   const offset = Math.min(scrollY * 0.5, 10);
 
   const cards = [
-    {
-      icon: <FaTools className="cardIcon" />,
-      title: t("home.sparePartsTitle"),
-      text: t("home.sparePartsDescription"),
-    },
-    {
-      icon: <FaHammer className="cardIcon" />,
-      title: t("home.technicalServiceTitle"),
-      text: t("home.technicalServiceDescription"),
-    },
-    {
-      icon: <FaShieldAlt className="cardIcon" />,
-      title: t("home.warrantiesTitle"),
-      text: t("home.warrantiesDescription"),
-    },
+    { icon: <FaTools className="cardIcon" />, title: t("home.sparePartsTitle"), text: t("home.sparePartsDescription") },
+    { icon: <FaHammer className="cardIcon" />, title: t("home.technicalServiceTitle"), text: t("home.technicalServiceDescription") },
+    { icon: <FaShieldAlt className="cardIcon" />, title: t("home.warrantiesTitle"), text: t("home.warrantiesDescription") },
   ];
 
   return (
     <main>
       <SEO 
-        title="LK Energy - Generadores Eléctricos Industriales | 25 Años de Experiencia"
-        description="LK Energy - Fabricantes de generadores eléctricos industriales con 25 años de experiencia. Servicio técnico, repuestos y garantías. Soluciones energéticas para todos los sectores."
-        keywords="generadores eléctricos, LK Energy, generadores industriales, energía de respaldo, grupos electrógenos, servicio técnico generadores"
-        canonical="/"
+        title="Generadores Industriales y Grupos Electrógenos | LK Energy - 25 Años de Experiencia"
+        description="Generadores industriales y grupos electrógenos confiables para empresas. LK Energy ofrece repuestos, mantenimiento y servicio técnico con 25 años de experiencia."
+        keywords="generadores industriales para empresas, grupos electrógenos confiables, servicio técnico generadores, repuestos generadores eléctricos, energía de respaldo, LK Energy"
+        canonical="https://lkenergy.com/"
         ogType="website"
+        ogTitle="Generadores Industriales y Grupos Electrógenos | LK Energy"
+        ogDescription="Soluciones energéticas confiables: generadores industriales, grupos electrógenos, repuestos y servicio técnico con 25 años de experiencia en LK Energy."
+        ogImage={banner}
+        ogUrl="https://lkenergy.com/"
+        twitterCard="summary_large_image"
+        twitterTitle="Generadores Industriales y Grupos Electrógenos | LK Energy"
+        twitterDescription="LK Energy ofrece generadores industriales, grupos electrógenos, repuestos y servicio técnico profesional con 25 años de experiencia. Soluciones confiables para empresas."
+        twitterImage={banner}
       />
 
       {/* HEADER */}
@@ -86,22 +76,14 @@ export default function Home() {
           <div className="title-container">
             <div className="title-content">
               <h1 className="title">
-                <span className={`title-line title-line-1 ${textAnimationStarted ? 'animate' : ''}`}>
-                  {t("home.titleLine1")}
-                </span>
+                <span className={`title-line title-line-1 ${textAnimationStarted ? 'animate' : ''}`}>{t("home.titleLine1")}</span>
                 <br/>
-                <span className={`title-line title-line-2 ${textAnimationStarted ? 'animate' : ''}`}>
-                  {t("home.titleLine2")}
-                </span>
+                <span className={`title-line title-line-2 ${textAnimationStarted ? 'animate' : ''}`}>{t("home.titleLine2")}</span>
                 <br/>
               </h1>
-              <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>
-                {t("home.subtitle")}
-              </h2>
+              <h2 className={`subtitle ${textAnimationStarted ? 'animate' : ''}`}>{t("home.subtitle")}</h2>
               <a href="http://lkenergy.com/Contacto">
-                <button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>
-                  {t("home.budgetButton")}
-                </button>
+                <button className={`presupuesto presupuesto1 ${textAnimationStarted ? 'animate' : ''}`}>{t("home.budgetButton")}</button>
               </a>
             </div>
             <div className="generador-image">
@@ -116,34 +98,17 @@ export default function Home() {
         <div 
           ref={aboutLeftRef}
           className="about-left" 
-          style={{ 
-            transform: `translateY(${offset}px)`,
-            transition: "transform 0.3s ease-out, opacity 0.3s ease-out",
-            opacity: isVisible ? 1 : 0,
-            visibility: isVisible ? 'visible' : 'hidden'
-          }}
+          style={{ transform: `translateY(${offset}px)`, transition: "transform 0.3s ease-out, opacity 0.3s ease-out", opacity: isVisible ? 1 : 0, visibility: isVisible ? 'visible' : 'hidden' }}
         >
           <h2 className="about-title">{t("home.aboutTitle")}</h2>
           <h1 className="about-heading">{t("home.aboutHeading")}</h1>
           <h2 className="about-subtitle">{t("home.aboutSubtitle")}</h2>
-          <p className="contact-us">
-            <a href="http://lkenergy.com/Contacto">
-              {t("home.aboutContact")}
-            </a>
-          </p>
+          <p className="contact-us"><a href="http://lkenergy.com/Contacto">{t("home.aboutContact")}</a></p>
         </div>
-
         <div className="about-right">
-          <div className="about-description">
-            <p>
-              {t("home.aboutDescription")}
-            </p>
-          </div>
+          <div className="about-description"><p>{t("home.aboutDescription")}</p></div>
           <div className="about-image">
-            <video src={workerImage} 
-        autoPlay
-        loop
-        muted alt="Generadores industriales" />
+            <video src={workerImage} autoPlay loop muted alt="Generadores industriales" />
           </div>
         </div>
       </section>
@@ -161,20 +126,15 @@ export default function Home() {
       
       {/* ACCORDION SECTION */}
       <section className="acordeon-section">
-        <div className="img-acordeon">
-          <img className="img-a" src={Config} alt="Power generator" />
-        </div>
+        <div className="img-acordeon"><img className="img-a" src={Config} alt="Power generator" /></div>
         <div className="accordion-box"><Acordeon /></div> 
       </section>
       
       {/* FEATURED PRODUCTS SECTION */}
-      <section className='featureProducts'> 
-        <FeaturedProducts />
-      </section>
+      <section className='featureProducts'><FeaturedProducts /></section>
 
       {/* CONTACT SECTION */}
-      <section className="contact">
-        <Contact />
-      </section>
+      <section className="contact"><Contact /></section>
     </main>
-  );}
+  );
+}

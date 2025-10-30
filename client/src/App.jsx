@@ -29,6 +29,10 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
 import ScrollToTop from './components/ScrollToTop';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import CookieConsent from "./components/CookieConsent";
+
+import PoliticaCookies from "./pages/PoliticaCookies";
 
 
 function App() {
@@ -51,6 +55,7 @@ function App() {
         <Router>
           <MainLayout>
           <ScrollToTop />
+          
             <Routes>
               <Route path={'/signup'} element={<SignUp />} />
               <Route path={'/login'} element={<Login setToken={setToken} />} />
@@ -72,8 +77,12 @@ function App() {
               <Route path="/productos/LK250B" element={<LK250B />} />
               <Route path="/descargas" element={<Descargas />} />
               <Route path="/contacto" element={<Contacto />} />
+              <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
+              <Route path="/politica-cookies" element={<PoliticaCookies />} />
+
             </Routes>
           </MainLayout>
+          <CookieConsent />
           <LanguageSwitcher />
         </Router>
       </AuthProvider>

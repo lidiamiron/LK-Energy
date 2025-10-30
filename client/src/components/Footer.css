@@ -131,6 +131,9 @@ margin-bottom: 1rem;
 line-height: 1.6;
 
 }
+.privacy{
+  color: #ce7807;
+}
 
 @media (max-width: 992px) {
 

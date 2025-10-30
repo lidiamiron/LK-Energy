@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 import logo from "../assets/logo-white.svg"
 import { FaFacebookSquare, FaInstagram , FaLinkedin } from "react-icons/fa";
 import "../components/Footer.css"
+import { Link } from "react-router-dom";
+
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -141,7 +143,7 @@ const Footer = () => {
       
       <div className="footer-bottom">
         <div className="legal-links">
-          <span>{t('footer.terms', 'Términos y condiciones de privacidad')}</span>
+          <Link to="/politica-privacidad" aria-label="Política de privacidad y términos" className="privacy">{t('footer.terms', 'Términos y condiciones de privacidad')}</Link>
         </div>
         <div className="copyright">
           {t('footer.copyright', 'Copyright © {{year}} Power10. Todos los derechos reservados.', { 

@@ -38,20 +38,19 @@ function ProductGrid() {
   const [applyFilters, setApplyFilters] = useState(false);
   const [selectedEnclosure, setSelectedEnclosure] = useState("All");
 
-
   const handleSearch = () => setApplyFilters(true);
 
-const filteredProducts = products.filter((product) => {
-  if (!applyFilters) return true;
+  const filteredProducts = products.filter((product) => {
+    if (!applyFilters) return true;
 
-  const matchesEnclosure = selectedEnclosure === "All" || product.enclosure === selectedEnclosure;
-  const matchesFrequency = selectedFrequency === "All" || product.frequency === selectedFrequency;
-  const matchesVoltage = selectedVoltage === "All" || product.voltage.includes(selectedVoltage);
-  const matchesPhase = selectedPhase === "All" || product.phase === selectedPhase;
-  const matchesPower = selectedPower === "All" || product.powerValue === parseInt(selectedPower);
+    const matchesEnclosure = selectedEnclosure === "All" || product.enclosure === selectedEnclosure;
+    const matchesFrequency = selectedFrequency === "All" || product.frequency === selectedFrequency;
+    const matchesVoltage = selectedVoltage === "All" || product.voltage.includes(selectedVoltage);
+    const matchesPhase = selectedPhase === "All" || product.phase === selectedPhase;
+    const matchesPower = selectedPower === "All" || product.powerValue === parseInt(selectedPower);
 
-  return matchesEnclosure && matchesFrequency && matchesVoltage && matchesPhase && matchesPower;
-});
+    return matchesEnclosure && matchesFrequency && matchesVoltage && matchesPhase && matchesPower;
+  });
 
   return (
     <>
@@ -69,41 +68,20 @@ const filteredProducts = products.filter((product) => {
             {t('products.description', 'Especializados en motores de alta gama, generadores de combustible alternativo y diésel. Nuestros motores entran al mercado a competir gracias a su eficiencia y prestaciones de alto rendimiento.')}
           </p>
 
-          {/* FILTROS - Mismo diseño original */}
+          {/* FILTROS */}
           <div className="filter-panel">
             <div className="filter-group">
-  <span>{t('products.filters.enclosure', 'Modelo de caseta')}:</span>
-  <button
-    onClick={() => setSelectedEnclosure("Open")}
-    className={selectedEnclosure === "Open" ? "active" : ""}
-  >
-    {t('products.filters.open', 'Abierto')}
-  </button>
-  <button
-    onClick={() => setSelectedEnclosure("Closed")}
-    className={selectedEnclosure === "Closed" ? "active" : ""}
-  >
-    {t('products.filters.closed', 'Cerrado')}
-  </button>
-  <button
-    onClick={() => setSelectedEnclosure("All")}
-    className={selectedEnclosure === "All" ? "active" : ""}
-  >
-    {t('products.filters.all', 'Todos')}
-  </button>
-</div>
+              <span>{t('products.filters.enclosure', 'Modelo de caseta')}:</span>
+              <button onClick={() => setSelectedEnclosure("Open")} className={selectedEnclosure === "Open" ? "active" : ""}>{t('products.filters.open', 'Abierto')}</button>
+              <button onClick={() => setSelectedEnclosure("Closed")} className={selectedEnclosure === "Closed" ? "active" : ""}>{t('products.filters.closed', 'Cerrado')}</button>
+              <button onClick={() => setSelectedEnclosure("All")} className={selectedEnclosure === "All" ? "active" : ""}>{t('products.filters.all', 'Todos')}</button>
+            </div>
 
             <div className="filter-group">
               <span>{t('products.filters.frequency', 'Frecuencia')}:</span>
-              <button onClick={() => setSelectedFrequency("50")} className={selectedFrequency === "50" ? "active" : ""}>
-                50 {t('products.filters.hz', 'Hz')}
-              </button>
-              <button onClick={() => setSelectedFrequency("60")} className={selectedFrequency === "60" ? "active" : ""}>
-                60 {t('products.filters.hz', 'Hz')}
-              </button>
-              <button onClick={() => setSelectedFrequency("All")} className={selectedFrequency === "All" ? "active" : ""}>
-                {t('products.filters.all', 'Todas')}
-              </button>
+              <button onClick={() => setSelectedFrequency("50")} className={selectedFrequency === "50" ? "active" : ""}>50 {t('products.filters.hz', 'Hz')}</button>
+              <button onClick={() => setSelectedFrequency("60")} className={selectedFrequency === "60" ? "active" : ""}>60 {t('products.filters.hz', 'Hz')}</button>
+              <button onClick={() => setSelectedFrequency("All")} className={selectedFrequency === "All" ? "active" : ""}>{t('products.filters.all', 'Todas')}</button>
             </div>
 
             <div className="filter-group">
@@ -118,15 +96,9 @@ const filteredProducts = products.filter((product) => {
 
             <div className="filter-group">
               <span>{t('products.filters.phase', 'Fase')}:</span>
-              <button onClick={() => setSelectedPhase("Single")} className={selectedPhase === "Single" ? "active" : ""}>
-                {t('products.filters.singlePhase', 'Monofásico')}
-              </button>
-              <button onClick={() => setSelectedPhase("Three")} className={selectedPhase === "Three" ? "active" : ""}>
-                {t('products.filters.threePhase', 'Trifásico')}
-              </button>
-              <button onClick={() => setSelectedPhase("All")} className={selectedPhase === "All" ? "active" : ""}>
-                {t('products.filters.all', 'Todas')}
-              </button>
+              <button onClick={() => setSelectedPhase("Single")} className={selectedPhase === "Single" ? "active" : ""}>{t('products.filters.singlePhase', 'Monofásico')}</button>
+              <button onClick={() => setSelectedPhase("Three")} className={selectedPhase === "Three" ? "active" : ""}>{t('products.filters.threePhase', 'Trifásico')}</button>
+              <button onClick={() => setSelectedPhase("All")} className={selectedPhase === "All" ? "active" : ""}>{t('products.filters.all', 'Todas')}</button>
             </div>
 
             <div className="filter-group">
@@ -140,20 +112,16 @@ const filteredProducts = products.filter((product) => {
             </div>
 
             <div className="filter-group">
-              <button onClick={handleSearch} className="search-button">
-                {t('products.filters.search', 'Buscar')}
-              </button>
+              <button onClick={handleSearch} className="search-button">{t('products.filters.search', 'Buscar')}</button>
             </div>
           </div>
 
-          {/* PRODUCTOS - Mismo diseño original */}
+          {/* PRODUCTOS */}
           <div className="product-grid">
             {filteredProducts.map((product, index) => (
               <Link to={`/productos/${product.name}`} className="product-card" key={index}>
                 <img src={product.image} alt={`Generador ${product.name} - ${product.power} ${product.type}`} className="product-image" />
-                <div className="product-power">
-                  ⚡ {product.power} - <span>{t(`product.values.${product.type.toLowerCase()}`, product.type)}</span>
-                </div>
+                <div className="product-power">⚡ {product.power} - <span>{t(`product.values.${product.type.toLowerCase()}`, product.type)}</span></div>
                 <h3 className="product-name">{product.name}</h3>
                 <p className="product-subtitle">{t('home.titleLine1', 'GRUPOS')}<br /> {t('home.titleLine2', 'ELECTROGENOS')}</p>
               </Link>
